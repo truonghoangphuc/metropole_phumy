@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_content_rtes",
+  "info": {
+    "displayName": "RTE",
+    "icon": "cup"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "MediaPosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "overlap-1",
+        "overlap-2"
+      ]
+    },
+    "Color": {
+      "type": "component",
+      "repeatable": true,
+      "component": "setting.color"
+    }
+  }
+}

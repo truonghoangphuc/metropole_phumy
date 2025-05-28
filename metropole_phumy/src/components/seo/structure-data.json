@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_seo_structure_data",
+  "info": {
+    "displayName": "Structure Data"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "json"
+    }
+  }
+}

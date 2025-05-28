@@ -1,0 +1,18 @@
+@import "tailwindcss";
+.main-header {
+  
+  .container {
+    @apply flex justify-between items-center h-16;
+  }
+  
+  .header-logo {
+    @apply w-32;
+  }
+
+  .btns {
+    
+    .button {
+      @apply text-xs;
+    }
+  }
+}

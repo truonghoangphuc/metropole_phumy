@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_list_block_headings",
+  "info": {
+    "displayName": "BlockHeading",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.item"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "subcribe": {
+    "title": "Follow Us",
+    "desc": "Subcribe to get the newest from BDS Training"
+  },
+  "NotFoundPage": {
+    "title": "Page not found"
+  },
+  "learnmore": {
+    "text": "Read More"
+  },
+  "getmore": {
+    "text": "GET EXCLUSIVE INFORMATION"
+  },
+  "require": {
+    "text": "This field is required"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_seo_meta_tags",
+  "info": {
+    "displayName": "Meta Tag",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "unique": false,
+      "maxLength": 250
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Keywords": {
+      "type": "string"
+    }
+  }
+}

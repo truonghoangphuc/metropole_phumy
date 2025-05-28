@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+.footer-top {
+  @apply pb-10 lg:pb-15;
+}
+
+.footer-logo {
+  @apply mb-8 lg:mb-19 max-w-[174px] lg:max-w-[432px];
+
+  img {
+    @apply w-full;
+  }
+}
+
+.footer-blocks {
+  @apply flex flex-col gap-y-12;
+
+  ul {
+    @apply flex flex-col gap-y-3;
+  }
+}
+
+.footer-navigation {
+  @apply text-base font-medium mb-8;
+
+  li {
+    @apply mb-3;   
+  }
+}
