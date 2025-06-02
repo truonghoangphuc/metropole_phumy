@@ -34,14 +34,15 @@ function getLocale(request: NextRequest) {
 
 export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
+  const res = NextResponse.next();
   const pathname = request.nextUrl.pathname
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   )
+  const locale = getLocale(request)
 
   // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request)
+  if (pathnameIsMissingLocale) {    
     
     // Create response with redirect
     const response = NextResponse.redirect(
@@ -57,11 +58,19 @@ export function middleware(request: NextRequest) {
     
     return response
   }
+
+  res.cookies.set('language', locale, {
+    path: '/',
+    maxAge: 60 * 60 * 24 * 365, // 1 year
+    sameSite: 'lax'
+  })
+
+  return res
 }
 
 export const config = {
   matcher: [
     // Skip all internal paths (_next), Payload admin, API routes, and static files
-    '/((?!_next|admin|api|.*\\..*).*)',
+    '/((?!_next|api|.*\\..*).*)',
   ],
 } 

@@ -5,6 +5,7 @@ import { cookies, headers } from "next/headers";
 import { Public_Sans, Barlow } from "next/font/google";
 import { Footer } from "@/components/footer/Component";
 import { Header } from "@/components/header/Component";
+import { Providers } from "@/providers";
 
 const publicSans = Public_Sans({
   subsets: ["latin"],
@@ -39,7 +40,6 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const language = cookieStore.get("language")?.value || "vi";
 
-
   return (
     <html
       lang={language}
@@ -61,9 +61,11 @@ export default async function RootLayout({
         />
       </head>
       <body>
-        <Header locale={language} />
-        <main>{children}</main>
-        <Footer locale={language} />
+        <Providers>
+          <Header locale={language} />
+          <main>{children}</main>
+          <Footer locale={language} />
+        </Providers>
       </body>
     </html>
   );

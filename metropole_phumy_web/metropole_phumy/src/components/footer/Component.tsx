@@ -32,7 +32,11 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
   const result = await response.json();
   const footerDate: FooterData = result.data;
 
-  console.log(footerDate);
+  // console.log(footerDate);
+
+  if (!footerDate) {
+    return null;
+  }
 
   return (
     <footer

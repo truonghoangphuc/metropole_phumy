@@ -1,4 +1,6 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
+
+@reference '../../app/globals.css';
 .main-header {
   
   .container {
@@ -14,5 +16,23 @@
     .button {
       @apply text-xs;
     }
+  }
+}
+
+.mobile-navigation {
+  @apply bg-primary text-center;
+
+  .language-box {
+    @apply flex justify-center absolute left-0 right-0 mx-auto bottom-16;
+  }
+
+  button {
+    &:last-child {
+      @apply top-10;
+    }
+  }
+
+  .logo {
+    @apply max-w-32 mx-auto mt-5 mb-14;
   }
 }

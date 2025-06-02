@@ -17,7 +17,7 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
   }, {
     encodeValuesOnly: true, // prettify URL
   });
-
+  // console.log('query', query);
   const response = await fetch(`${API_URL}/api/pages?${query}`);
   const result = await response.json();
   const data = result.data[0] || {};

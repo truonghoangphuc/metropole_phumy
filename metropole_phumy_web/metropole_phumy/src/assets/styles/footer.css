@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@reference '../../app/globals.css';
 
 .footer-top {
   @apply pb-10 lg:pb-15;
