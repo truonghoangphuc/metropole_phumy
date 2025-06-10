@@ -1,0 +1,49 @@
+@reference '../../app/globals.css';
+
+.section-content {
+  @apply pt-[60px] pb-10;
+
+  .heading {
+    @apply font-mono font-semibold text-[32px] leading-[130%] mb-6 lg:text-[48px] xl:text-[64px];
+  }
+
+  .rte-content {
+    @apply text-lg leading-[135%] tracking-[2%] mb-6;
+  }
+
+  .ctas {
+    @apply flex gap-4 mb-3;
+  }
+}
+
+.media-right,
+.media-left {
+
+  @apply lg:flex;
+
+  .media {
+    @apply px-4 lg:w-1/2 lg:basis-1/2 lg:shrink-0 lg:grow-0;
+
+    picture {
+      @apply block overflow-hidden relative;
+      
+      &::before {
+        content: '';
+        @apply block w-full h-full absolute top-0 left-0;
+        box-shadow: 0 0 14px 14px white inset;
+      }
+    }
+  }
+}
+
+.hero-section {
+  @apply pt-20;
+
+  .heading {
+    @apply text-[52px] font-bold leading-[112%];
+  }
+
+  .rte-content {
+    @apply text-sm;
+  }
+}

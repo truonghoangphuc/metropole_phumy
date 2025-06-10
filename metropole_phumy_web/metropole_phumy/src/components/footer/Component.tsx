@@ -44,25 +44,31 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
         backgroundColor: footerDate.Color[0].BGColor,
         color: footerDate.Color[0].TextColor,
       }}
+      className="pt-15 pb-10"
     >
-      <div className="container px-4 pt-15 pb-10 lg:px-10">
+      <div className="container">
         <div className="footer-top">
           <div className="footer-logo">
-            {footerDate.Logo &&
-              footerDate.Logo.url && (
-                <Image
-                  src={`${API_URL}${footerDate.Logo.url}`}
-                  alt={footerDate.Logo.alt || ''}
-                  width={footerDate.Logo.width || 174}
-                  height={footerDate.Logo.height || 40}
-                />
-              )}
+            {footerDate.Logo && footerDate.Logo.url && (
+              <Image
+                src={`${API_URL}${footerDate.Logo.url}`}
+                alt={footerDate.Logo.alt || ""}
+                width={footerDate.Logo.width || 174}
+                height={footerDate.Logo.height || 40}
+              />
+            )}
           </div>
           <div className="footer-navigation">
             <ul>
               {footerDate.Navigation[0].Items.map((item) => (
                 <li key={item.id}>
-                  <Link href={item.Slug} target={item.Target} className={`${item.CSS || ''}`}>{item.Title}</Link>
+                  <Link
+                    href={item.Slug}
+                    target={item.Target}
+                    className={`${item.CSS || ""}`}
+                  >
+                    {item.Title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -70,14 +76,23 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
           <div className="footer-blocks">
             {footerDate.Blocks.map((block) => (
               <div key={block.id}>
-                <p className="text-xl font-semibold uppercase mb-4 tracking-tight">{block.Title}</p>
+                <p className="text-xl font-semibold uppercase mb-4 tracking-tight">
+                  {block.Title}
+                </p>
                 <ul>
                   {block.Items.map((item) => (
-                    <li key={item.id} className="text-sm grid grid-cols-4"><strong className="text-base font-semibold uppercase col-span-1">{item.Label}: </strong>{
-                      item.Type.toLowerCase() !== 'email' ? <span className="col-span-3">{item.Value}</span> : (
-                        <Link href={`mailto:${item.Value}`} className="mailto">{item.Value}</Link>
-                      )
-                    }</li>
+                    <li key={item.id} className="text-sm grid grid-cols-4">
+                      <strong className="text-base font-semibold uppercase col-span-1">
+                        {item.Label}:{" "}
+                      </strong>
+                      {item.Type.toLowerCase() !== "email" ? (
+                        <span className="col-span-3">{item.Value}</span>
+                      ) : (
+                        <Link href={`mailto:${item.Value}`} className="mailto">
+                          {item.Value}
+                        </Link>
+                      )}
+                    </li>
                   ))}
                 </ul>
               </div>

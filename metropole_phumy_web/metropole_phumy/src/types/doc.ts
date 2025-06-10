@@ -1,3 +1,5 @@
+import { Media } from "./media";
+
 export interface BaseDoc {
   documentId: string;
   id: number;
@@ -13,4 +15,24 @@ export interface Link {
   Title: string;
   Type: string;
   id: number;
+}
+
+export interface HeadingData {
+  Text: string;
+  Tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  Color: string;
+  Transform: string;
+  Align: string;
+}
+
+export interface BlockSettingData {
+  BackgroundImage: Media;
+  BackgroundColor: string;
+  TextColor: string;
+  CSS: string | null;
+}
+
+export interface Block {
+  __component: string;
+  [key: string]: unknown;
 }

@@ -37,7 +37,7 @@ export async function Header({ locale = "vi" }: { locale: string }) {
 
   return (
     <header className="main-header">
-      <div className="container px-4">
+      <div className="container">
         <div className="header-logo">
           {headerData.Logo && headerData.Logo.url && (
             <Link href={rootURL} prefetch>

@@ -2,10 +2,13 @@
 import React, { Fragment } from 'react'
 
 import type { Page as PageType} from '@/types/page'
+import { RTEComponent } from './rte/Component'
 
 
 
-const blockComponents: Record<string, React.FC<any>> = {}
+const blockComponents: Record<string, React.FC<any>> = {
+  "content.rte": RTEComponent,
+}
 
 export const RenderBlocks: React.FC<{
   blocks: PageType['layout'];
@@ -19,16 +22,14 @@ export const RenderBlocks: React.FC<{
     return (
       <Fragment>
         {blocks.map((block, index) => {
-          const { blockType } = block;
+          const blockType = block.__component;
           if (blockType && blockType in blockComponents) {
             const Block = blockComponents[blockType];
-
             if (Block) {
               return (
                 <Block
                   {...block}
                   locale={locale}
-                  disableInnerContainer
                   key={index}
                 />
               );

@@ -127,7 +127,7 @@ export const HeaderNav: React.FC<{ data: HeaderData["Navigations"], logo: Header
                 </Link>
               );
             })}
-            <SheetTrigger className="w-8 h-8 flex items-center justify-center">
+            <SheetTrigger className="hambuger">
               <svg
                 width="16"
                 height="8"

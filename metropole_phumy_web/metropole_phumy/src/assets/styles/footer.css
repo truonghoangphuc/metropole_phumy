@@ -1,7 +1,7 @@
 @reference '../../app/globals.css';
 
 .footer-top {
-  @apply pb-10 lg:pb-15;
+  @apply pb-10 lg:pb-15 lg:grid lg:grid-cols-2 lg:grid-rows-2;
 }
 
 .footer-logo {
@@ -13,7 +13,7 @@
 }
 
 .footer-blocks {
-  @apply flex flex-col gap-y-12;
+  @apply flex flex-col gap-y-12 lg:col-start-2 lg:row-start-1 lg:row-end-3;
 
   ul {
     @apply flex flex-col gap-y-3;
@@ -21,7 +21,7 @@
 }
 
 .footer-navigation {
-  @apply text-base font-medium mb-8;
+  @apply text-base font-medium mb-8 lg:col-start-1 lg:mb-0;
 
   li {
     @apply mb-3;   

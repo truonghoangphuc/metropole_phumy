@@ -35,6 +35,7 @@ export const generateMeta = async (args: {
 
   const title = doc?.metaTag?.title ? doc?.metaTag?.title : settingData?.title || 'Error ...'
 
+
   return {
     description: doc?.metaTag?.description,
     openGraph: mergeOpenGraph({

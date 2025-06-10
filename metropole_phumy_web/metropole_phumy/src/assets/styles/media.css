@@ -1,0 +1,21 @@
+@reference '../../app/globals.css';
+
+.video-native {
+  @apply aspect-video;  
+}
+
+.aspect-square .video-native {
+  aspect-ratio: 1/1;
+}
+
+.aspect-auto .video-native {
+  aspect-ratio: auto;
+}
+
+.content-video {
+  @apply lg:pt-8 lg:pb-[45px];
+}
+
+.content-video .video-js {
+  @apply block aspect-video w-full h-auto;
+}

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_content_block_settings",
+  "info": {
+    "displayName": "Block Setting",
+    "icon": "gift"
+  },
+  "options": {},
+  "attributes": {
+    "BackgroundColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "TextColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "BackgroundImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "CSS": {
+      "type": "string"
+    }
+  }
+}

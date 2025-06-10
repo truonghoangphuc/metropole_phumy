@@ -1,4 +1,4 @@
-import { BaseDoc } from "./doc";
+import { BaseDoc, Block } from "./doc";
 import { Media } from "./media";
 
 export interface Page extends BaseDoc {
@@ -15,5 +15,5 @@ export interface Page extends BaseDoc {
     url: string | null;
     image: Media | null
   };
-  layout: [];
+  layout: Block[];
 }

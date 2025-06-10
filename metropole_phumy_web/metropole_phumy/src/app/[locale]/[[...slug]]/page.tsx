@@ -7,6 +7,7 @@ import PageClient from "./page.client";
 
 import type { Page as PageType } from "@/types/page";
 import { getPageBySlug } from "@/services/page-service";
+import { RenderBlocks } from "@/components/RenderBlocks";
 
 type Args = {
   params: Promise<{
@@ -32,13 +33,10 @@ export default async function Page({ params: paramsPromise }: Args) {
   });
 
   const { layout } = page || {};
-
-  console.log(pageSlug, layout);
-
   return (
     <>
       <PageClient />
-      {/* <RenderBlocks blocks={layout} locale={locale} /> */}
+      <RenderBlocks blocks={layout} locale={locale} />
     </>
   );
 }

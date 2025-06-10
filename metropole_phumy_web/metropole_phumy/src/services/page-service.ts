@@ -13,10 +13,43 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
         $eq: locale
       }
     },    
-    populate: ['Layout','MetaTag','OpenGraph'],
+    populate: {
+      MetaTag: {
+        fields: ['Title', 'Description', 'Keywords']
+      },
+      OpenGraph: {
+        fields: ['Title', 'type', 'url'],
+        populate: {
+          image: {
+            fields: ['url', 'width', 'height']
+          }
+        }
+      },
+      Layout: {
+        on: {
+          'content.rte': {
+            populate: {
+              'Background': {
+                populate: '*'
+              },
+              'CTAs': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'SubHeading': {
+                populate: '*'
+              }
+            }
+          }
+        }
+      }
+    },
   }, {
     encodeValuesOnly: true, // prettify URL
   });
+
   // console.log('query', query);
   const response = await fetch(`${API_URL}/api/pages?${query}`);
   const result = await response.json();

@@ -2,20 +2,26 @@
 
 @reference '../../app/globals.css';
 .main-header {
+  @apply lg:py-5;
   
   .container {
-    @apply flex justify-between items-center h-16;
+    @apply flex justify-between items-center h-16 lg:h-auto lg:relative;
   }
   
   .header-logo {
-    @apply w-32;
+    @apply w-32 lg:w-44;
   }
 
   .btns {
+    @apply lg:mr-10;
     
     .button {
       @apply text-xs;
     }
+  }
+
+  .hambuger {
+    @apply w-8 h-8 flex items-center justify-center lg:hidden;
   }
 }
 
@@ -23,7 +29,7 @@
   @apply bg-primary text-center;
 
   .language-box {
-    @apply flex justify-center absolute left-0 right-0 mx-auto bottom-16;
+  @apply flex justify-center absolute left-0 right-0 mx-auto bottom-16;
   }
 
   button {
@@ -34,5 +40,26 @@
 
   .logo {
     @apply max-w-32 mx-auto mt-5 mb-14;
+  }
+}
+
+.desktop-navigation {
+
+  ul {
+    @apply items-center gap-[30px] text-[0px];
+
+    a {
+      @apply text-sm font-medium uppercase hover:underline underline-offset-4;
+    }
+  }
+  .language-box {
+    @apply absolute top-1/2 -translate-y-1/2 right-0;
+
+    button {
+      @apply outline-none p-0 focus-visible:ring-0 underline-offset-4 underline;
+    }
+    svg {
+      @apply hidden;
+    }
   }
 }
