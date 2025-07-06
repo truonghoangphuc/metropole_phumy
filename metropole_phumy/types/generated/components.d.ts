@@ -3,18 +3,43 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface ContentBlockSetting extends Struct.ComponentSchema {
   collectionName: 'components_content_block_settings';
   info: {
+    description: '';
     displayName: 'Block Setting';
     icon: 'gift';
   };
   attributes: {
     BackgroundColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    BackgroundImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
+    BackgroundImage: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    BackgroundImageMobile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos'
     >;
     CSS: Schema.Attribute.String;
+    htmlID: Schema.Attribute.String &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
     TextColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+  };
+}
+
+export interface ContentGallery extends Struct.ComponentSchema {
+  collectionName: 'components_content_galleries';
+  info: {
+    description: '';
+    displayName: 'Gallery';
+    icon: 'landscape';
+  };
+  attributes: {
+    Heading: Schema.Attribute.Component<'content.heading', false>;
+    Layout: Schema.Attribute.Enumeration<['slides', 'grid']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'slides'>;
+    Photos: Schema.Attribute.Component<'content.rich-photo', true>;
+    Rows: Schema.Attribute.Component<'content.row-photo', true>;
+    Setting: Schema.Attribute.Component<'content.block-setting', false>;
   };
 }
 
@@ -38,6 +63,44 @@ export interface ContentHeading extends Struct.ComponentSchema {
       ['Capitalize', 'lowercase', 'UPPERCASE', 'none']
     > &
       Schema.Attribute.DefaultTo<'UPPERCASE'>;
+  };
+}
+
+export interface ContentRichPhoto extends Struct.ComponentSchema {
+  collectionName: 'components_content_rich_photos';
+  info: {
+    description: '';
+    displayName: 'Rich Photo';
+    icon: 'landscape';
+  };
+  attributes: {
+    Caption: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    Date: Schema.Attribute.Date;
+    Description: Schema.Attribute.RichText;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Link: Schema.Attribute.String;
+  };
+}
+
+export interface ContentRowPhoto extends Struct.ComponentSchema {
+  collectionName: 'components_content_row_photos';
+  info: {
+    displayName: 'Row Photo';
+    icon: 'landscape';
+  };
+  attributes: {
+    Items: Schema.Attribute.Component<'content.rich-photo', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 1;
+        },
+        number
+      >;
   };
 }
 
@@ -179,7 +242,10 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'content.block-setting': ContentBlockSetting;
+      'content.gallery': ContentGallery;
       'content.heading': ContentHeading;
+      'content.rich-photo': ContentRichPhoto;
+      'content.row-photo': ContentRowPhoto;
       'content.rte': ContentRte;
       'list.block-heading': ListBlockHeading;
       'list.item': ListItem;

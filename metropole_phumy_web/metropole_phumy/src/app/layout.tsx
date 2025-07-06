@@ -44,7 +44,7 @@ export default async function RootLayout({
     <html
       lang={language}
       suppressHydrationWarning
-      className={`${publicSans.className} dark ${
+      className={`${publicSans.variable} ${barlow.variable} dark ${
         isSpeedInsight ? "lighthouse" : ""
       }`}
     >

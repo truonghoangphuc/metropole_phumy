@@ -14,6 +14,7 @@ export interface Props {
   priority?: boolean // for NextImage only
   ref?: Ref<HTMLImageElement | HTMLVideoElement | null>
   resource: Media
+  resourceMobile?: Media
   size?: string // for NextImage only
   src?: StaticImageData // for static media
   videoClassName?: string

@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_content_galleries",
+  "info": {
+    "displayName": "Gallery",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.heading"
+    },
+    "Setting": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.block-setting"
+    },
+    "Photos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.rich-photo",
+      "required": false
+    },
+    "Layout": {
+      "type": "enumeration",
+      "enum": [
+        "slides",
+        "grid"
+      ],
+      "required": true,
+      "default": "slides"
+    },
+    "Rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.row-photo"
+    }
+  }
+}

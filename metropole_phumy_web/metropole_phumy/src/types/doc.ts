@@ -26,6 +26,7 @@ export interface HeadingData {
 }
 
 export interface BlockSettingData {
+  BackgroundImageMobile: Media;
   BackgroundImage: Media;
   BackgroundColor: string;
   TextColor: string;

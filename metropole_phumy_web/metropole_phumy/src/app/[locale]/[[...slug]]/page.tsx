@@ -9,6 +9,8 @@ import type { Page as PageType } from "@/types/page";
 import { getPageBySlug } from "@/services/page-service";
 import { RenderBlocks } from "@/components/RenderBlocks";
 
+import "@/assets/styles/pages/homepage.css";
+
 type Args = {
   params: Promise<{
     slug?: string[];

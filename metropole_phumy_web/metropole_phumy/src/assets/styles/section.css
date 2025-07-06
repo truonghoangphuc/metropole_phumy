@@ -1,28 +1,29 @@
 @reference '../../app/globals.css';
 
 .section-content {
-  @apply pt-[60px] pb-10;
+  
+  > .container {
+    @apply pt-[60px] pb-10;
+  }
 
   .heading {
-    @apply font-mono font-semibold text-[32px] leading-[130%] mb-6 lg:text-[48px] xl:text-[64px];
+    @apply font-mono font-semibold text-[32px] leading-[130%] mb-6 lg:text-[48px] xl:text-[64px] xl:tracking-normal;
   }
 
   .rte-content {
-    @apply text-lg leading-[135%] tracking-[2%] mb-6;
+    @apply text-lg leading-[135%] tracking-[2%] mb-6 lg:mb-10;
   }
 
   .ctas {
-    @apply flex gap-4 mb-3;
+    @apply flex gap-4 mb-3 empty:hidden;
   }
 }
 
 .media-right,
 .media-left {
 
-  @apply lg:flex;
-
   .media {
-    @apply px-4 lg:w-1/2 lg:basis-1/2 lg:shrink-0 lg:grow-0;
+    @apply px-4 lg:w-1/2 lg:basis-[52%] lg:shrink-0 lg:grow-0;
 
     picture {
       @apply block overflow-hidden relative;
@@ -34,16 +35,60 @@
       }
     }
   }
+
+  .container {
+    @apply lg:flex lg:gap-10 lg:items-center;
+  }
+}
+
+.media-left {
+  
+  .container {
+    @apply lg:flex-row-reverse;
+  }
+}
+
+.media-background {
+  @apply relative;
+  .container {
+    @apply absolute top-0 left-1/2 -translate-x-1/2 bottom-0;
+  }
+
+  .content {
+    @apply pt-10 lg:pt-20;
+  }
+
+  .media {
+
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
 }
 
 .hero-section {
   @apply pt-20;
 
   .heading {
-    @apply text-[52px] font-bold leading-[112%];
+    @apply text-4xl font-bold leading-[112%] lg:text-[48px] xl:text-[64px] 2xl:text-[86px];
   }
 
   .rte-content {
     @apply text-sm;
+  }
+}
+
+@media (min-width: 1024px) {
+  .media-right,
+  .media-left {
+    .media {
+      
+      picture {
+
+        &::before {
+          box-shadow: 0 0 24px 32px white inset;
+        }
+      }
+    }
   }
 }

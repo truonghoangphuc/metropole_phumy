@@ -486,7 +486,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Layout: Schema.Attribute.DynamicZone<['content.rte']>;
+    Layout: Schema.Attribute.DynamicZone<['content.rte', 'content.gallery']>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
     MetaTag: Schema.Attribute.Component<'seo.meta-tag', false>;

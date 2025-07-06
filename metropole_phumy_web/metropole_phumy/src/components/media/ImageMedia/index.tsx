@@ -2,7 +2,7 @@
 
 import type { StaticImageData } from 'next/image'
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/utilities/cn'
 import NextImage from 'next/image'
 import React from 'react'
 
@@ -11,7 +11,7 @@ import type { Props as MediaProps } from '../types'
 import { cssVariables } from '@/cssVariables.js'
 import { API_URL } from '@/utilities/constant'
 
-const { breakpoints } = cssVariables
+const { breakpoints, devicepoints } = cssVariables
 
 // A base64 encoded image to use as a placeholder while the image is loading
 const placeholderBlur =
@@ -24,6 +24,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     imgClassName,
     priority,
     resource,
+    resourceMobile,
     size: sizeFromProps,
     src: srcFromProps,
     loading: loadingFromProps,
@@ -37,11 +38,10 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   if (!src && resource && typeof resource === 'object') {
     const {
       alt: altFromResource,
-      filename: fullFilename,
       height: fullHeight,
       url,
       width: fullWidth,
-    } = resource
+    } = resourceMobile || resource
 
     width = fullWidth!
     height = fullHeight!
@@ -55,14 +55,24 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
   const sizes = sizeFromProps
     ? sizeFromProps
+    : resourceMobile
+    ? ''
     : Object.entries(breakpoints)
         .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
-        .join(', ')
+        .join(", ");
 
   return (
     <picture>
+      {resourceMobile && (
+        <source
+          srcSet={`${API_URL}${resource.url}`}
+          media={`(min-width: ${devicepoints.desktop}px)`}
+          width={resource.width || width}
+          height={resource.height || height}
+        />
+      )}
       <NextImage
-        alt={alt || ''}
+        alt={alt || ""}
         className={cn(imgClassName)}
         fill={fill}
         height={!fill ? height : undefined}
@@ -71,10 +81,10 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         priority={priority}
         quality={100}
         loading={loading}
-        sizes={sizes}
+        {...(sizes ? { sizes: sizes } : {})}
         src={src}
         width={!fill ? width : undefined}
       />
     </picture>
-  )
+  );
 }

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_content_row_photos",
+  "info": {
+    "displayName": "Row Photo",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "Items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.rich-photo",
+      "max": 4,
+      "min": 1,
+      "required": true
+    }
+  }
+}

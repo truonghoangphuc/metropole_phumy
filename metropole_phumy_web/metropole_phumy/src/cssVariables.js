@@ -9,4 +9,8 @@ export const cssVariables = {
     md: 768,
     sm: 640,
   },
+  devicepoints: {
+    desktop: 1024,
+    mobile: 320
+  }
 }

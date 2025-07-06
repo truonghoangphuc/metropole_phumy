@@ -9,11 +9,9 @@ import '@/assets/styles/media.css'
 export const Media: React.FC<Props> = (props) => {
   const { className, htmlElement = 'div', resource } = props
 
-  console.log(resource);
-
   const isVideo =
     typeof resource === "object" && resource?.mime?.includes("video");
-  const Tag = (htmlElement as any) || Fragment
+  const Tag = (htmlElement as 'div' | 'span') || Fragment
 
   return (
     <Tag

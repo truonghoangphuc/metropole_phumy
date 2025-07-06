@@ -1,0 +1,76 @@
+@reference '../../../app/globals.css';
+
+.gallery-slides {
+
+  .media {
+    @apply mb-4 rounded-lg overflow-hidden;
+    img {
+      @apply w-full;
+    }
+  }
+
+  .photo-date {
+    @apply text-xs text-white/60 mb-2;
+  }
+
+  .photo-caption {
+    @apply text-base text-white leading-normal;
+  }
+
+  .carousel-dots {
+    @apply pt-5 lg:hidden;
+
+    button {
+      @apply w-2 h-1.5 bg-white/30 transition-all duration-300 ease-in-out;
+
+      &.active {
+        @apply bg-white w-6;
+      }
+    }
+  }
+}
+
+.gallery-masonry {
+  @apply grid gap-2 md:gap-4 lg:gap-8;
+  .masonry-row {
+    @apply grid gap-2 grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 md:gap-4 lg:gap-8;
+
+    .media {
+      @apply w-full rounded-xl lg:rounded-2xl overflow-hidden;
+
+      picture {
+        @apply w-full h-full;
+      }
+      img {
+        @apply w-full bg-cover;
+      }
+    }
+
+    .masonry-item {
+      @apply relative w-full h-full;
+
+      .caption {
+        @apply absolute bottom-4 left-4 bg-white/80 text-primary rounded-[12px] px-3 py-3 uppercase font-semibold text-xs lg:text-base leading-none;
+      }
+    }
+
+    &:nth-child(odd) {
+      :first-child {
+        @apply flex col-start-1 col-end-3;
+      }
+    }
+    &:nth-child(even) {
+      :last-child {
+        @apply flex col-start-1 col-end-3;
+      }
+    }
+
+    @variant md {
+      &:nth-child(even) {
+        :last-child {
+          @apply flex col-start-3 col-end-5;
+        }
+      }
+    }
+  }
+}

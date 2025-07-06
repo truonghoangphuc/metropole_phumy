@@ -42,6 +42,26 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                 populate: '*'
               }
             }
+          },
+          'content.gallery': {
+            populate: {
+              'Setting': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'Photos': {
+                populate: '*'
+              },
+              'Rows': {
+                populate: {
+                  Items: {
+                    populate: '*'
+                  }
+                }
+              }
+            }
           }
         }
       }

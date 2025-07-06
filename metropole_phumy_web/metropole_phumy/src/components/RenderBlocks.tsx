@@ -2,12 +2,14 @@
 import React, { Fragment } from 'react'
 
 import type { Page as PageType} from '@/types/page'
-import { RTEComponent } from './rte/Component'
+import { RTEComponent } from '@/components/rte/Component'
+import { GalleryComponent } from '@/components/gallery/Component';
 
 
 
 const blockComponents: Record<string, React.FC<any>> = {
   "content.rte": RTEComponent,
+  "content.gallery": GalleryComponent,
 }
 
 export const RenderBlocks: React.FC<{

@@ -1,0 +1,21 @@
+@reference '../../../app/globals.css';
+
+.home-banner.hero-section {
+  @apply pt-0;
+
+  > .container {
+    @apply pt-0;
+  }
+
+  .media {
+    @apply aspect-[375/452] items-center justify-center flex lg:aspect-video;
+
+    video {
+      @apply -mt-[25%] lg:mt-0;
+    }
+  }
+
+  .content {
+    @apply h-full flex flex-col justify-between text-center lg:justify-start;
+  }
+}
