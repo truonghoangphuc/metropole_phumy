@@ -1,0 +1,21 @@
+@reference '../../../app/globals.css';
+
+.card-border {
+  @apply rounded-[12px] border-[3px] border-solid border-transparent px-5 py-6;
+
+  .media {
+    @apply mb-6;
+
+    picture {
+      @apply block overflow-hidden relative rounded-md;
+    }
+  }
+
+  .card-title {
+    @apply font-semibold text-2xl leading-[120%] uppercase mb-5;
+  }
+
+  .card-description {
+    @apply text-lg leading-[144%] mb-0;
+  }
+}

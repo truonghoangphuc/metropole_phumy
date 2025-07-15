@@ -62,6 +62,29 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                 }
               }
             }
+          },
+          'content.block-cards': {
+            populate: {
+              'Setting': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'SubHeading': {
+                populate: '*'
+              },
+              'Items': {
+                populate: {
+                  'BorderColor': {
+                    populate: '*'
+                  },
+                  Image: {
+                    populate: '*'
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -71,6 +94,7 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
   });
 
   // console.log('query', query);
+
   const response = await fetch(`${API_URL}/api/pages?${query}`);
   const result = await response.json();
   const data = result.data[0] || {};

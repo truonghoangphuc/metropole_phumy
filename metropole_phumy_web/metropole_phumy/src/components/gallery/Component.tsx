@@ -14,7 +14,7 @@ export interface Props extends GalleryComponentProps {
 export function GalleryComponent(props: Props) {
   const { locale, Heading, Setting, Layout, Photos, Rows } = props;
 
-  console.log(Rows);
+  // console.log(Rows);
 
   return (
     <section className={cn(

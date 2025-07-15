@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_setting_gradient_colors",
+  "info": {
+    "displayName": "GradientColor",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "Color": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$"
+    },
+    "Percent": {
+      "type": "float",
+      "min": 0,
+      "max": 100
+    }
+  },
+  "config": {}
+}

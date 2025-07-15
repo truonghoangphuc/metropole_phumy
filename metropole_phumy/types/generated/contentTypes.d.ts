@@ -34,6 +34,10 @@ export interface AdminApiToken extends Struct.CollectionTypeSchema {
         minLength: 1;
       }> &
       Schema.Attribute.DefaultTo<''>;
+    encryptedKey: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
@@ -392,7 +396,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    Color: Schema.Attribute.Component<'setting.color', true>;
+    Color: Schema.Attribute.Component<'setting.color', false>;
     Copyright: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -408,6 +412,12 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     Navigation: Schema.Attribute.Component<'menus.menu', true> &
@@ -443,10 +453,22 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    DefaultColor: Schema.Attribute.Component<'setting.color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::header.header'>;
     Logo: Schema.Attribute.Media<'files' | 'images'> &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Name: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -460,6 +482,12 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    ScrollColor: Schema.Attribute.Component<'setting.color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -486,7 +514,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Layout: Schema.Attribute.DynamicZone<['content.rte', 'content.gallery']>;
+    Layout: Schema.Attribute.DynamicZone<
+      ['content.rte', 'content.gallery', 'content.block-cards']
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
     MetaTag: Schema.Attribute.Component<'seo.meta-tag', false>;

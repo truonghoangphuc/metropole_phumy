@@ -9,8 +9,8 @@
   "attributes": {
     "Title": {
       "type": "string",
-      "required": true,
-      "maxLength": 255
+      "maxLength": 255,
+      "required": true
     },
     "Slug": {
       "type": "string",
@@ -18,13 +18,13 @@
     },
     "Target": {
       "type": "enumeration",
+      "default": "_blank",
       "enum": [
         "_blank",
         "_self",
         "_parent",
         "_top"
-      ],
-      "default": "_blank"
+      ]
     },
     "CSS": {
       "type": "string"

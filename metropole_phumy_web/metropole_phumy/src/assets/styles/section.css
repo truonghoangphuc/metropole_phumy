@@ -1,5 +1,17 @@
 @reference '../../app/globals.css';
 
+.text-gradient {
+  @apply !bg-clip-text w-fit;
+  -webkit-text-fill-color: transparent;
+
+  &.text-center {
+    @apply mx-auto;
+  }
+
+  &.text-right {
+    @apply justify-self-end;
+  }
+}
 .section-content {
   
   > .container {
@@ -7,7 +19,11 @@
   }
 
   .heading {
-    @apply font-mono font-semibold text-[32px] leading-[130%] mb-6 lg:text-[48px] xl:text-[64px] xl:tracking-normal;
+    @apply font-mono font-bold text-[32px] leading-none lg:text-[48px] mb-2;
+  }
+
+  .sub-heading {
+    @apply font-mono font-bold text-[24px] leading-[140%] lg:text-[36px] mb-9;
   }
 
   .rte-content {
@@ -60,6 +76,7 @@
 
   .media {
 
+    picture,
     img {
       @apply w-full h-full object-cover;
     }

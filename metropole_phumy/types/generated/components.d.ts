@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ContentBlockCards extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_cards';
+  info: {
+    displayName: 'Block Cards';
+    icon: 'apps';
+  };
+  attributes: {
+    Heading: Schema.Attribute.Component<'content.heading', false>;
+    Items: Schema.Attribute.Component<'content.card', true>;
+    Setting: Schema.Attribute.Component<'content.block-setting', false>;
+    SubHeading: Schema.Attribute.Component<'content.heading', false>;
+  };
+}
+
 export interface ContentBlockSetting extends Struct.ComponentSchema {
   collectionName: 'components_content_block_settings';
   info: {
@@ -22,6 +36,20 @@ export interface ContentBlockSetting extends Struct.ComponentSchema {
       }>;
     TextColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+  };
+}
+
+export interface ContentCard extends Struct.ComponentSchema {
+  collectionName: 'components_content_cards';
+  info: {
+    displayName: 'Card';
+    icon: 'book';
+  };
+  attributes: {
+    BorderColor: Schema.Attribute.Component<'setting.gradient-setting', false>;
+    Description: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -52,6 +80,8 @@ export interface ContentHeading extends Struct.ComponentSchema {
   attributes: {
     Align: Schema.Attribute.Enumeration<['Left', 'Right', 'Center']>;
     Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    ColorEnd: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     Tag: Schema.Attribute.Enumeration<
       ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']
@@ -157,7 +187,9 @@ export interface MenusMenu extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
+    DefaultColor: Schema.Attribute.Component<'setting.color', false>;
     Items: Schema.Attribute.Component<'menus.menu-item', true>;
+    ScrollColor: Schema.Attribute.Component<'setting.color', false>;
   };
 }
 
@@ -238,10 +270,45 @@ export interface SettingColor extends Struct.ComponentSchema {
   };
 }
 
+export interface SettingGradientColor extends Struct.ComponentSchema {
+  collectionName: 'components_setting_gradient_colors';
+  info: {
+    displayName: 'GradientColor';
+    icon: 'brush';
+  };
+  attributes: {
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    Percent: Schema.Attribute.Float &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      >;
+  };
+}
+
+export interface SettingGradientSetting extends Struct.ComponentSchema {
+  collectionName: 'components_setting_gradient_settings';
+  info: {
+    displayName: 'GradientSetting';
+    icon: 'brush';
+  };
+  attributes: {
+    Colors: Schema.Attribute.Component<'setting.gradient-color', true>;
+    Degree: Schema.Attribute.Float;
+    Type: Schema.Attribute.Enumeration<['linear', 'radial']>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'content.block-cards': ContentBlockCards;
       'content.block-setting': ContentBlockSetting;
+      'content.card': ContentCard;
       'content.gallery': ContentGallery;
       'content.heading': ContentHeading;
       'content.rich-photo': ContentRichPhoto;
@@ -255,6 +322,8 @@ declare module '@strapi/strapi' {
       'seo.open-graph': SeoOpenGraph;
       'seo.structure-data': SeoStructureData;
       'setting.color': SettingColor;
+      'setting.gradient-color': SettingGradientColor;
+      'setting.gradient-setting': SettingGradientSetting;
     }
   }
 }

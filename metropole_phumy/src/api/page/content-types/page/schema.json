@@ -18,12 +18,12 @@
   "attributes": {
     "Title": {
       "type": "string",
-      "maxLength": 250,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "maxLength": 250,
       "required": true
     },
     "Slug": {
@@ -33,24 +33,25 @@
     },
     "MetaTag": {
       "type": "component",
-      "repeatable": false,
-      "component": "seo.meta-tag"
+      "component": "seo.meta-tag",
+      "repeatable": false
     },
     "OpenGraph": {
       "type": "component",
-      "repeatable": false,
-      "component": "seo.open-graph"
+      "component": "seo.open-graph",
+      "repeatable": false
     },
     "StructuredData": {
       "type": "component",
-      "repeatable": true,
-      "component": "seo.structure-data"
+      "component": "seo.structure-data",
+      "repeatable": true
     },
     "Layout": {
       "type": "dynamiczone",
       "components": [
         "content.rte",
-        "content.gallery"
+        "content.gallery",
+        "content.block-cards"
       ]
     }
   }

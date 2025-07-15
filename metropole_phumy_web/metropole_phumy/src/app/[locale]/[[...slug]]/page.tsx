@@ -35,6 +35,9 @@ export default async function Page({ params: paramsPromise }: Args) {
   });
 
   const { layout } = page || {};
+  
+  console.log("Page layout:", layout);
+
   return (
     <>
       <PageClient />

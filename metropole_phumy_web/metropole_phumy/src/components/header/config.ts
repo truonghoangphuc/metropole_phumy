@@ -8,4 +8,14 @@ export interface HeaderData extends BaseDoc {
     Items: Link[];
     id: number;
   }[];
+  DefaultColor: {
+    BGColor: string;
+    TextColor: string;
+    id: number;
+  };
+  ScrollColor: {
+    BGColor: string;
+    TextColor: string;
+    id: number;
+  };
 }

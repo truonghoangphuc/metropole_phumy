@@ -18,32 +18,32 @@
   "attributes": {
     "Logo": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "multiple": false,
       "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      ]
     },
     "Navigation": {
       "type": "component",
-      "repeatable": true,
-      "component": "menus.menu",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "menus.menu",
+      "repeatable": true
     },
     "Color": {
       "type": "component",
-      "repeatable": true,
-      "component": "setting.color"
+      "component": "setting.color",
+      "repeatable": false
     },
     "Copyright": {
       "type": "string",
@@ -55,8 +55,16 @@
     },
     "Blocks": {
       "type": "component",
-      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "component": "list.block-heading",
+      "repeatable": true
+    },
+    "Name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true

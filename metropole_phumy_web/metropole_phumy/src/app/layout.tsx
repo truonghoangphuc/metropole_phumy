@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { cookies, headers } from "next/headers";
 
-import { Public_Sans, Barlow } from "next/font/google";
+// import { Public_Sans, Barlow } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Footer } from "@/components/footer/Component";
 import { Header } from "@/components/header/Component";
 import { Providers } from "@/providers";
 
-const publicSans = Public_Sans({
-  subsets: ["latin"],
-  variable: "--font-publics_san",
-});
+import "./globals.css";
 
-const barlow = Barlow({
+// const publicSans = Public_Sans({
+//   subsets: ["latin"],
+//   variable: "--font-publics_san",
+// });
+
+// const barlow = Barlow({
+//   subsets: ["latin"],
+//   weight: ["600", "700"],
+//   variable: "--font-barlow",
+// });
+
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-barlow",
+  variable: "--font-inter",
 });
 
 
@@ -44,7 +51,7 @@ export default async function RootLayout({
     <html
       lang={language}
       suppressHydrationWarning
-      className={`${publicSans.variable} ${barlow.variable} dark ${
+      className={`${inter.variable} dark ${
         isSpeedInsight ? "lighthouse" : ""
       }`}
     >

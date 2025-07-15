@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_content_block_cards",
+  "info": {
+    "displayName": "Block Cards",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "Setting": {
+      "type": "component",
+      "component": "content.block-setting",
+      "repeatable": false
+    },
+    "Items": {
+      "type": "component",
+      "component": "content.card",
+      "repeatable": true
+    },
+    "SubHeading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

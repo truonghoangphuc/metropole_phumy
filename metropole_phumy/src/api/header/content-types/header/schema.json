@@ -16,30 +16,58 @@
     }
   },
   "attributes": {
-    "Logo": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "files",
-        "images"
-      ],
+    "Name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "Navigations": {
-      "type": "component",
-      "repeatable": true,
-      "required": true,
-      "component": "menus.menu",
+    "Logo": {
+      "type": "media",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "Navigations": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "menus.menu",
+      "repeatable": true,
+      "required": true
+    },
+    "DefaultColor": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "setting.color",
+      "repeatable": false
+    },
+    "ScrollColor": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "setting.color",
+      "repeatable": false
     }
   }
 }

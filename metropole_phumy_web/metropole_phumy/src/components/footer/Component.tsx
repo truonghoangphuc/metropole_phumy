@@ -41,8 +41,8 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
   return (
     <footer
       style={{
-        backgroundColor: footerDate.Color[0].BGColor,
-        color: footerDate.Color[0].TextColor,
+        backgroundColor: footerDate.Color.BGColor,
+        color: footerDate.Color.TextColor,
       }}
       className="pt-15 pb-10"
     >

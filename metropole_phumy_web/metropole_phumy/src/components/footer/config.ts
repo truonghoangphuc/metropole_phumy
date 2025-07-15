@@ -18,7 +18,7 @@ export interface FooterData extends BaseDoc {
     BGColor: string;
     TextColor: string;
     id: number;
-  }[];
+  };
   Blocks: {
     Items: RowText[];
     id: number;

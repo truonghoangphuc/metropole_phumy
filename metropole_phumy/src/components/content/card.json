@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_content_cards",
+  "info": {
+    "displayName": "Card",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "BorderColor": {
+      "type": "component",
+      "component": "setting.gradient-setting",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

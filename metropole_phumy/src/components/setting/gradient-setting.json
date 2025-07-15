@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_setting_gradient_settings",
+  "info": {
+    "displayName": "GradientSetting",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "Colors": {
+      "type": "component",
+      "component": "setting.gradient-color",
+      "repeatable": true
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "linear",
+        "radial"
+      ]
+    },
+    "Degree": {
+      "type": "float",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "Type"
+            },
+            "linear"
+          ]
+        }
+      }
+    }
+  },
+  "config": {}
+}

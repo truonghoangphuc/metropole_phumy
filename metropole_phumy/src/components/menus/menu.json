@@ -9,8 +9,18 @@
   "attributes": {
     "Items": {
       "type": "component",
-      "repeatable": true,
-      "component": "menus.menu-item"
+      "component": "menus.menu-item",
+      "repeatable": true
+    },
+    "DefaultColor": {
+      "type": "component",
+      "component": "setting.color",
+      "repeatable": false
+    },
+    "ScrollColor": {
+      "type": "component",
+      "component": "setting.color",
+      "repeatable": false
     }
   }
 }

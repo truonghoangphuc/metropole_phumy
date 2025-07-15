@@ -4,12 +4,14 @@ import React, { Fragment } from 'react'
 import type { Page as PageType} from '@/types/page'
 import { RTEComponent } from '@/components/rte/Component'
 import { GalleryComponent } from '@/components/gallery/Component';
+import { BlockCardsComponent } from '@/components/cards/Component';
 
 
 
 const blockComponents: Record<string, React.FC<any>> = {
   "content.rte": RTEComponent,
   "content.gallery": GalleryComponent,
+  "content.block-cards": BlockCardsComponent,
 }
 
 export const RenderBlocks: React.FC<{

@@ -9,33 +9,53 @@
   "attributes": {
     "Heading": {
       "type": "component",
-      "repeatable": false,
-      "component": "content.heading"
+      "component": "content.heading",
+      "repeatable": false
     },
     "Setting": {
       "type": "component",
-      "repeatable": false,
-      "component": "content.block-setting"
-    },
-    "Photos": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.rich-photo",
-      "required": false
+      "component": "content.block-setting",
+      "repeatable": false
     },
     "Layout": {
       "type": "enumeration",
+      "required": true,
+      "default": "slides",
       "enum": [
         "slides",
         "grid"
-      ],
-      "required": true,
-      "default": "slides"
+      ]
+    },
+    "Photos": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "Layout"
+            },
+            "slides"
+          ]
+        }
+      },
+      "component": "content.rich-photo",
+      "repeatable": true,
+      "required": false
     },
     "Rows": {
       "type": "component",
-      "repeatable": true,
-      "component": "content.row-photo"
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "Layout"
+            },
+            "grid"
+          ]
+        }
+      },
+      "component": "content.row-photo",
+      "repeatable": true
     }
   }
 }

@@ -8,6 +8,8 @@
   "attributes": {
     "Tag": {
       "type": "enumeration",
+      "required": true,
+      "default": "h2",
       "enum": [
         "h1",
         "h2",
@@ -16,24 +18,27 @@
         "h5",
         "h6",
         "p"
-      ],
-      "default": "h2",
-      "required": true
+      ]
     },
     "Color": {
       "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "ColorEnd": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
     "Transform": {
       "type": "enumeration",
+      "default": "UPPERCASE",
       "enum": [
         "Capitalize",
         "lowercase",
         "UPPERCASE",
         "none"
-      ],
-      "default": "UPPERCASE"
+      ]
     },
     "Align": {
       "type": "enumeration",

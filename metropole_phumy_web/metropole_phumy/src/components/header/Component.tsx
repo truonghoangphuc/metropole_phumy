@@ -7,6 +7,7 @@ import { HeaderData } from "./config";
 import "@/assets/styles/header.css";
 import { HeaderNav } from "./Navigation";
 import Link from "next/link";
+import HeaderClient from "./Component.client";
 
 
 export async function Header({ locale = "vi" }: { locale: string }) {
@@ -18,7 +19,7 @@ export async function Header({ locale = "vi" }: { locale: string }) {
           $eq: locale,
         },
       },
-      populate: ["Logo", "Navigations.Items"],
+      populate: ["Logo", "Navigations.Items", "DefaultColor", "ScrollColor"],
     },
     {
       encodeValuesOnly: true, // prettify URL
@@ -29,7 +30,7 @@ export async function Header({ locale = "vi" }: { locale: string }) {
   const result = await response.json();
   const headerData: HeaderData = result.data;
 
-  // console.log(query);
+  // console.log(headerData);
 
   if (!headerData) {
     return null;
@@ -53,6 +54,17 @@ export async function Header({ locale = "vi" }: { locale: string }) {
         </div>
         <HeaderNav data={headerData.Navigations} logo={headerData.Logo} />
       </div>
+      <HeaderClient />
+      <style>{`
+        .main-header {
+          background-color: ${headerData.DefaultColor.BGColor || "transparent"};
+          color: ${headerData.DefaultColor.TextColor || "inherit"};
+        }
+        .main-header.scrolled {
+          background-color: ${headerData.ScrollColor.BGColor || "transparent"};
+          color: ${headerData.ScrollColor.TextColor || "inherit"};
+        }
+      `}</style>
     </header>
   );
 }
