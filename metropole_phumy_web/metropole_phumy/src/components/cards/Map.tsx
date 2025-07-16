@@ -29,7 +29,7 @@ export function BlockMapComponent(props: Props) {
         )}
         <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-9">
           <div className="map-container">
-            {MapBuilding && <Media className="map" resource={MapBuilding} />}
+            {MapBuilding && <Media className="building" resource={MapBuilding} />}
             {Map && <Media className="map" resource={Map} />}
           </div>
           <div className="cards flex flex-col gap-3 justify-center">

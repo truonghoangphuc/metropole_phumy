@@ -69,6 +69,9 @@ export interface ContentBlockTable extends Struct.ComponentSchema {
     SubHeading: Schema.Attribute.Component<'content.heading', false>;
     Table: Schema.Attribute.Component<'list.row-cells', true>;
     Video: Schema.Attribute.Media<'videos'>;
+    VideoPoster: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
   };
 }
 

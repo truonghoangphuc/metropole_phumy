@@ -40,6 +40,16 @@
       "type": "component",
       "component": "list.row-cells",
       "repeatable": true
+    },
+    "VideoPoster": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   },
   "config": {}

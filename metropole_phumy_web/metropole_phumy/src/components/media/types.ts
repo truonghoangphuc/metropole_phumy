@@ -18,6 +18,6 @@ export interface Props {
   size?: string // for NextImage only
   src?: StaticImageData // for static media
   videoClassName?: string
-  poster?: (string | null) | Media
+  poster?: Media
   autoPlay?: boolean
 }

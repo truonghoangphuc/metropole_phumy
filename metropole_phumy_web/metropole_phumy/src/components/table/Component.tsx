@@ -12,7 +12,7 @@ export interface Props extends BlockTableComponentProps {
 }
 
 export function BlockTableComponent(props: Props) {
-  const { locale, Heading, SubHeading, Setting, Video, CTA, Table,Description } = props;
+  const { locale, Heading, SubHeading, Setting, Video, VideoPoster, CTA, Table,Description } = props;
 
   return (
     <section className={cn(
@@ -54,11 +54,11 @@ export function BlockTableComponent(props: Props) {
           <div className="video-wrapper">
           {
             Video && (
-              <Media resource={Video} className="video" autoPlay={false}/>
+              <Media resource={Video} autoPlay={false} poster={VideoPoster}/>
             )
           }
           {CTA && (
-            <Link key={CTA.id} href={CTA.Slug} target={CTA.Target} className={cn("CTA", CTA.CSS)}>
+            <Link key={CTA.id} href={CTA.Slug} target={CTA.Target} className={cn("cta", CTA.CSS)}>
               {CTA.Title}
             </Link>
           )}

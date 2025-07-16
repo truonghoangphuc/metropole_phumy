@@ -37,8 +37,8 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
 
   if (resource && typeof resource === 'object') {
     const { url } = resource
-    const posterURL: string =
-      typeof poster === 'object' && poster?.url ? poster.url : (poster as string)
+    console.log('Poster URL:', poster)
+    const posterURL: string = `${API_URL}${poster?.url || ''}`
     return (
       <video
         autoPlay={autoPlay}

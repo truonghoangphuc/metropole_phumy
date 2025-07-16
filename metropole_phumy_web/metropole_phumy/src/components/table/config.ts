@@ -13,6 +13,7 @@ export interface BlockTable extends BaseDoc {
   Setting: BlockSettingData;
   Description: BlocksContent;
   Video: Media;
+  VideoPoster?: Media;
   CTA: Link;
   Table: TableCell[]
 }

@@ -122,10 +122,25 @@
   .description {
     @apply text-base leading-[150%] text-center mb-8 mx-2;
   }
+
+  
+  
+  .video-wrapper > div,
+  .video-native {
+    @apply overflow-hidden rounded-2xl object-cover;
+  }
+
+  .video-wrapper > div {
+    @apply mb-7;
+  }
+
+  .cta {
+    @apply mx-auto flex justify-self-center;
+  }
 }
 
 table.table {
-  @apply w-full rounded-2xl border-separate;
+  @apply w-full rounded-2xl border-separate bg-[#F4FAFF];
 
   tr:first-child {
     td:first-child {
@@ -159,7 +174,15 @@ table.table {
   .cell-content {
 
     .rte-content {
-      @apply text-sm leading-normal font-bold;
+      @apply text-sm leading-normal font-bold text-[#282828];
     }
+  }
+}
+
+.map-container {
+  @apply relative -mx-5 lg:mx-auto;
+
+  .building {
+    @apply absolute top-[74%] left-[47%] w-6 h-6 object-contain origin-center;
   }
 }

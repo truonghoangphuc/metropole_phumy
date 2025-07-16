@@ -132,6 +132,9 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
               },
               'Video': {
                 populate: '*'
+              },
+              'VideoPoster': {
+                populate: '*'
               }
             }
           }
