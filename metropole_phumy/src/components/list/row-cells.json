@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_list_row_cells",
+  "info": {
+    "displayName": "RowCells",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

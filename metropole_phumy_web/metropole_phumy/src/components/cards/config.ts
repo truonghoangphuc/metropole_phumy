@@ -19,6 +19,7 @@ export interface Card {
   Description: BlocksContent;
   Image: Media;
   BorderColor: Gradient;
+  Icon: Media;
 }
 
 export interface BlockCards extends BaseDoc {
@@ -26,4 +27,13 @@ export interface BlockCards extends BaseDoc {
   SubHeading: HeadingData;
   Setting: BlockSettingData;
   Items: Card[];
+}
+
+export interface BlockMap extends BaseDoc {
+  Heading: HeadingData;
+  SubHeading: HeadingData;
+  Setting: BlockSettingData;
+  Map: Media;
+  MapBuilding: Media;
+  Cards: Card[];
 }

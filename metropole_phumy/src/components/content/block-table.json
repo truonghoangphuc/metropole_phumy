@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_content_block_tables",
+  "info": {
+    "displayName": "Block Table",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "SubHeading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "Setting": {
+      "type": "component",
+      "component": "content.block-setting",
+      "repeatable": false
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "CTA": {
+      "type": "component",
+      "component": "menus.menu-item",
+      "repeatable": false
+    },
+    "Table": {
+      "type": "component",
+      "component": "list.row-cells",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

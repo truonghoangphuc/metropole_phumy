@@ -51,7 +51,9 @@
       "components": [
         "content.rte",
         "content.gallery",
-        "content.block-cards"
+        "content.block-cards",
+        "content.block-map",
+        "content.block-table"
       ]
     }
   }

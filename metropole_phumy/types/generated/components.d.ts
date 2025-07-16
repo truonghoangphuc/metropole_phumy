@@ -14,6 +14,22 @@ export interface ContentBlockCards extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentBlockMap extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_maps';
+  info: {
+    displayName: 'Block Map';
+    icon: 'globe';
+  };
+  attributes: {
+    Cards: Schema.Attribute.Component<'content.card', true>;
+    Heading: Schema.Attribute.Component<'content.heading', false>;
+    Map: Schema.Attribute.Media<'images'>;
+    MapBuilding: Schema.Attribute.Media<'images'>;
+    Setting: Schema.Attribute.Component<'content.block-setting', false>;
+    SubHeading: Schema.Attribute.Component<'content.heading', false>;
+  };
+}
+
 export interface ContentBlockSetting extends Struct.ComponentSchema {
   collectionName: 'components_content_block_settings';
   info: {
@@ -39,6 +55,23 @@ export interface ContentBlockSetting extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentBlockTable extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_tables';
+  info: {
+    displayName: 'Block Table';
+    icon: 'server';
+  };
+  attributes: {
+    CTA: Schema.Attribute.Component<'menus.menu-item', false>;
+    Description: Schema.Attribute.Blocks;
+    Heading: Schema.Attribute.Component<'content.heading', false>;
+    Setting: Schema.Attribute.Component<'content.block-setting', false>;
+    SubHeading: Schema.Attribute.Component<'content.heading', false>;
+    Table: Schema.Attribute.Component<'list.row-cells', true>;
+    Video: Schema.Attribute.Media<'videos'>;
+  };
+}
+
 export interface ContentCard extends Struct.ComponentSchema {
   collectionName: 'components_content_cards';
   info: {
@@ -48,6 +81,7 @@ export interface ContentCard extends Struct.ComponentSchema {
   attributes: {
     BorderColor: Schema.Attribute.Component<'setting.gradient-setting', false>;
     Description: Schema.Attribute.Blocks;
+    Icon: Schema.Attribute.Media<'images'>;
     Image: Schema.Attribute.Media<'images'>;
     Title: Schema.Attribute.String;
   };
@@ -179,6 +213,18 @@ export interface ListItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ListRowCells extends Struct.ComponentSchema {
+  collectionName: 'components_list_row_cells';
+  info: {
+    displayName: 'RowCells';
+    icon: 'apps';
+  };
+  attributes: {
+    Content: Schema.Attribute.Blocks;
+    Label: Schema.Attribute.String;
+  };
+}
+
 export interface MenusMenu extends Struct.ComponentSchema {
   collectionName: 'components_menus_menus';
   info: {
@@ -307,7 +353,9 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'content.block-cards': ContentBlockCards;
+      'content.block-map': ContentBlockMap;
       'content.block-setting': ContentBlockSetting;
+      'content.block-table': ContentBlockTable;
       'content.card': ContentCard;
       'content.gallery': ContentGallery;
       'content.heading': ContentHeading;
@@ -316,6 +364,7 @@ declare module '@strapi/strapi' {
       'content.rte': ContentRte;
       'list.block-heading': ListBlockHeading;
       'list.item': ListItem;
+      'list.row-cells': ListRowCells;
       'menus.menu': MenusMenu;
       'menus.menu-item': MenusMenuItem;
       'seo.meta-tag': SeoMetaTag;

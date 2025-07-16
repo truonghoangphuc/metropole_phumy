@@ -515,7 +515,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Layout: Schema.Attribute.DynamicZone<
-      ['content.rte', 'content.gallery', 'content.block-cards']
+      [
+        'content.rte',
+        'content.gallery',
+        'content.block-cards',
+        'content.block-map',
+        'content.block-table',
+      ]
     >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;

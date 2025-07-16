@@ -66,7 +66,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
       {resourceMobile && (
         <source
           srcSet={`${API_URL}${resource.url}`}
-          media={`(min-width: ${devicepoints.desktop}px)`}
+          media={`(min-width: ${breakpoints.md}px)`}
           width={resource.width || width}
           height={resource.height || height}
         />

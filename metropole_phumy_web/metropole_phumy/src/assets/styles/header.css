@@ -17,6 +17,9 @@
     
     .button {
       @apply text-xs;
+      &.outline {
+        @apply outline-white;
+      }
     }
   }
 
@@ -35,7 +38,7 @@
   button {
     &:last-child {
       @apply top-10;
-    }
+    }    
   }
 
   .logo {

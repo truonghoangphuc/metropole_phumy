@@ -1,5 +1,6 @@
 import { Page as PageType } from '@/types/page';
 import { API_URL } from '@/utilities/constant';
+import { Video } from 'lucide-react';
 import qs from 'qs';
 
 export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise<PageType> => {
@@ -83,6 +84,54 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                     populate: '*'
                   }
                 }
+              }
+            }
+          },
+          'content.block-map': {
+            populate: {
+              'Setting': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'SubHeading': {
+                populate: '*'
+              },
+              'Cards': {
+                populate: {
+                  'Icon': {
+                    populate: '*'
+                  }
+                }
+              },
+              'Map': {
+                populate: '*'
+              },
+              'MapBuilding': {
+                populate: '*'
+              }
+            }
+          },
+          'content.block-table': {
+            populate: {
+              'Setting': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'SubHeading': {
+                populate: '*'
+              },
+              'CTA': {
+                populate: '*'
+              },
+              'Table': {
+                populate: '*'
+              },
+              'Video': {
+                populate: '*'
               }
             }
           }

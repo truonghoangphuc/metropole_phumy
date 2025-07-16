@@ -11,12 +11,12 @@ export interface Props extends CardComponentProps {
 }
 
 export function CardComponent(props: Props) {
-  const { locale, Title, Description, BorderColor, Image, className } = props;
+  const { locale, Title, Description, BorderColor, Image, Icon, className } = props;
 
-  const style = BorderColor.Colors.length > 1 ? {
+  const style = BorderColor?.Colors.length > 1 ? {
     background: `linear-gradient(white, white) padding-box, ${BorderColor.Type}-gradient(${BorderColor.Type === 'linear' ? BorderColor.Degree + 'deg' : 'circle' }, ${BorderColor.Colors.map(color => color.Color + ' ' + color.Percent + '%').join(', ')}) border-box`
   } : {
-    borderColor: BorderColor.Colors[0].Color
+    borderColor: BorderColor?.Colors[0].Color
   };
 
   return (
@@ -24,8 +24,13 @@ export function CardComponent(props: Props) {
       {
         Image && <Media className="media" resource={Image}/>
       }
-      <p className="card-title">{Title}</p>
-      {Description && <RichText content={Description} className="card-description"/>}      
+      {
+        Icon && <Media className="icon" resource={Icon}/>
+      }
+      <div className="card-content">
+        <p className="card-title">{Title}</p>
+        {Description && <RichText content={Description} className="card-description"/>}
+      </div>
     </div>
   )
 }

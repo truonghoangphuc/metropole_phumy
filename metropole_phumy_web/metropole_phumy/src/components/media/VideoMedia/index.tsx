@@ -8,7 +8,7 @@ import type { Props as MediaProps } from '../types'
 import { API_URL } from '@/utilities/constant'
 
 export const VideoMedia: React.FC<MediaProps> = (props) => {
-  const { onClick, resource, videoClassName } = props
+  const { onClick, resource, videoClassName, poster, autoPlay } = props
 
   const videoRef = useRef<HTMLVideoElement>(null)
   // const [showFallback] = useState<boolean>()
@@ -20,21 +20,35 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
         // setShowFallback(true);
         // console.warn('Video was suspended, rendering fallback image.')
       })
+      video.addEventListener('playing', () => {
+        // console.log('is playing')
+        video.classList.add('playing')
+      })
+      video.addEventListener('pause', () => {
+        // console.log('is playing')
+        video.classList.remove('playing')
+      })
+      video.addEventListener('ended', () => {
+        // console.log('is playing')
+        video.classList.remove('playing')
+      })
     }
   }, [])
 
   if (resource && typeof resource === 'object') {
     const { url } = resource
+    const posterURL: string =
+      typeof poster === 'object' && poster?.url ? poster.url : (poster as string)
     return (
       <video
-        autoPlay
-        className={cn("video-native w-full", videoClassName)}
-        controls={false}
+        autoPlay={autoPlay}
+        className={cn('video-native w-full', videoClassName)}
         loop
-        muted
+        {...(autoPlay ? { muted: true } : {})}
         onClick={onClick}
         playsInline
         ref={videoRef}
+        poster={posterURL}
       >
         <source src={`${API_URL}${url}`} />
       </video>

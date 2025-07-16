@@ -23,6 +23,13 @@
       "type": "component",
       "component": "setting.gradient-setting",
       "repeatable": false
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

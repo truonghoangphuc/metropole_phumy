@@ -5,6 +5,8 @@ import type { Page as PageType} from '@/types/page'
 import { RTEComponent } from '@/components/rte/Component'
 import { GalleryComponent } from '@/components/gallery/Component';
 import { BlockCardsComponent } from '@/components/cards/Component';
+import { BlockMapComponent } from '@/components/cards/Map';
+import { BlockTableComponent } from '@/components/table/Component';
 
 
 
@@ -12,6 +14,8 @@ const blockComponents: Record<string, React.FC<any>> = {
   "content.rte": RTEComponent,
   "content.gallery": GalleryComponent,
   "content.block-cards": BlockCardsComponent,
+  "content.block-map": BlockMapComponent,
+  "content.block-table": BlockTableComponent,
 }
 
 export const RenderBlocks: React.FC<{

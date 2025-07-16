@@ -1,14 +1,14 @@
 @reference '../../../app/globals.css';
 
 .home-banner.hero-section {
-  @apply pt-0;
+  @apply pt-0 pb-8 bg-white;
 
   > .container {
-    @apply pt-0;
+    @apply py-0;
   }
 
   .media {
-    @apply aspect-[375/452] items-center justify-center flex lg:aspect-video;
+    @apply aspect-[375/580] items-center justify-center flex lg:aspect-video;
 
     video {
       @apply -mt-[25%] lg:mt-0;
