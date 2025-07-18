@@ -21,6 +21,11 @@
       "type": "component",
       "component": "setting.color",
       "repeatable": false
+    },
+    "Heading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
     }
   }
 }

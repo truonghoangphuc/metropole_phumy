@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_form_forms",
+  "info": {
+    "displayName": "Form",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "Inputs": {
+      "type": "component",
+      "component": "form.input",
+      "repeatable": true
+    },
+    "Setting": {
+      "type": "component",
+      "component": "setting.color",
+      "repeatable": false
+    },
+    "Submit": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  },
+  "config": {}
+}

@@ -17,7 +17,9 @@
       "enum": [
         "Text",
         "Email",
-        "Phone"
+        "Phone",
+        "Map",
+        "Web"
       ]
     }
   }

@@ -16,6 +16,14 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
   useEffect(() => {
     const { current: video } = videoRef
     if (video) {
+      video.addEventListener('click', () => {
+        // console.log('can play')
+        if (video.paused || video.ended) {
+          video.play()
+        } else {
+          video.pause()
+        }
+      })
       video.addEventListener('suspend', () => {
         // setShowFallback(true);
         // console.warn('Video was suspended, rendering fallback image.')
@@ -37,7 +45,6 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
 
   if (resource && typeof resource === 'object') {
     const { url } = resource
-    console.log('Poster URL:', poster)
     const posterURL: string = `${API_URL}${poster?.url || ''}`
     return (
       <video

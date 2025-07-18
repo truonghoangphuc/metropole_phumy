@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_content_block_listings",
+  "info": {
+    "displayName": "Block Listing",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "SubHeading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "Setting": {
+      "type": "component",
+      "component": "content.block-setting",
+      "repeatable": false
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "CTAs": {
+      "type": "component",
+      "component": "menus.menu-item",
+      "repeatable": true,
+      "max": 2
+    },
+    "Building": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Listing": {
+      "type": "component",
+      "component": "list.row-cells",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

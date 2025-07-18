@@ -6,13 +6,19 @@
   },
   "options": {},
   "attributes": {
+    "Name": {
+      "type": "string"
+    },
     "Title": {
       "type": "string"
     },
+    "Description": {
+      "type": "blocks"
+    },
     "Items": {
       "type": "component",
-      "repeatable": true,
-      "component": "list.item"
+      "component": "list.item",
+      "repeatable": true
     }
   }
 }

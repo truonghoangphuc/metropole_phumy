@@ -1,11 +1,11 @@
 @reference '../../app/globals.css';
 
 .footer-top {
-  @apply pb-10 lg:pb-15 lg:grid lg:grid-cols-2 lg:grid-rows-2;
+  @apply pb-10 flex flex-col gap-8 lg:pb-15 lg:grid lg:grid-cols-2 lg:grid-rows-2;
 }
 
 .footer-logo {
-  @apply mb-8 lg:mb-19 max-w-[174px] lg:max-w-[432px];
+  @apply mb-6 lg:mb-19 max-w-[174px] lg:max-w-[432px];
 
   img {
     @apply w-full;
@@ -18,12 +18,70 @@
   ul {
     @apply flex flex-col gap-y-3;
   }
+
+  .contact {
+
+    li {
+      @apply flex gap-2;
+    }
+    .ico {
+      @apply text-[0px] w-5 h-5 bg-contain bg-no-repeat block bg-center;
+
+      &.map {
+        background-image: url('../icons/ico_map.svg');
+      }
+      &.phone {
+        background-image: url('../icons/ico_tel.svg');
+      }
+      &.email {
+        background-image: url('../icons/ico_email.svg');
+      }
+      &.web {
+        background-image: url('../icons/ico_web.svg');
+      }
+    }
+  }
 }
 
 .footer-navigation {
-  @apply text-base font-medium mb-8 lg:col-start-1 lg:mb-0;
+  @apply text-sm mb-8 lg:col-start-1 lg:mb-0;
+
+  &:last-child {
+    @apply mb-0;
+  }
 
   li {
-    @apply mb-3;   
+    @apply mb-3;
+  }
+}
+
+.footer-socials ul {
+  @apply flex gap-3;
+
+  .icon {
+    @apply flex justify-center items-center w-8 h-8 bg-contain bg-[#072145] rounded-full;
+  }
+}
+
+.footer-download {
+  @apply mb-8;
+
+  a {
+    @apply flex items-center gap-2;
+  }
+}
+
+.footer-subscribe {
+
+  .subscribe-desc {
+    @apply text-sm mb-4;
+  }  
+}
+
+.form-subscribe {
+  @apply w-full flex items-center justify-between gap-3;
+
+  input {
+    @apply px-4 py-3 leading-none text-base border-[1px] border-solid border-gray-100 flex-1 rounded-md;
   }
 }

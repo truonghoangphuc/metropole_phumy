@@ -137,6 +137,28 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                 populate: '*'
               }
             }
+          },
+          'content.block-listing': {
+            populate: {
+              'Setting': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'SubHeading': {
+                populate: '*'
+              },              
+              'CTAs': {
+                populate: '*'
+              },
+              'Listing': {
+                populate: '*'
+              },
+              'Building': {
+                populate: '*'
+              },
+            }
           }
         }
       }

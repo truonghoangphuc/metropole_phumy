@@ -7,6 +7,7 @@ import { GalleryComponent } from '@/components/gallery/Component';
 import { BlockCardsComponent } from '@/components/cards/Component';
 import { BlockMapComponent } from '@/components/cards/Map';
 import { BlockTableComponent } from '@/components/table/Component';
+import { BlockListingComponent } from '@/components/listing/Component';
 
 
 
@@ -16,6 +17,7 @@ const blockComponents: Record<string, React.FC<any>> = {
   "content.block-cards": BlockCardsComponent,
   "content.block-map": BlockMapComponent,
   "content.block-table": BlockTableComponent,
+  "content.block-listing": BlockListingComponent,
 }
 
 export const RenderBlocks: React.FC<{

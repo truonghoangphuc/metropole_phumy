@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_block_forms",
+  "info": {
+    "displayName": "Block Form",
+    "icon": "folder"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "SubHeading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "Setting": {
+      "type": "component",
+      "component": "content.block-setting",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

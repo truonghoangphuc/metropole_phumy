@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_form_options",
+  "info": {
+    "displayName": "Option",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Value": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

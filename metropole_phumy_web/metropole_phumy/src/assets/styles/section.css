@@ -1,7 +1,7 @@
 @reference '../../app/globals.css';
 
 .heading {
-  @apply font-mono font-bold text-[32px] leading-none lg:text-[48px] mb-2;
+  @apply font-mono font-bold text-[32px] leading-tight lg:text-[48px] mb-2;
 }
 
 .sub-heading {
@@ -51,11 +51,11 @@
   }
 
   .rte-content {
-    @apply text-lg leading-[135%] tracking-[2%] mb-6 lg:mb-10;
+    @apply text-base lg:text-lg leading-normal tracking-[2%] mb-6 lg:mb-10;
   }
 
   .ctas {
-    @apply flex gap-4 mb-3 empty:hidden;
+    @apply flex gap-4 mb-5 empty:hidden;
   }
 }
 
@@ -63,7 +63,7 @@
 .media-left {
 
   .media {
-    @apply px-4 lg:w-1/2 lg:basis-[54%] lg:shrink-0 lg:grow-0;
+    @apply lg:w-1/2 lg:basis-[54%] lg:shrink-0 lg:grow-0;
   }
 
   .container {
@@ -122,16 +122,25 @@
   .description {
     @apply text-base leading-[150%] text-center mb-8 mx-2;
   }
-
   
-  
-  .video-wrapper > div,
   .video-native {
-    @apply overflow-hidden rounded-2xl object-cover;
+    @apply overflow-hidden rounded-2xl object-cover pointer-events-auto;
   }
 
   .video-wrapper > div {
-    @apply mb-7;
+    @apply mb-7 relative pointer-events-none;
+
+    &::before {
+      content: '';
+      @apply absolute top-1/2 left-1/2 -translate-1/2 w-10 h-10 bg-contain opacity-50 z-[1] cursor-pointer;
+      background-image: url('data:image/svg+xml,<svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><foreignObject x="-1.27778" y="-1.60004" width="43.5556" height="43.5556"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(0.89px);clip-path:url(%23bgblur_0_1328_3387_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="1.77778" cx="20.5" cy="20.1777" r="20" fill="white" fill-opacity="0.3"/><g clip-path="url(%23clip1_1328_3387)"><circle cx="20.5938" cy="20.2676" r="15.9012" fill="black" fill-opacity="0.5" stroke="white" stroke-width="0.197531"/><path d="M25.9961 19.8359C26.4246 20.0845 26.4246 20.7036 25.9961 20.9521L17.8193 25.6943C17.3893 25.9436 16.8506 25.6328 16.8506 25.1357L16.8506 15.6514C16.8506 15.1542 17.3893 14.8443 17.8193 15.0937L25.9961 19.8359Z" stroke="white" stroke-width="0.43004"/></g><defs><clipPath id="bgblur_0_1328_3387_clip_path" transform="translate(1.27778 1.60004)"><circle cx="20.5" cy="20.1777" r="20"/></clipPath><clipPath id="clip1_1328_3387"><rect width="32" height="32" fill="white" transform="translate(4.59375 4.26758)"/></clipPath></defs></svg>')
+    }
+
+    &:has(.playing) {
+      &::before {
+        @apply opacity-0;
+      }
+    }
   }
 
   .cta {
@@ -180,9 +189,50 @@ table.table {
 }
 
 .map-container {
-  @apply relative -mx-5 lg:mx-auto;
+  @apply relative -mx-4 lg:mx-auto;
 
   .building {
     @apply absolute top-[74%] left-[47%] w-6 h-6 object-contain origin-center;
   }
 }
+
+.section-listing {
+
+  .container {
+    @apply pt-13 pb-0;
+  }
+  
+  .description {
+    @apply text-base leading-[150%] mb-6;
+  }
+
+  .ctas {
+    @apply mb-0;
+  }
+
+  .group-text {
+    @apply mb-10;
+  }
+
+  .listing {
+    @apply grid grid-cols-2 gap-4 mb-13;
+
+    .listing-item {
+      @apply flex flex-col justify-center items-center text-center rounded-2xl border-[2px] border-solid border-transparent py-3 px-5;
+      background:linear-gradient(#092957, #092957) padding-box, linear-gradient(180deg, rgba(252, 214, 164, 0.4) 0%, rgba(93, 183, 192, 0.4) 100%) border-box;
+
+      .label {
+        @apply text-sm leading-normal mb-2;
+      }
+
+      .content {
+        @apply text-xl leading-[120%] text-[#FFD884] font-semibold;
+
+        .rte-content {
+          @apply mb-0;
+        }
+      }
+    }
+  }
+}
+

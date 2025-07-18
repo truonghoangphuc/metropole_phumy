@@ -3,10 +3,11 @@ import HeadingText from "@/components/heading/Component";
 import RichText from "./RichText";
 import { cn } from "@/utilities/cn";
 import { Media } from "@/components/media";
-import Link from "next/link";
+// import Link from "next/link";
 import '@/assets/styles/section.css';
 
 import '@/assets/styles/components/block_contact.css';
+import { CTAComponent } from "../cta/Component";
 
 
 interface Props extends RTEComponentProps {
@@ -38,14 +39,16 @@ export async function RTEComponent(props: Props) {
           {CTAs && (
             <div className="ctas">
               {CTAs.map((cta) => (
-                <Link
+                <CTAComponent
+                  id={cta.id} 
                   key={cta.id}
-                  href={cta.Slug}
-                  target={cta.Target}
-                  className={cn("cta", cta.CSS)}
+                  Slug={cta.Slug}
+                  Target={cta.Target}
+                  CSS={cta.CSS}
+                  Title={cta.Title}
+                  Type={cta.Type}
                 >
-                  {cta.Title}
-                </Link>
+                </CTAComponent>
               ))}
             </div>
           )}

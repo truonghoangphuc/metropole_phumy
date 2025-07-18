@@ -1,0 +1,71 @@
+{
+  "collectionName": "components_form_inputs",
+  "info": {
+    "displayName": "Input",
+    "icon": "pencil"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "number",
+        "tel",
+        "email",
+        "date",
+        "textarea",
+        "radio",
+        "checkbox",
+        "select"
+      ]
+    },
+    "Value": {
+      "type": "string"
+    },
+    "Options": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "Type"
+            },
+            "select"
+          ]
+        }
+      },
+      "component": "form.option",
+      "repeatable": true
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "CSS": {
+      "type": "string"
+    },
+    "Require": {
+      "type": "boolean"
+    },
+    "RegExpValidation": {
+      "type": "string"
+    },
+    "RequireMessage": {
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -14,6 +14,42 @@ export interface ContentBlockCards extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentBlockForm extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_forms';
+  info: {
+    displayName: 'Block Form';
+    icon: 'folder';
+  };
+  attributes: {
+    Heading: Schema.Attribute.Component<'content.heading', false>;
+    Setting: Schema.Attribute.Component<'content.block-setting', false>;
+    SubHeading: Schema.Attribute.Component<'content.heading', false>;
+  };
+}
+
+export interface ContentBlockListing extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_listings';
+  info: {
+    displayName: 'Block Listing';
+    icon: 'apps';
+  };
+  attributes: {
+    Building: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    CTAs: Schema.Attribute.Component<'menus.menu-item', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
+    Description: Schema.Attribute.Blocks;
+    Heading: Schema.Attribute.Component<'content.heading', false>;
+    Listing: Schema.Attribute.Component<'list.row-cells', true>;
+    Setting: Schema.Attribute.Component<'content.block-setting', false>;
+    SubHeading: Schema.Attribute.Component<'content.heading', false>;
+  };
+}
+
 export interface ContentBlockMap extends Struct.ComponentSchema {
   collectionName: 'components_content_block_maps';
   info: {
@@ -146,7 +182,7 @@ export interface ContentRichPhoto extends Struct.ComponentSchema {
         maxLength: 255;
       }>;
     Date: Schema.Attribute.Date;
-    Description: Schema.Attribute.RichText;
+    Description: Schema.Attribute.Blocks;
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Link: Schema.Attribute.String;
   };
@@ -191,6 +227,67 @@ export interface ContentRte extends Struct.ComponentSchema {
   };
 }
 
+export interface FormForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_forms';
+  info: {
+    displayName: 'Form';
+    icon: 'dashboard';
+  };
+  attributes: {
+    Inputs: Schema.Attribute.Component<'form.input', true>;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Setting: Schema.Attribute.Component<'setting.color', false>;
+    Submit: Schema.Attribute.String;
+  };
+}
+
+export interface FormInput extends Struct.ComponentSchema {
+  collectionName: 'components_form_inputs';
+  info: {
+    displayName: 'Input';
+    icon: 'pencil';
+  };
+  attributes: {
+    CSS: Schema.Attribute.String;
+    ErrorMessage: Schema.Attribute.String;
+    Icon: Schema.Attribute.Media<'images'>;
+    Label: Schema.Attribute.String;
+    Name: Schema.Attribute.String;
+    Options: Schema.Attribute.Component<'form.option', true>;
+    RegExpValidation: Schema.Attribute.String;
+    Require: Schema.Attribute.Boolean;
+    RequireMessage: Schema.Attribute.String;
+    Type: Schema.Attribute.Enumeration<
+      [
+        'text',
+        'number',
+        'tel',
+        'email',
+        'date',
+        'textarea',
+        'radio',
+        'checkbox',
+        'select',
+      ]
+    >;
+    Value: Schema.Attribute.String;
+  };
+}
+
+export interface FormOption extends Struct.ComponentSchema {
+  collectionName: 'components_form_options';
+  info: {
+    displayName: 'Option';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+    Value: Schema.Attribute.String;
+  };
+}
+
 export interface ListBlockHeading extends Struct.ComponentSchema {
   collectionName: 'components_list_block_headings';
   info: {
@@ -198,7 +295,9 @@ export interface ListBlockHeading extends Struct.ComponentSchema {
     icon: 'hashtag';
   };
   attributes: {
+    Description: Schema.Attribute.Blocks;
     Items: Schema.Attribute.Component<'list.item', true>;
+    Name: Schema.Attribute.String;
     Title: Schema.Attribute.String;
   };
 }
@@ -211,7 +310,9 @@ export interface ListItem extends Struct.ComponentSchema {
   };
   attributes: {
     Label: Schema.Attribute.String;
-    Type: Schema.Attribute.Enumeration<['Text', 'Email', 'Phone']>;
+    Type: Schema.Attribute.Enumeration<
+      ['Text', 'Email', 'Phone', 'Map', 'Web']
+    >;
     Value: Schema.Attribute.String;
   };
 }
@@ -237,6 +338,7 @@ export interface MenusMenu extends Struct.ComponentSchema {
   };
   attributes: {
     DefaultColor: Schema.Attribute.Component<'setting.color', false>;
+    Heading: Schema.Attribute.Component<'content.heading', false>;
     Items: Schema.Attribute.Component<'menus.menu-item', true>;
     ScrollColor: Schema.Attribute.Component<'setting.color', false>;
   };
@@ -251,6 +353,7 @@ export interface MenusMenuItem extends Struct.ComponentSchema {
   };
   attributes: {
     CSS: Schema.Attribute.String;
+    Icon: Schema.Attribute.Media<'images'>;
     Slug: Schema.Attribute.String & Schema.Attribute.Required;
     Target: Schema.Attribute.Enumeration<
       ['_blank', '_self', '_parent', '_top']
@@ -261,7 +364,7 @@ export interface MenusMenuItem extends Struct.ComponentSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    Type: Schema.Attribute.Enumeration<['normal', 'icon', 'mixed']>;
+    Type: Schema.Attribute.Enumeration<['normal', 'icon', 'mixed', 'button']>;
   };
 }
 
@@ -356,6 +459,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'content.block-cards': ContentBlockCards;
+      'content.block-form': ContentBlockForm;
+      'content.block-listing': ContentBlockListing;
       'content.block-map': ContentBlockMap;
       'content.block-setting': ContentBlockSetting;
       'content.block-table': ContentBlockTable;
@@ -365,6 +470,9 @@ declare module '@strapi/strapi' {
       'content.rich-photo': ContentRichPhoto;
       'content.row-photo': ContentRowPhoto;
       'content.rte': ContentRte;
+      'form.form': FormForm;
+      'form.input': FormInput;
+      'form.option': FormOption;
       'list.block-heading': ListBlockHeading;
       'list.item': ListItem;
       'list.row-cells': ListRowCells;

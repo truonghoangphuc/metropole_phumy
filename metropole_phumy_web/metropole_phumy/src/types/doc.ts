@@ -13,8 +13,9 @@ export interface Link {
   Slug: string;
   Target: '_blank' | '_self' | '_parent' | '_top';
   Title: string;
-  Type: string;
+  Type: 'normal' | 'button' | 'icon' | 'mixed';
   id: number;
+  Icon: Media;
 }
 
 export interface HeadingData {
@@ -37,4 +38,10 @@ export interface BlockSettingData {
 export interface Block {
   __component: string;
   [key: string]: unknown;
+}
+
+export interface Navigation {
+  Items: Link[];
+  id: number;
+  Heading: HeadingData
 }

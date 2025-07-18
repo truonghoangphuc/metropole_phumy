@@ -1,5 +1,6 @@
-import { BaseDoc, Link } from "@/types/doc";
+import { BaseDoc, Link, Navigation } from "@/types/doc";
 import { Media } from "@/types/media";
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export interface RowText {
   Label: string;
@@ -10,10 +11,8 @@ export interface RowText {
 
 export interface FooterData extends BaseDoc {
   Logo: Media;
-  Navigation: {
-    Items: Link[];
-    id: number;
-  }[];
+  Navigation: Navigation[];
+  Socials: Navigation;
   Color: {
     BGColor: string;
     TextColor: string;
@@ -23,6 +22,11 @@ export interface FooterData extends BaseDoc {
     Items: RowText[];
     id: number;
     Title: string;
+    Description: BlocksContent;
+    Name: string;
   }[];
   Copyright: string;
+  Download: Link;
+  SubscribeText: string;
+  SubscribeButton: string;
 }

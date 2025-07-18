@@ -22,11 +22,11 @@
       "type": "string",
       "maxLength": 255
     },
+    "Description": {
+      "type": "blocks"
+    },
     "Link": {
       "type": "string"
-    },
-    "Description": {
-      "type": "richtext"
     },
     "Date": {
       "type": "date"

@@ -57,7 +57,7 @@ body {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #092957;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -127,8 +127,29 @@ body {
   }
 }
 
-.button {
-  @apply bg-none px-4 py-2 rounded-full;
+
+.cta {
+  @apply uppercase text-sm font-bold;
+}
+
+.button,
+.btn {
+  @apply bg-none rounded-full;
+
+  &:not(button) {
+    @apply px-4 py-2;
+  }
+  &.outline {
+    @apply outline-white -outline-offset-1;
+  }
+
+  &.bg-white {
+    @apply bg-white text-primary;
+  }
+
+  &.large {
+    @apply py-3 px-6;
+  }
 }
 
 .btn-primary {
@@ -141,3 +162,4 @@ body {
     max-width: 1320px;
   }
 }
+

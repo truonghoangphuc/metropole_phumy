@@ -34,7 +34,15 @@
       "enum": [
         "normal",
         "icon",
-        "mixed"
+        "mixed",
+        "button"
+      ]
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
       ]
     }
   }

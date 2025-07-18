@@ -4,7 +4,7 @@ import { BlockTable as BlockTableComponentProps } from "./config";
 import HeadingText from "@/components/heading/Component";
 import RichText from "@/components/rte/RichText";
 import { Media } from "@/components/media";
-import Link from "next/link";
+import {CTAComponent} from "@/components/cta/Component";
 
 
 export interface Props extends BlockTableComponentProps {
@@ -58,9 +58,14 @@ export function BlockTableComponent(props: Props) {
             )
           }
           {CTA && (
-            <Link key={CTA.id} href={CTA.Slug} target={CTA.Target} className={cn("cta", CTA.CSS)}>
-              {CTA.Title}
-            </Link>
+            <CTAComponent
+              id={CTA.id}
+              Slug={CTA.Slug}
+              Target={CTA.Target}
+              CSS={CTA.CSS}
+              Title={CTA.Title}
+              Type={CTA.Type}
+            />
           )}
           </div>
         </div>
