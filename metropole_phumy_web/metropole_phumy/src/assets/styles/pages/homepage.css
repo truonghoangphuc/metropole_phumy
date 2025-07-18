@@ -8,7 +8,7 @@
   }
 
   .media {
-    @apply aspect-[375/580] items-center justify-center flex lg:aspect-video;
+    @apply aspect-[375/580] items-center justify-center flex md:aspect-video;
 
     video {
       @apply -mt-[25%] lg:mt-0;

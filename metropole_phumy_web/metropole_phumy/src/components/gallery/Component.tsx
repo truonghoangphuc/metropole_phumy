@@ -19,19 +19,19 @@ export function GalleryComponent(props: Props) {
 
   return (
     <section className={cn(
-      Setting.CSS || "",
+      Setting?.CSS || "",
       `section-content section-gallery gallery-${Layout}`
     )} data-locale={locale} style={{
-      backgroundColor: Setting.BackgroundColor || "transparent",
-      color: Setting.TextColor || "inherit",
+      backgroundColor: Setting?.BackgroundColor || "transparent",
+      color: Setting?.TextColor || "inherit",
     }}>
       <div className="container">
         {Heading && (
           <HeadingText heading={Heading} className="heading" />
         )}
         {Layout === "slides" && (
-          <Carousel opts={{align: "start", loop: true}} className="gallery-content w-full gap-4">
-            <CarouselContent className="-ml-4">
+          <Carousel opts={{align: "start", loop: true}} className="gallery-content w-full">
+            <CarouselContent className="-mx-4">
               {Photos.map((photo) => (
                 <CarouselItem key={photo.id} className="pl-4 basis-4/5 md:basis-1/2 lg:basis-1/3">
                   <div className="gallery-item">
@@ -59,7 +59,16 @@ export function GalleryComponent(props: Props) {
                 {row.Items.map((photo) => (
                   <div className="masonry-item" key={photo.id}>
                     <Media className="media" resource={photo.Image}/>
-                    <p className="caption">{photo.Caption}</p>
+                    {
+                      photo.Caption && (
+                        <p className="caption">{photo.Caption}</p>
+                      )
+                    }
+                    {
+                      photo.Description && (
+                        <RichText content={photo.Description} className="photo-description"/>
+                      )
+                    }
                   </div>
                 ))}
               </div>

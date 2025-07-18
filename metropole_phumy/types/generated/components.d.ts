@@ -21,6 +21,7 @@ export interface ContentBlockForm extends Struct.ComponentSchema {
     icon: 'folder';
   };
   attributes: {
+    Form: Schema.Attribute.Component<'form.form', false>;
     Heading: Schema.Attribute.Component<'content.heading', false>;
     Setting: Schema.Attribute.Component<'content.block-setting', false>;
     SubHeading: Schema.Attribute.Component<'content.heading', false>;
@@ -111,6 +112,21 @@ export interface ContentBlockTable extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentBlockTabs extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_tabs';
+  info: {
+    displayName: 'Block Tabs';
+    icon: 'apps';
+  };
+  attributes: {
+    Description: Schema.Attribute.Blocks;
+    Heading: Schema.Attribute.Component<'content.heading', false>;
+    Setting: Schema.Attribute.Component<'content.block-setting', false>;
+    SubHeading: Schema.Attribute.Component<'content.heading', false>;
+    Tabs: Schema.Attribute.Component<'content.tab-item', true>;
+  };
+}
+
 export interface ContentCard extends Struct.ComponentSchema {
   collectionName: 'components_content_cards';
   info: {
@@ -134,6 +150,7 @@ export interface ContentGallery extends Struct.ComponentSchema {
     icon: 'landscape';
   };
   attributes: {
+    Descriptiom: Schema.Attribute.Blocks;
     Heading: Schema.Attribute.Component<'content.heading', false>;
     Layout: Schema.Attribute.Enumeration<['slides', 'grid']> &
       Schema.Attribute.Required &
@@ -141,6 +158,7 @@ export interface ContentGallery extends Struct.ComponentSchema {
     Photos: Schema.Attribute.Component<'content.rich-photo', true>;
     Rows: Schema.Attribute.Component<'content.row-photo', true>;
     Setting: Schema.Attribute.Component<'content.block-setting', false>;
+    SubHeading: Schema.Attribute.Component<'content.heading', false>;
   };
 }
 
@@ -227,6 +245,22 @@ export interface ContentRte extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentTabItem extends Struct.ComponentSchema {
+  collectionName: 'components_content_tab_items';
+  info: {
+    displayName: 'TabItem';
+    icon: 'grid';
+  };
+  attributes: {
+    Gallery: Schema.Attribute.Component<'content.gallery', false>;
+    Icon: Schema.Attribute.Media<'images'>;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface FormForm extends Struct.ComponentSchema {
   collectionName: 'components_form_forms';
   info: {
@@ -250,6 +284,7 @@ export interface FormInput extends Struct.ComponentSchema {
     icon: 'pencil';
   };
   attributes: {
+    Checked: Schema.Attribute.Boolean;
     CSS: Schema.Attribute.String;
     ErrorMessage: Schema.Attribute.String;
     Icon: Schema.Attribute.Media<'images'>;
@@ -259,6 +294,7 @@ export interface FormInput extends Struct.ComponentSchema {
     RegExpValidation: Schema.Attribute.String;
     Require: Schema.Attribute.Boolean;
     RequireMessage: Schema.Attribute.String;
+    Selected: Schema.Attribute.Boolean;
     Type: Schema.Attribute.Enumeration<
       [
         'text',
@@ -464,12 +500,14 @@ declare module '@strapi/strapi' {
       'content.block-map': ContentBlockMap;
       'content.block-setting': ContentBlockSetting;
       'content.block-table': ContentBlockTable;
+      'content.block-tabs': ContentBlockTabs;
       'content.card': ContentCard;
       'content.gallery': ContentGallery;
       'content.heading': ContentHeading;
       'content.rich-photo': ContentRichPhoto;
       'content.row-photo': ContentRowPhoto;
       'content.rte': ContentRte;
+      'content.tab-item': ContentTabItem;
       'form.form': FormForm;
       'form.input': FormInput;
       'form.option': FormOption;

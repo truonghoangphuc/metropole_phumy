@@ -47,7 +47,7 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
     return null;
   }
 
-  console.log(footerData);
+  // console.log(footerData);
 
   const blockSubscribe = footerData.Blocks.filter((block) => block.Name.toLowerCase() === 'subscribe')[0];
 

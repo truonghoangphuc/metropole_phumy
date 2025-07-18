@@ -54,7 +54,9 @@
         "content.block-cards",
         "content.block-map",
         "content.block-table",
-        "content.block-listing"
+        "content.block-listing",
+        "content.block-form",
+        "content.block-tabs"
       ]
     }
   }

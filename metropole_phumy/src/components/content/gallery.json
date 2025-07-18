@@ -12,11 +12,6 @@
       "component": "content.heading",
       "repeatable": false
     },
-    "Setting": {
-      "type": "component",
-      "component": "content.block-setting",
-      "repeatable": false
-    },
     "Layout": {
       "type": "enumeration",
       "required": true,
@@ -56,6 +51,19 @@
       },
       "component": "content.row-photo",
       "repeatable": true
+    },
+    "SubHeading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "Descriptiom": {
+      "type": "blocks"
+    },
+    "Setting": {
+      "type": "component",
+      "component": "content.block-setting",
+      "repeatable": false
     }
   }
 }

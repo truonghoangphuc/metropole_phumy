@@ -1,21 +1,19 @@
 import { BaseDoc, BlockSettingData, HeadingData } from "@/types/doc";
 import { Media } from "@/types/media";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
-export interface GalleryItem {
+import { GalleryData } from "../gallery/config";
+export interface TabItem {
   id: number;
-  Caption: string;
-  Description: BlocksContent;
-  Image: Media;
-  Link: string;
-  Date: string
+  Name: string;
+  Title: string;  
+  Icon: Media;
+  Gallery: GalleryData
 }
 
-export interface GalleryData extends BaseDoc {
+export interface BlockTabs extends BaseDoc {
   Heading: HeadingData;
   SubHeading: HeadingData;
   Description: BlocksContent;
   Setting: BlockSettingData;
-  Layout: "grid" | "slides";
-  Photos: GalleryItem[];
-  Rows: {Items: GalleryItem[]; id: number}[];
+  Tabs: TabItem[]
 }

@@ -1,6 +1,6 @@
 import { Page as PageType } from '@/types/page';
 import { API_URL } from '@/utilities/constant';
-import { Video } from 'lucide-react';
+import { Description } from '@radix-ui/react-dialog';
 import qs from 'qs';
 
 export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise<PageType> => {
@@ -159,7 +159,70 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                 populate: '*'
               },
             }
-          }
+          },
+          'content.block-form': {
+            populate: {
+              'Setting': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'SubHeading': {
+                populate: '*'
+              },              
+              'Form': {
+                populate: {
+                  'Inputs': {
+                    populate: '*'
+                  },
+                  'Setting': {
+                    populate: '*'
+                  }
+                }
+              },
+            }
+          },
+          'content.block-tabs': {
+            populate: {
+              'Setting': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'SubHeading': {
+                populate: '*'
+              },
+              'Tabs': {
+                populate: {
+                  'Icon': {
+                    populate: '*',
+                  },
+                  'Gallery': {
+                    populate: {
+                      'Setting': {
+                        populate: '*'
+                      },
+                      'Heading': {
+                        populate: '*'
+                      },
+                      'Photos': {
+                        populate: '*'
+                      },
+                      'Rows': {
+                        populate: {
+                          Items: {
+                            populate: '*'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
         }
       }
     },

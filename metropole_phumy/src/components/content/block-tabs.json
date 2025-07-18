@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_content_block_forms",
+  "collectionName": "components_content_block_tabs",
   "info": {
-    "displayName": "Block Form",
-    "icon": "folder"
+    "displayName": "Block Tabs",
+    "icon": "apps"
   },
   "options": {},
   "attributes": {
@@ -16,14 +16,17 @@
       "component": "content.heading",
       "repeatable": false
     },
+    "Description": {
+      "type": "blocks"
+    },
+    "Tabs": {
+      "type": "component",
+      "component": "content.tab-item",
+      "repeatable": true
+    },
     "Setting": {
       "type": "component",
       "component": "content.block-setting",
-      "repeatable": false
-    },
-    "Form": {
-      "type": "component",
-      "component": "form.form",
       "repeatable": false
     }
   },

@@ -45,3 +45,8 @@ export interface Navigation {
   id: number;
   Heading: HeadingData
 }
+
+export interface ColorSetting {
+  TextColor: string,
+  BGColor: string
+}

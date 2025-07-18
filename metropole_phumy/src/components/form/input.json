@@ -29,6 +29,32 @@
     "Value": {
       "type": "string"
     },
+    "Checked": {
+      "type": "boolean",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "Type"
+            },
+            "checkbox"
+          ]
+        }
+      }
+    },
+    "Selected": {
+      "type": "boolean",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "Type"
+            },
+            "radio"
+          ]
+        }
+      }
+    },
     "Options": {
       "type": "component",
       "conditions": {

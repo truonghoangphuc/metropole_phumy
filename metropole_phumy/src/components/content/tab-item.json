@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_content_tab_items",
+  "info": {
+    "displayName": "TabItem",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Gallery": {
+      "type": "component",
+      "component": "content.gallery",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

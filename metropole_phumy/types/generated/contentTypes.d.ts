@@ -577,6 +577,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'content.block-map',
         'content.block-table',
         'content.block-listing',
+        'content.block-form',
+        'content.block-tabs',
       ]
     >;
     locale: Schema.Attribute.String;
