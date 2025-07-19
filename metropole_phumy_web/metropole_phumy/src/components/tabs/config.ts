@@ -1,4 +1,4 @@
-import { BaseDoc, BlockSettingData, HeadingData } from "@/types/doc";
+import { BaseDoc, BlockSettingData, HeadingData, Link } from "@/types/doc";
 import { Media } from "@/types/media";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { GalleryData } from "../gallery/config";
@@ -8,6 +8,8 @@ export interface TabItem {
   Title: string;  
   Icon: Media;
   Gallery: GalleryData
+  Photos: Media[]
+  CTA: Link
 }
 
 export interface BlockTabs extends BaseDoc {

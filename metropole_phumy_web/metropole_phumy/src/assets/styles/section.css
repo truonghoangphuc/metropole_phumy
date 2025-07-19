@@ -127,24 +127,31 @@
     @apply overflow-hidden rounded-2xl object-cover pointer-events-auto;
   }
 
-  .video-wrapper > div {
-    @apply mb-7 relative pointer-events-none;
+  .video-wrapper {
+    @apply lg:flex-1/2;
 
-    &::before {
-      content: '';
-      @apply absolute top-1/2 left-1/2 -translate-1/2 w-10 h-10 bg-contain opacity-50 z-[1] cursor-pointer;
-      background-image: url('data:image/svg+xml,<svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><foreignObject x="-1.27778" y="-1.60004" width="43.5556" height="43.5556"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(0.89px);clip-path:url(%23bgblur_0_1328_3387_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="1.77778" cx="20.5" cy="20.1777" r="20" fill="white" fill-opacity="0.3"/><g clip-path="url(%23clip1_1328_3387)"><circle cx="20.5938" cy="20.2676" r="15.9012" fill="black" fill-opacity="0.5" stroke="white" stroke-width="0.197531"/><path d="M25.9961 19.8359C26.4246 20.0845 26.4246 20.7036 25.9961 20.9521L17.8193 25.6943C17.3893 25.9436 16.8506 25.6328 16.8506 25.1357L16.8506 15.6514C16.8506 15.1542 17.3893 14.8443 17.8193 15.0937L25.9961 19.8359Z" stroke="white" stroke-width="0.43004"/></g><defs><clipPath id="bgblur_0_1328_3387_clip_path" transform="translate(1.27778 1.60004)"><circle cx="20.5" cy="20.1777" r="20"/></clipPath><clipPath id="clip1_1328_3387"><rect width="32" height="32" fill="white" transform="translate(4.59375 4.26758)"/></clipPath></defs></svg>')
-    }
+    > div {
+      @apply mb-7 relative pointer-events-none;
 
-    &:has(.playing) {
       &::before {
-        @apply opacity-0;
+        content: '';
+        @apply absolute top-1/2 left-1/2 -translate-1/2 w-10 h-10 bg-contain opacity-50 z-[1] cursor-pointer md:w-20 md:h-20;
+        background-image: url('data:image/svg+xml,<svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><foreignObject x="-1.27778" y="-1.60004" width="43.5556" height="43.5556"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(0.89px);clip-path:url(%23bgblur_0_1328_3387_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="1.77778" cx="20.5" cy="20.1777" r="20" fill="white" fill-opacity="0.3"/><g clip-path="url(%23clip1_1328_3387)"><circle cx="20.5938" cy="20.2676" r="15.9012" fill="black" fill-opacity="0.5" stroke="white" stroke-width="0.197531"/><path d="M25.9961 19.8359C26.4246 20.0845 26.4246 20.7036 25.9961 20.9521L17.8193 25.6943C17.3893 25.9436 16.8506 25.6328 16.8506 25.1357L16.8506 15.6514C16.8506 15.1542 17.3893 14.8443 17.8193 15.0937L25.9961 19.8359Z" stroke="white" stroke-width="0.43004"/></g><defs><clipPath id="bgblur_0_1328_3387_clip_path" transform="translate(1.27778 1.60004)"><circle cx="20.5" cy="20.1777" r="20"/></clipPath><clipPath id="clip1_1328_3387"><rect width="32" height="32" fill="white" transform="translate(4.59375 4.26758)"/></clipPath></defs></svg>')
+      }
+
+      &:has(.playing) {
+        &::before {
+          @apply opacity-0;
+        }
       }
     }
   }
-
   .cta {
     @apply mx-auto flex justify-self-center;
+  }
+
+  .table {
+    @apply lg:flex-1/2;
   }
 }
 
@@ -183,23 +190,35 @@ table.table {
   .cell-content {
 
     .rte-content {
-      @apply text-sm leading-normal font-bold text-[#282828];
+      @apply text-sm leading-normal font-bold text-[#282828] mb-0;
     }
   }
 }
 
+.section-map {
+
+  .cards {
+    @apply lg:flex-[40%];
+  }
+}
+
 .map-container {
-  @apply relative -mx-4 lg:mx-auto;
+  @apply -mx-4 lg:mx-auto lg:flex-[60%];
+
+  .map {
+    @apply relative rounded-3xl overflow-hidden;
+    box-shadow: 3px 3px 15px rgba(9, 41, 87, 0.41);
+  }
 
   .building {
-    @apply absolute top-[74%] left-[47%] w-6 h-6 object-contain origin-center;
+    @apply absolute top-[74%] left-[50%] w-6 h-6 object-contain origin-center lg:w-14 lg:h-14;
   }
 }
 
 .section-listing {
 
   .container {
-    @apply pt-13 pb-0;
+    @apply pt-13 pb-0 lg:flex lg:gap-8;
   }
   
   .description {
@@ -211,7 +230,11 @@ table.table {
   }
 
   .group-text {
-    @apply mb-10;
+    @apply mb-10 lg:mb-0 lg:flex-[30%];
+  }
+
+  .group-listing {
+    @apply lg:flex-[70%];
   }
 
   .listing {
@@ -240,7 +263,7 @@ table.table {
   @apply relative;
 
   .container {
-    @apply relative z-[1];
+    @apply relative z-[1] lg:py-24;
   }
   .bg {
     @apply absolute left-0 top-0 right-0 bottom-0;
@@ -258,7 +281,11 @@ table.table {
 .section-form {
 
   .form-wrapper {
-    @apply rounded-2xl px-4 py-6;
+    @apply rounded-2xl px-4 py-6 lg:max-w-1/2 lg:justify-self-end lg:px-10 lg:py-12;
+
+    .heading {
+      @apply lg:text-[32px] lg:text-left lg:mx-0 lg:mb-6;
+    }
   }
 }
 
@@ -301,9 +328,14 @@ table.table {
     &:has(input.has-value) label {
       @apply text-xs leading-none h-4 text-[#596A86];
     }
+
+    &.md\:basis-1\/2 {
+      @apply md:basis-[calc(50%_-_6px)];
+    }
   }
 
   .control-radio-button {
+    @apply lg:mb-6;
     label {
       @apply relative rounded-full py-2 px-4 bg-white border-solid border-[1px] border-primary text-sm cursor-pointer block;
     }
@@ -317,17 +349,59 @@ table.table {
       }
     }
   }
+
+  .command {
+    @apply pt-2 lg:pt-6 
+  }
 }
 
 .section-tabs {
-
-  .section-description {
-    @apply hidden md:block;
-  }
-
   .section-gallery {
     .container {
       @apply p-0;
     }
+  }  
+}
+
+.tabs-gallery {
+
+  > .container {
+    @apply relative;
+
+    > .heading {
+    @apply md:text-left md:mx-0;
+  }
+  }
+  .section-description {
+    @apply hidden md:block md:max-w-1/2;
+  }
+
+  .tabs-wrapper {
+
+    [role="tablist"] {
+      @apply md:absolute right-0 md:top-24;
+    }
+  }
+
+  .tab-button {
+    @apply bg-transparent  data-[state=active]:bg-[#E5F2F8] data-[state=active]:text-[#282828] dark:data-[state=active]:text-[#282828] text-base dark:data-[state=active]:bg-[#E5F2F8];
+  }
+}
+
+.tab-products {
+
+  .section-description {
+    @apply text-center md:max-w-3/4 mx-auto;
+  }
+
+  [role="tablist"] {
+    @apply p-0 bg-[#E5F2F8];
+  }
+  .tab-button {
+    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828];
+  }
+
+  .photo {
+    @apply flex justify-center mx-auto;
   }
 }

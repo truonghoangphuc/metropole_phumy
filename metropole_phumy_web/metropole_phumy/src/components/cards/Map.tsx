@@ -28,9 +28,11 @@ export function BlockMapComponent(props: Props) {
           <HeadingText heading={SubHeading} className="sub-heading" />
         )}
         <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-9">
-          <div className="map-container">
-            {MapBuilding && <Media className="building" resource={MapBuilding} />}
-            {Map && <Media className="map" resource={Map} />}
+          <div className="map-container">            
+            {Map && <div className="map">
+              {MapBuilding && <Media className="building" resource={MapBuilding} />}
+              <Media className="map-media" resource={Map} />              
+            </div>}
           </div>
           <div className="cards flex flex-col gap-3 justify-center">
           {

@@ -27,6 +27,18 @@
       "type": "component",
       "component": "content.gallery",
       "repeatable": false
+    },
+    "CTA": {
+      "type": "component",
+      "component": "menus.menu-item",
+      "repeatable": false
+    },
+    "Photos": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

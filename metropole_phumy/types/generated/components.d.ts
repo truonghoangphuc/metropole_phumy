@@ -187,6 +187,15 @@ export interface ContentHeading extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentPopup extends Struct.ComponentSchema {
+  collectionName: 'components_content_popups';
+  info: {
+    displayName: 'Popup';
+    icon: 'book';
+  };
+  attributes: {};
+}
+
 export interface ContentRichPhoto extends Struct.ComponentSchema {
   collectionName: 'components_content_rich_photos';
   info: {
@@ -252,11 +261,13 @@ export interface ContentTabItem extends Struct.ComponentSchema {
     icon: 'grid';
   };
   attributes: {
+    CTA: Schema.Attribute.Component<'menus.menu-item', false>;
     Gallery: Schema.Attribute.Component<'content.gallery', false>;
     Icon: Schema.Attribute.Media<'images'>;
     Name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    Photos: Schema.Attribute.Media<'images', true>;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -504,6 +515,7 @@ declare module '@strapi/strapi' {
       'content.card': ContentCard;
       'content.gallery': ContentGallery;
       'content.heading': ContentHeading;
+      'content.popup': ContentPopup;
       'content.rich-photo': ContentRichPhoto;
       'content.row-photo': ContentRowPhoto;
       'content.rte': ContentRte;

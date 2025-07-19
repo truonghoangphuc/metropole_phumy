@@ -40,7 +40,7 @@ export function BlockTableComponent(props: Props) {
                     <td className="table-label" valign="top">
                       <div className="cell-label">{row.Label}</div>                      
                     </td>
-                    <td className="table-content">
+                    <td className="table-content" valign="top">
                       <div className="cell-content">
                         <RichText content={row.Content} />
                       </div>

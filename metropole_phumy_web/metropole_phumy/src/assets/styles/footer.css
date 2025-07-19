@@ -1,11 +1,15 @@
 @reference '../../app/globals.css';
 
 .footer-top {
-  @apply pb-10 flex flex-col gap-8 lg:pb-15 lg:grid lg:grid-cols-2 lg:grid-rows-2;
+  @apply pb-10 flex flex-col gap-8 lg:pb-15 lg:flex-row;
+
+  > div {
+    @apply lg:flex-1;
+  }
 }
 
 .footer-logo {
-  @apply mb-6 lg:mb-19 max-w-[174px] lg:max-w-[432px];
+  @apply mb-6 max-w-[56px] lg:max-w-[244px];
 
   img {
     @apply w-full;
