@@ -1,5 +1,23 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ContentBlockAppartment extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_appartments';
+  info: {
+    displayName: 'Block Apartment';
+    icon: 'house';
+  };
+  attributes: {
+    Apartments: Schema.Attribute.Component<'list.appartment', true>;
+    Background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    DetailText: Schema.Attribute.String;
+    ListingText: Schema.Attribute.String;
+    MainPhoto: Schema.Attribute.Component<'content.rich-photo', false>;
+    Tag: Schema.Attribute.String;
+  };
+}
+
 export interface ContentBlockCards extends Struct.ComponentSchema {
   collectionName: 'components_content_block_cards';
   info: {
@@ -11,6 +29,9 @@ export interface ContentBlockCards extends Struct.ComponentSchema {
     Items: Schema.Attribute.Component<'content.card', true>;
     Setting: Schema.Attribute.Component<'content.block-setting', false>;
     SubHeading: Schema.Attribute.Component<'content.heading', false>;
+    Type: Schema.Attribute.Enumeration<
+      ['Card Border', 'Card Normal', 'Card Icon', 'Card Overlay']
+    >;
   };
 }
 
@@ -48,6 +69,23 @@ export interface ContentBlockListing extends Struct.ComponentSchema {
     Listing: Schema.Attribute.Component<'list.row-cells', true>;
     Setting: Schema.Attribute.Component<'content.block-setting', false>;
     SubHeading: Schema.Attribute.Component<'content.heading', false>;
+  };
+}
+
+export interface ContentBlockLogoVideo extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_logo_videos';
+  info: {
+    displayName: 'Block Logo Video';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    Description: Schema.Attribute.Blocks;
+    Heading: Schema.Attribute.Component<'content.heading', false>;
+    Logos: Schema.Attribute.Component<'content.rich-photo', true>;
+    Setting: Schema.Attribute.Component<'content.block-setting', false>;
+    SubHeading: Schema.Attribute.Component<'content.heading', false>;
+    Video: Schema.Attribute.Media<'videos'>;
+    VideoPoster: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -138,6 +176,7 @@ export interface ContentCard extends Struct.ComponentSchema {
     Description: Schema.Attribute.Blocks;
     Icon: Schema.Attribute.Media<'images'>;
     Image: Schema.Attribute.Media<'images'>;
+    SubTitle: Schema.Attribute.String;
     Title: Schema.Attribute.String;
   };
 }
@@ -261,6 +300,8 @@ export interface ContentTabItem extends Struct.ComponentSchema {
     icon: 'grid';
   };
   attributes: {
+    Apartments: Schema.Attribute.Component<'content.block-appartment', false>;
+    Card: Schema.Attribute.Component<'content.block-cards', false>;
     CTA: Schema.Attribute.Component<'menus.menu-item', false>;
     Gallery: Schema.Attribute.Component<'content.gallery', false>;
     Icon: Schema.Attribute.Media<'images'>;
@@ -332,6 +373,25 @@ export interface FormOption extends Struct.ComponentSchema {
   attributes: {
     Title: Schema.Attribute.String;
     Value: Schema.Attribute.String;
+  };
+}
+
+export interface ListAppartment extends Struct.ComponentSchema {
+  collectionName: 'components_list_appartments';
+  info: {
+    displayName: 'Apartment';
+    icon: 'house';
+  };
+  attributes: {
+    Gallery: Schema.Attribute.Media<'images', true>;
+    HomeFloor: Schema.Attribute.String;
+    HomeKey: Schema.Attribute.String;
+    HomeKeyPlan: Schema.Attribute.Media<'images'>;
+    HomeSize: Schema.Attribute.String;
+    HomeSizeIn: Schema.Attribute.String;
+    HomeSizeOut: Schema.Attribute.String;
+    Photo: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -505,9 +565,11 @@ export interface SettingGradientSetting extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'content.block-appartment': ContentBlockAppartment;
       'content.block-cards': ContentBlockCards;
       'content.block-form': ContentBlockForm;
       'content.block-listing': ContentBlockListing;
+      'content.block-logo-video': ContentBlockLogoVideo;
       'content.block-map': ContentBlockMap;
       'content.block-setting': ContentBlockSetting;
       'content.block-table': ContentBlockTable;
@@ -523,6 +585,7 @@ declare module '@strapi/strapi' {
       'form.form': FormForm;
       'form.input': FormInput;
       'form.option': FormOption;
+      'list.appartment': ListAppartment;
       'list.block-heading': ListBlockHeading;
       'list.item': ListItem;
       'list.row-cells': ListRowCells;

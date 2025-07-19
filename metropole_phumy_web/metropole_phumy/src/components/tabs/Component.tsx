@@ -8,6 +8,8 @@ import RichText from "@/components/rte/RichText";
 import { Tabs as TabsWrapper,  TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { GalleryComponent } from "../gallery/Component";
 import { CTAComponent } from "../cta/Component";
+import { ApartmentComponent } from "../apartment/Component";
+import { BlockCardsComponent } from "../cards/Component";
 
 export interface Props extends TabsComponentProps {
   locale: string;
@@ -66,7 +68,7 @@ export function BlockTabsComponent(props: Props) {
                   }
                   {
                     tab.CTA && (
-                      <div className="flex justify-center pt-8">
+                      <div className="flex justify-center py-8">
                         <CTAComponent
                         key={tab.CTA.id}
                         id={tab.CTA.id}
@@ -78,6 +80,16 @@ export function BlockTabsComponent(props: Props) {
                         Icon={tab.CTA.Icon}
                       />
                       </div>
+                    )
+                  }
+                  {
+                    tab.Apartments && (
+                      <ApartmentComponent locale={locale} {...tab.Apartments}></ApartmentComponent>
+                    )
+                  }
+                  {
+                    tab.Card && (
+                      <BlockCardsComponent locale={locale} {...tab.Card}></BlockCardsComponent>
                     )
                   }
                 </TabsContent>

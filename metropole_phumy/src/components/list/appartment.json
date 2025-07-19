@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_list_appartments",
+  "info": {
+    "displayName": "Apartment",
+    "icon": "house"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "HomeKey": {
+      "type": "string"
+    },
+    "HomeSize": {
+      "type": "string"
+    },
+    "HomeFloor": {
+      "type": "string"
+    },
+    "HomeSizeIn": {
+      "type": "string"
+    },
+    "HomeSizeOut": {
+      "type": "string"
+    },
+    "HomeKeyPlan": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

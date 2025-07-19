@@ -56,7 +56,8 @@
         "content.block-table",
         "content.block-listing",
         "content.block-form",
-        "content.block-tabs"
+        "content.block-tabs",
+        "content.block-logo-video"
       ]
     }
   }

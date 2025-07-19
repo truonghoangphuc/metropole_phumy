@@ -65,7 +65,7 @@ export async function RTEComponent(props: Props) {
       </div>
       {Background.BackgroundImage && MediaPosition === "background" && (
         <Media
-          className="media"
+          className="bg-media"
           resource={Background.BackgroundImage}
           {...(Background.BackgroundImageMobile
             ? { resourceMobile: Background.BackgroundImageMobile }

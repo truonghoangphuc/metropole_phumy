@@ -16,6 +16,7 @@ export interface Gradient {
 export interface Card {
   id: number;
   Title: string;
+  SubTitle: string;
   Description: BlocksContent;
   Image: Media;
   BorderColor: Gradient;
@@ -27,6 +28,7 @@ export interface BlockCards extends BaseDoc {
   SubHeading: HeadingData;
   Setting: BlockSettingData;
   Items: Card[];
+  Type: string
 }
 
 export interface BlockMap extends BaseDoc {

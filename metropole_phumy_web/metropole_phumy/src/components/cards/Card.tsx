@@ -11,7 +11,7 @@ export interface Props extends CardComponentProps {
 }
 
 export function CardComponent(props: Props) {
-  const { locale, Title, Description, BorderColor, Image, Icon, className } = props;
+  const { locale, Title, SubTitle, Description, BorderColor, Image, Icon, className } = props;
 
   const style = BorderColor?.Colors.length > 1 ? {
     background: `linear-gradient(white, white) padding-box, ${BorderColor.Type}-gradient(${BorderColor.Type === 'linear' ? BorderColor.Degree + 'deg' : 'circle' }, ${BorderColor.Colors.map(color => color.Color + ' ' + color.Percent + '%').join(', ')}) border-box`
@@ -20,7 +20,7 @@ export function CardComponent(props: Props) {
   };
 
   return (
-    <div className={cn('card card-border', className)} data-locale={locale} style={style}>
+    <div className={cn('card', className)} data-locale={locale} style={style}>
       {
         Image && <Media className="media" resource={Image}/>
       }
@@ -29,6 +29,7 @@ export function CardComponent(props: Props) {
       }
       <div className="card-content">
         <p className="card-title">{Title}</p>
+        <p className="card-subtitle">{SubTitle}</p>
         {Description && <RichText content={Description} className="card-description"/>}
       </div>
     </div>

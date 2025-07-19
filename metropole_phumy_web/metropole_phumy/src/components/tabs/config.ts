@@ -2,6 +2,8 @@ import { BaseDoc, BlockSettingData, HeadingData, Link } from "@/types/doc";
 import { Media } from "@/types/media";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { GalleryData } from "../gallery/config";
+import { BlockCards } from "../cards/config";
+import { Apartment, BlockApartment } from "../apartment/config";
 export interface TabItem {
   id: number;
   Name: string;
@@ -10,6 +12,8 @@ export interface TabItem {
   Gallery: GalleryData
   Photos: Media[]
   CTA: Link
+  Card?: BlockCards
+  Apartments?: BlockApartment
 }
 
 export interface BlockTabs extends BaseDoc {

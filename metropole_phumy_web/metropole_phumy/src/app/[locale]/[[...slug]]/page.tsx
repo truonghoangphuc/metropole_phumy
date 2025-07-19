@@ -38,7 +38,7 @@ export default async function Page({ params: paramsPromise }: Args) {
   
   return (
     <>
-      <PageClient />
+      <PageClient className={pageSlug}/>
       <RenderBlocks blocks={layout} locale={locale} />
     </>
   );

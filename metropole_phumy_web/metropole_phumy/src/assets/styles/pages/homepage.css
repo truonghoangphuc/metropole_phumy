@@ -1,14 +1,14 @@
 @reference '../../../app/globals.css';
 
-.home-banner.hero-section {
-  @apply pt-0 pb-8 bg-white;
+.hero-section {
+  @apply pt-0 bg-white aspect-[375/580] md:aspect-video;
 
   > .container {
-    @apply py-0;
+    @apply py-0 z-[3] h-full;
   }
 
-  .media {
-    @apply aspect-[375/580] items-center justify-center flex md:aspect-video;
+  .bg-media {
+    @apply items-center justify-center flex;
 
     video {
       @apply -mt-[25%] lg:mt-0;
@@ -17,5 +17,28 @@
 
   .content {
     @apply h-full flex flex-col justify-between text-center lg:justify-start;
+  }
+}
+
+.about-banner {
+  
+  .bg-media {
+    &::before {
+      content: '';
+      background: linear-gradient(180deg, rgba(9, 41, 87, 0) 35.56%, rgba(1, 16, 38, 0.7) 88.9%);
+      @apply block absolute top-0 left-0 w-full h-full z-[2];
+    }
+  }
+
+  .content {
+    @apply h-full justify-end;
+
+    .heading {
+      @apply font-medium text-[32px] leading-[120%] mb-2 xl:text-5xl;
+    }
+
+    .sub-heading {
+      @apply font-bold text-[42px] leading-[120%] px-5 mb-0 xl:text-[86px];
+    }
   }
 }

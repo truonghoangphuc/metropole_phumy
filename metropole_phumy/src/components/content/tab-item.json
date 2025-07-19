@@ -39,6 +39,16 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "Card": {
+      "type": "component",
+      "component": "content.block-cards",
+      "repeatable": false
+    },
+    "Apartments": {
+      "type": "component",
+      "component": "content.block-appartment",
+      "repeatable": false
     }
   },
   "config": {}

@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_content_block_appartments",
+  "info": {
+    "displayName": "Block Apartment",
+    "icon": "house"
+  },
+  "options": {},
+  "attributes": {
+    "Tag": {
+      "type": "string"
+    },
+    "Background": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MainPhoto": {
+      "type": "component",
+      "component": "content.rich-photo",
+      "repeatable": false
+    },
+    "Apartments": {
+      "type": "component",
+      "component": "list.appartment",
+      "repeatable": true
+    },
+    "ListingText": {
+      "type": "string"
+    },
+    "DetailText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

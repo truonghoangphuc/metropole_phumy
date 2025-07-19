@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_content_block_logo_videos",
+  "info": {
+    "displayName": "Block Logo Video",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "SubHeading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "Setting": {
+      "type": "component",
+      "component": "content.block-setting",
+      "repeatable": false
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "VideoPoster": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Logos": {
+      "type": "component",
+      "component": "content.rich-photo",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

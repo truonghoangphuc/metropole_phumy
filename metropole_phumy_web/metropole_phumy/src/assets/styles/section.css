@@ -1,7 +1,8 @@
 @reference '../../app/globals.css';
 
+
 .heading {
-  @apply font-mono font-bold text-[32px] leading-tight lg:text-[48px] mb-2;
+  @apply font-mono font-bold text-[32px] leading-tight xl:text-[48px] mb-2;
 }
 
 .sub-heading {
@@ -47,7 +48,7 @@
 .section-content {
   
   > .container {
-    @apply py-8;
+    @apply py-8 xl:py-24;
   }
 
   .rte-content {
@@ -78,7 +79,6 @@
     }
   }
 }
-
 .media-left {
   
   .container {
@@ -89,15 +89,15 @@
 .media-background {
   @apply relative;
   .container {
-    @apply absolute top-0 left-1/2 -translate-x-1/2 bottom-0;
+    @apply relative z-[2];
   }
 
   .content {
     @apply pt-10 lg:pt-20;
   }
 
-  .media {
-
+  .bg-media {
+    @apply absolute top-0 bottom-0 left-0 right-0;
     picture,
     img {
       @apply w-full h-full object-cover;
@@ -124,34 +124,38 @@
   }
   
   .video-native {
-    @apply overflow-hidden rounded-2xl object-cover pointer-events-auto;
+    @apply overflow-hidden rounded-2xl object-cover;
   }
 
-  .video-wrapper {
-    @apply lg:flex-1/2;
-
-    > div {
-      @apply mb-7 relative pointer-events-none;
-
-      &::before {
-        content: '';
-        @apply absolute top-1/2 left-1/2 -translate-1/2 w-10 h-10 bg-contain opacity-50 z-[1] cursor-pointer md:w-20 md:h-20;
-        background-image: url('data:image/svg+xml,<svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><foreignObject x="-1.27778" y="-1.60004" width="43.5556" height="43.5556"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(0.89px);clip-path:url(%23bgblur_0_1328_3387_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="1.77778" cx="20.5" cy="20.1777" r="20" fill="white" fill-opacity="0.3"/><g clip-path="url(%23clip1_1328_3387)"><circle cx="20.5938" cy="20.2676" r="15.9012" fill="black" fill-opacity="0.5" stroke="white" stroke-width="0.197531"/><path d="M25.9961 19.8359C26.4246 20.0845 26.4246 20.7036 25.9961 20.9521L17.8193 25.6943C17.3893 25.9436 16.8506 25.6328 16.8506 25.1357L16.8506 15.6514C16.8506 15.1542 17.3893 14.8443 17.8193 15.0937L25.9961 19.8359Z" stroke="white" stroke-width="0.43004"/></g><defs><clipPath id="bgblur_0_1328_3387_clip_path" transform="translate(1.27778 1.60004)"><circle cx="20.5" cy="20.1777" r="20"/></clipPath><clipPath id="clip1_1328_3387"><rect width="32" height="32" fill="white" transform="translate(4.59375 4.26758)"/></clipPath></defs></svg>')
-      }
-
-      &:has(.playing) {
-        &::before {
-          @apply opacity-0;
-        }
-      }
-    }
-  }
   .cta {
     @apply mx-auto flex justify-self-center;
   }
 
   .table {
     @apply lg:flex-1/2;
+  }
+}
+
+.video-native {
+  @apply pointer-events-auto;
+}
+.video-wrapper {
+  @apply lg:flex-1/2;
+
+  > div {
+    @apply mb-7 relative pointer-events-none;
+
+    &::before {
+      content: '';
+      @apply absolute top-1/2 left-1/2 -translate-1/2 w-10 h-10 bg-contain opacity-50 z-[1] cursor-pointer md:w-20 md:h-20;
+      background-image: url('data:image/svg+xml,<svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><foreignObject x="-1.27778" y="-1.60004" width="43.5556" height="43.5556"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(0.89px);clip-path:url(%23bgblur_0_1328_3387_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="1.77778" cx="20.5" cy="20.1777" r="20" fill="white" fill-opacity="0.3"/><g clip-path="url(%23clip1_1328_3387)"><circle cx="20.5938" cy="20.2676" r="15.9012" fill="black" fill-opacity="0.5" stroke="white" stroke-width="0.197531"/><path d="M25.9961 19.8359C26.4246 20.0845 26.4246 20.7036 25.9961 20.9521L17.8193 25.6943C17.3893 25.9436 16.8506 25.6328 16.8506 25.1357L16.8506 15.6514C16.8506 15.1542 17.3893 14.8443 17.8193 15.0937L25.9961 19.8359Z" stroke="white" stroke-width="0.43004"/></g><defs><clipPath id="bgblur_0_1328_3387_clip_path" transform="translate(1.27778 1.60004)"><circle cx="20.5" cy="20.1777" r="20"/></clipPath><clipPath id="clip1_1328_3387"><rect width="32" height="32" fill="white" transform="translate(4.59375 4.26758)"/></clipPath></defs></svg>')
+    }
+
+    &:has(.playing) {
+      &::before {
+        @apply opacity-0;
+      }
+    }
   }
 }
 
@@ -216,9 +220,10 @@ table.table {
 }
 
 .section-listing {
+  @apply overflow-hidden relative;
 
   .container {
-    @apply pt-13 pb-0 lg:flex lg:gap-8;
+    @apply pt-13 pb-0 lg:flex lg:gap-8 lg:pt-20;
   }
   
   .description {
@@ -230,18 +235,18 @@ table.table {
   }
 
   .group-text {
-    @apply mb-10 lg:mb-0 lg:flex-[30%];
+    @apply mb-10 lg:mb-0 lg:flex-[34%] lg:flex lg:flex-col lg:justify-center;
   }
 
   .group-listing {
-    @apply lg:flex-[70%];
+    @apply lg:flex-[66%];
   }
 
   .listing {
     @apply grid grid-cols-2 gap-4 mb-13;
 
     .listing-item {
-      @apply flex flex-col justify-center items-center text-center rounded-2xl border-[2px] border-solid border-transparent py-3 px-5;
+      @apply flex flex-col justify-center items-center text-center rounded-2xl border-[2px] border-solid border-transparent py-3 px-5 lg:absolute;
       background:linear-gradient(#092957, #092957) padding-box, linear-gradient(180deg, rgba(252, 214, 164, 0.4) 0%, rgba(93, 183, 192, 0.4) 100%) border-box;
 
       .label {
@@ -254,6 +259,68 @@ table.table {
         .rte-content {
           @apply mb-0;
         }
+      }
+    }
+  }
+
+  @variant lg {
+
+    .group-text {
+      @apply min-h-[750px] max-w-[calc(34%_-_32px)];
+    }
+
+    .building {
+      @apply flex justify-end items-end h-full;
+
+      > div {
+        @apply w-3/4;
+      }
+    }
+    .group-listing {
+      @apply absolute right-0 bottom-0;
+    }
+
+    .listing {
+      @apply mb-0;
+
+      .listing-item {
+        @apply origin-center;
+
+        &:first-child {
+          @apply left-20 bottom-15;
+        }
+
+        &:nth-child(2) {
+          @apply left-5 bottom-28 -translate-y-full;
+        }
+
+        &:nth-child(3) {
+          @apply left-0 bottom-40 -translate-y-[200%];
+        }
+
+        &:nth-child(4) {
+          @apply left-15 bottom-50 -translate-y-[300%];
+        }
+
+        &:nth-child(5) {
+          @apply left-60 bottom-55 -translate-y-[400%];
+        }
+
+        &:nth-child(6) {
+          @apply left-115 bottom-50 -translate-y-[500%];
+        }
+      }
+    }
+  }
+  
+  @variant xl {
+    .group-listing {
+      @apply w-[900px] h-[650px];
+    }
+
+    .building {
+      > div {
+        @apply w-auto;
       }
     }
   }
@@ -279,6 +346,11 @@ table.table {
 }
 
 .section-form {
+  @apply lg:aspect-[1440/910];
+
+  .container {
+    @apply lg:flex h-full lg:justify-end lg:items-center;
+  }
 
   .form-wrapper {
     @apply rounded-2xl px-4 py-6 lg:max-w-1/2 lg:justify-self-end lg:px-10 lg:py-12;
@@ -390,6 +462,10 @@ table.table {
 
 .tab-products {
 
+  > .container {
+    @apply max-w-none xl:px-4;
+  }
+
   .section-description {
     @apply text-center md:max-w-3/4 mx-auto;
   }
@@ -403,5 +479,77 @@ table.table {
 
   .photo {
     @apply flex justify-center mx-auto;
+  }
+
+  .tabs-wrapper {
+
+    .section-content {
+      @apply -mx-4;
+    }
+
+    .section-cards {
+
+      .heading {
+        @apply text-lg xl:text-2xl font-semibold rounded-md px-4 py-2 bg-[#4B95B4] justify-self-start;
+      }
+    }
+  }
+}
+
+.section-logos {
+  .video-native {
+    @apply overflow-hidden rounded-2xl object-cover;
+  }
+
+  .logos {    
+    > a {
+      @apply flex-[calc((100%_-_64px)/4)];
+    }
+  }
+}
+
+.section-apartments {
+  @apply bg-black/50 bg-blend-darken bg-cover;
+
+  .block-title {
+    @apply text-white font-bold uppercase leading-[120%] mb-5;
+  }
+
+  .main-part {
+    @apply mb-8 lg:mb-12;
+
+    .tag {
+      @apply text-lg xl:text-2xl font-semibold rounded-md px-4 py-2 bg-[#4B95B4] justify-self-start text-white mb-6 lg:mb-8 xl:mb-12;
+    }
+  }
+
+  .apartment-item {
+    @apply max-w-[306px] md:basis-1/2 lg:basis-1/3 xl:basis-1/4 bg-white rounded-2xl overflow-hidden;
+
+    .apartment-item-content {
+      @apply px-4 py-3;
+
+      .home-key {
+        @apply font-bold text-base text-primary mb-2;
+      }
+
+      ul {
+        @apply text-[#414141] text-sm;
+
+        li {
+          @apply mb-2 relative flex gap-2;
+
+          &::before {
+            content: '';
+            @apply block w-5 h-5 bg-contain bg-no-repeat bg-center;
+            background-image: url('data:image/svg+xml,<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.0013 1.84375C14.6038 1.84375 18.3346 5.57458 18.3346 10.1771C18.3346 14.7796 14.6038 18.5104 10.0013 18.5104C5.3988 18.5104 1.66797 14.7796 1.66797 10.1771C1.66797 5.57458 5.3988 1.84375 10.0013 1.84375ZM12.9471 7.16125L8.82214 11.2863L7.05547 9.51875C6.9781 9.44132 6.88624 9.3799 6.78513 9.33797C6.68401 9.29605 6.57564 9.27445 6.46618 9.27441C6.24512 9.27434 6.03309 9.36208 5.87672 9.51833C5.72035 9.67459 5.63246 9.88656 5.63238 10.1076C5.63231 10.3287 5.72005 10.5407 5.8763 10.6971L8.17463 12.9954C8.25976 13.0806 8.36083 13.1481 8.47208 13.1942C8.58332 13.2403 8.70255 13.2641 8.82297 13.2641C8.94338 13.2641 9.06262 13.2403 9.17386 13.1942C9.2851 13.1481 9.38618 13.0806 9.4713 12.9954L14.1263 8.34042C14.2827 8.18405 14.3705 7.97197 14.3705 7.75083C14.3705 7.5297 14.2827 7.31762 14.1263 7.16125C13.9699 7.00488 13.7579 6.91704 13.5367 6.91704C13.3156 6.91704 13.1035 7.00488 12.9471 7.16125Z" fill="%23092957"/></svg>');
+          }
+        }
+      }
+    }
+
+    .btn {
+      @apply mt-2 w-full uppercase text-sm font-bold py-3;
+    }
   }
 }

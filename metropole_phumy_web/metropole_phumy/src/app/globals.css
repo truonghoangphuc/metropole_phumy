@@ -134,7 +134,7 @@ body {
 
 .button,
 .btn {
-  @apply bg-none rounded-full;
+  @apply bg-none rounded-full text-center;
 
   &:not(button) {
     @apply px-4 py-2;
@@ -154,6 +154,10 @@ body {
 
 .btn-primary {
   @apply px-4 py-2 rounded-full bg-primary text-primary-foreground;
+}
+
+picture {
+  @apply bg-transparent;
 }
 
 @utility container {

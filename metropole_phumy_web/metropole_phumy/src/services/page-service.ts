@@ -224,8 +224,63 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                   },
                   'CTA': {
                     populate: '*'
-                  }
+                  },
+                  'Card': {
+                    populate: {
+                      'Setting': {
+                        populate: '*'
+                      },
+                      'Heading': {
+                        populate: '*'
+                      },
+                      'SubHeading': {
+                        populate: '*'
+                      },
+                      'Items': {
+                        populate: {
+                          'Image': {
+                            populate: '*'
+                          }
+                        }
+                      }
+                    }
+                  },
+                  'Apartments': {
+                    populate: {
+                      'Apartments': {                        
+                        populate: '*'                        
+                      },
+                      'MainPhoto': {
+                        populate: '*'
+                      },
+                      'Background': {
+                        populate: '*'
+                      },                      
+                    }
+                  },
                 }
+              }
+            }
+          },
+          'content.block-logo-video': {
+            populate: {
+              'Setting': {
+                populate: '*'
+              },
+              'Heading': {
+                populate: '*'
+              },
+              'SubHeading': {
+                populate: '*'
+              },
+              'Logos': {
+                populate: '*'
+              },
+              'Video': {
+                populate: '*'
+              },
+              'VideoPoster': {
+                populate: '*'
               }
             }
           },

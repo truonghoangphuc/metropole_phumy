@@ -10,6 +10,7 @@ import { BlockTableComponent } from '@/components/table/Component';
 import { BlockListingComponent } from '@/components/listing/Component';
 import { BlockFormComponent } from '@/components/form/Component';
 import { BlockTabsComponent } from '@/components/tabs/Component';
+import { BlockLogoVideoComponent } from './logos/Component';
 
 
 const blockComponents: Record<string, React.FC<any>> = {
@@ -20,7 +21,8 @@ const blockComponents: Record<string, React.FC<any>> = {
   "content.block-table": BlockTableComponent,
   "content.block-listing": BlockListingComponent,
   "content.block-form": BlockFormComponent,
-  "content.block-tabs": BlockTabsComponent
+  "content.block-tabs": BlockTabsComponent,
+  "content.block-logo-video": BlockLogoVideoComponent
 }
 
 export const RenderBlocks: React.FC<{

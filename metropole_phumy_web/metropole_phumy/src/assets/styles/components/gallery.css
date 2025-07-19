@@ -3,11 +3,11 @@
 .gallery-slides {
 
   .container {
-    @apply w-auto px-0;
+    @apply w-auto px-0 md:px-4;
   }
 
   .gallery-content > .overflow-hidden {
-    @apply pl-4;
+    @apply pl-4 md:pl-0;
   }
 
   .gallery-item {
@@ -38,7 +38,7 @@
   }
 
   .carousel-dots {
-    @apply pt-5 lg:hidden;
+    @apply pt-5 md:hidden;
 
     button {
       @apply w-2 h-1.5 bg-primary transition-all duration-300 ease-in-out;
@@ -51,17 +51,29 @@
 
   .carousel-controls {
     @apply hidden md:block;
+
+    .prev,
+    .next {
+      @apply border-[#114DA2] text-[#114DA2] bg-white cursor-pointer;
+    }
+
+    .prev {
+      @apply md:-translate-x-1/2;
+    }
+
+    .next {
+      @apply md:translate-x-1/2;
+    }
   }
 }
 
 .gallery-masonry {
-  @apply grid gap-2 md:gap-0 lg:gap-4;
+  @apply grid gap-2 md:flex md:gap-4 lg:gap-8;
   .masonry-row {
-    @apply grid gap-2 grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 md:gap-0;
+    @apply grid gap-2 grid-cols-2 grid-rows-2 md:gap-4 md:flex-1;
 
     .media {
       @apply w-full h-full;
-
       picture {
         @apply block w-full h-full;
       }
@@ -71,14 +83,14 @@
     }
 
     .masonry-item {
-      @apply relative w-full h-auto aspect-square rounded-xl lg:rounded-2xl overflow-hidden;
+      @apply relative w-full h-auto rounded-xl lg:rounded-2xl overflow-hidden;
 
       .caption {
         @apply absolute bottom-4 left-4 bg-white/80 text-primary rounded-[12px] px-3 py-3 uppercase font-semibold text-xs lg:text-base leading-none transition-all duration-150 ease-out origin-bottom-left w-fit max-w-3/4;
       }
 
       .photo-description {
-        @apply absolute opacity-0 transition-all duration-300 ease-in origin-bottom-left bg-black/50 text-white text-sm px-4 py-3 w-full h-full scale-0 m-0;
+        @apply absolute opacity-0 transition-all duration-300 ease-in origin-bottom-left bg-black/50 text-white text-sm px-4 py-3 w-full h-full scale-0 m-0 left-0 top-0;
       }
       &:hover {
 
@@ -94,37 +106,13 @@
 
     &:nth-child(odd) {
       .masonry-item:first-child {
-        @apply flex col-start-1 col-end-3 aspect-[2/1];
+        @apply flex col-start-1 col-end-3 aspect-[2.1];
       }
     }
 
     &:nth-child(even) {
       .masonry-item:last-child {
-        @apply flex col-start-1 col-end-3 aspect-[2/1];
-      }
-    }
-
-    @variant md {
-
-      .masonry-item {
-        @apply rounded-2xl overflow-hidden p-2;
-
-        .media {
-          @apply rounded-2xl overflow-hidden;
-        }
-
-        .caption {
-          @apply left-6 bottom-6;
-        }
-
-        .photo-description {
-          @apply left-2 bottom-2 top-2 right-2 w-auto h-auto;
-        }
-      }
-      &:nth-child(even) {
-        .masonry-item:last-child {
-          @apply flex  col-start-3 col-end-5;
-        }
+        @apply flex col-start-1 col-end-3 aspect-[2.1];
       }
     }
   }

@@ -31,7 +31,7 @@ export function GalleryComponent(props: Props) {
         )}
         {Layout === "slides" && (
           <Carousel opts={{align: "start", loop: true}} className="gallery-content w-full">
-            <CarouselContent className="-mx-4">
+            <CarouselContent className="-mx-4 md:-ml-4 md:mr-0">
               {Photos.map((photo) => (
                 <CarouselItem key={photo.id} className="pl-4 basis-4/5 md:basis-1/2 lg:basis-1/3">
                   <div className="gallery-item">
@@ -46,8 +46,8 @@ export function GalleryComponent(props: Props) {
               ))}
             </CarouselContent>
             <div className="carousel-controls">
-              <CarouselPrevious/>
-              <CarouselNext/>
+              <CarouselPrevious className="prev disabled:hidden left-0"/>
+              <CarouselNext className="next disabled:hidden right-0"/>
             </div>
             <CarouselDots className="carousel-dots"/>
           </Carousel>)}
