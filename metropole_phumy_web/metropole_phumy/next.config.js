@@ -39,6 +39,9 @@ const nextConfig = {
   },
   //reactStrictMode: true,
   redirects,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
 };
 
 export default withBundleAnalyzer(withNextIntl(nextConfig))

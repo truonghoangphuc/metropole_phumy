@@ -118,29 +118,42 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+html {
+  @apply scroll-smooth;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-black scroll-smooth;
   }
 }
 
 
 .cta {
   @apply uppercase text-sm font-bold;
+
+  &.icon {
+    span {
+      @apply absolute invisible;
+    }
+  }
 }
 
 .button,
 .btn {
-  @apply bg-none rounded-full text-center;
+  @apply bg-none rounded-full text-center inline-block;
 
   &:not(button) {
     @apply px-4 py-2;
   }
   &.outline {
     @apply outline-white -outline-offset-1;
+
+    &.outline-primary {
+      @apply outline-primary;
+    }
   }
 
   &.bg-white {

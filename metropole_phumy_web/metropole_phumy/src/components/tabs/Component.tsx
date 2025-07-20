@@ -27,7 +27,7 @@ export function BlockTabsComponent(props: Props) {
     )} data-locale={locale} style={{
       backgroundColor: Setting?.BackgroundColor || "transparent",
       color: Setting?.TextColor || "inherit",
-    }}>
+    }} {...Setting?.htmlID ? {id:Setting?.htmlID}:{}}>
       <div className="container">
         {Heading && (
           <HeadingText heading={Heading} className="heading" />

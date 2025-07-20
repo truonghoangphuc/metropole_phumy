@@ -57,7 +57,8 @@
         "content.block-listing",
         "content.block-form",
         "content.block-tabs",
-        "content.block-logo-video"
+        "content.block-logo-video",
+        "menus.floating-menu"
       ]
     }
   }

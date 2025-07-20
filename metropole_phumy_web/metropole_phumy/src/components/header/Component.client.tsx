@@ -1,7 +1,8 @@
 'use client'
 import React, { useEffect } from 'react'
+import TrackingHead from './tracking'
 
-const HeaderClient: React.FC = () => {
+const HeaderClient: React.FC<{gtm:string}> = ({gtm}) => {
 
   useEffect(() => {
     if (window) {
@@ -18,7 +19,11 @@ const HeaderClient: React.FC = () => {
     }
   }, [])
 
-  return <React.Fragment />
+  return <>
+    {
+      gtm && <TrackingHead gtm={gtm} ga={''}></TrackingHead>
+    }
+  </>
 }
 
 export default HeaderClient

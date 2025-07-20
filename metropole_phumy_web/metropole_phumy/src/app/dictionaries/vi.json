@@ -1,18 +1,11 @@
 {
-  "subcribe": {
-    "title": "Đăng ký theo dõi",
-    "desc": "Đăng ký nhận thông tin mới nhất từ BDS Training."
-  },
-  "NotFoundPage": {
-    "title":"Trang khong co"
-  },
-  "learnmore": {
-    "text": "Xem thêm"
-  },
-  "getmore": {
-    "text": "NHẬN THÔNG TIN ĐẶC QUYỀN"
-  },
-  "require": {
-    "text": "Trường này là bắt buộc"
+  "apartment": {
+    "key": "Mã số căn",
+    "floor": "Tầng",
+    "sizein": "Diện tích tim tường",
+    "sizeout": "Diện tích thông thủy",
+    "plan": "Key Plan",
+    "readmore": "Tìm hiểu thêm",
+    "reg": "Đăng ký tư vấn"
   }
 }

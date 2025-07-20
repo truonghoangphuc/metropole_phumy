@@ -33,6 +33,7 @@ export interface BlockSettingData {
   BackgroundColor: string;
   TextColor: string;
   CSS: string | null;
+  htmlID: string
 }
 
 export interface Block {

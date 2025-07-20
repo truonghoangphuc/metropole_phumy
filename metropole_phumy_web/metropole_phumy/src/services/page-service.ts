@@ -284,6 +284,13 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
               }
             }
           },
+          'menus.floating-menu': {
+            populate: {
+              'Items': {
+                populate: '*'
+              }
+            }
+          }
         }
       }
     },

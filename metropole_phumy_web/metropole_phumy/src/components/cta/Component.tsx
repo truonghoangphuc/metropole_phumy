@@ -4,15 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { API_URL } from "@/utilities/constant";
 
-export function CTAComponent(props: CTAComponentProps) {
-  const { id, Slug, Target, CSS, Title, Type, Icon } = props;
+export interface Props extends CTAComponentProps {
+  className?: string
+}
+
+export function CTAComponent(props: Props) {
+  const { id, Slug, Target, CSS, Title, Type, Icon, className } = props;
 
   return (
     <Link
       key={id}
       href={Slug}
       target={Target}
-      className={cn("cta", Type.toLocaleLowerCase() , CSS)}
+      className={cn("cta", className||'', Type.toLocaleLowerCase() , CSS)}
     >
       {Icon && (
         <Image

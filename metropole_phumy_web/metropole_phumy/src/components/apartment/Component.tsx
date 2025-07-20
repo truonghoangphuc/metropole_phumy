@@ -1,8 +1,18 @@
 'use client'
-import { BlockApartment as ApartmentComponentProps } from "./config";
+import { Apartment, BlockApartment as ApartmentComponentProps } from "./config";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 import { API_URL } from "@/utilities/constant";
 import { Media } from "../media";
+import { useState } from "react";
+import { DialogApartment } from "./Dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export interface Props extends ApartmentComponentProps {
   locale: string;
@@ -18,8 +28,12 @@ export interface Props extends ApartmentComponentProps {
 export function ApartmentComponent(props: Props) {
   const { locale, Tag, Background, MainPhoto, ListingText, DetailText, Apartments } = props;
 
-  const handleShowDetail = () => {
+  const [selected, setSelected] = useState<Apartment|null>();
+  const [open, setOpen] = useState<boolean>(false);
 
+  const handleShowDetail = (el:Apartment) => {
+    setSelected(el);
+    setOpen(true);
   }
 
   return (
@@ -31,6 +45,7 @@ export function ApartmentComponent(props: Props) {
           ? { backgroundImage: `url(${API_URL}${Background.url})` }
           : {}
       }
+      id="detailA"
     >
       <div className="container">
         <div className="main-part">
@@ -57,7 +72,7 @@ export function ApartmentComponent(props: Props) {
                             <li>{apartment.HomeSize}</li>
                             <li>{apartment.HomeFloor}</li>
                           </ul>
-                          <button className="btn btn-primary" onClick={handleShowDetail}>{DetailText}</button>
+                          <button className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}>{DetailText}</button>
                         </div>
                       </div>
                     </CarouselItem>
@@ -68,6 +83,24 @@ export function ApartmentComponent(props: Props) {
                   <CarouselNext className="next disabled:hidden right-0"/>
                 </div>
               </Carousel>
+              <Dialog
+                open={open}
+                onOpenChange={(isOpen) => {
+                  if (isOpen === true) return;
+                  setSelected(null);
+                  setOpen(false);
+                }}
+              >
+                <DialogContent className="bg-white border-0 gap-0 lg:py-10 lg:px-14 lg:min-w-4xl lg:max-w-4/5 xl:max-w-5xl">
+                  <DialogHeader>
+                    <DialogClose className="dialog-close ring-offset-0 rounded-full opacity-100 transition-none focus:ring-0 focus:ring-offset-0 focus:outline-hidden "/>
+                    <VisuallyHidden><DialogTitle></DialogTitle>{selected?.Title}</VisuallyHidden>
+                  </DialogHeader>
+                  {
+                    selected && <DialogApartment {...selected} locale={locale}/>
+                  }
+                </DialogContent>
+              </Dialog>
             </div>
           )
         }

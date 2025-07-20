@@ -27,7 +27,7 @@ export async function RTEComponent(props: Props) {
       style={{
         backgroundColor: Background.BackgroundColor || "transparent",
         color: Background.TextColor || "inherit",
-      }}
+      }} {...Background?.htmlID ? {id:Background?.htmlID}:{}}
     >
       <div className="container">
         <div className="content">

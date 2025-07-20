@@ -428,6 +428,10 @@ table.table {
 }
 
 .section-tabs {
+
+  > .container {
+    @apply pb-0;    
+  }
   .section-gallery {
     .container {
       @apply p-0;

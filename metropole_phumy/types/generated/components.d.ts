@@ -436,6 +436,17 @@ export interface ListRowCells extends Struct.ComponentSchema {
   };
 }
 
+export interface MenusFloatingMenu extends Struct.ComponentSchema {
+  collectionName: 'components_menus_floating_menus';
+  info: {
+    displayName: 'FloatingMenu';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Items: Schema.Attribute.Component<'menus.menu-item', true>;
+  };
+}
+
 export interface MenusMenu extends Struct.ComponentSchema {
   collectionName: 'components_menus_menus';
   info: {
@@ -589,6 +600,7 @@ declare module '@strapi/strapi' {
       'list.block-heading': ListBlockHeading;
       'list.item': ListItem;
       'list.row-cells': ListRowCells;
+      'menus.floating-menu': MenusFloatingMenu;
       'menus.menu': MenusMenu;
       'menus.menu-item': MenusMenuItem;
       'seo.meta-tag': SeoMetaTag;

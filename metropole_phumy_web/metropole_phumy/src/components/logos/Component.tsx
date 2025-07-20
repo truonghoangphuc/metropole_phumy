@@ -20,7 +20,7 @@ export function BlockLogoVideoComponent(props: Props) {
     )} data-locale={locale} style={{
       backgroundColor: Setting?.BackgroundColor || "transparent",
       color: Setting?.TextColor || "inherit",
-    }}>
+    }} {...Setting?.htmlID ? {id:Setting?.htmlID}:{}}>
       <div className="container">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:flex-1/2">

@@ -1,18 +1,11 @@
 {
-  "subcribe": {
-    "title": "Follow Us",
-    "desc": "Subcribe to get the newest from BDS Training"
-  },
-  "NotFoundPage": {
-    "title": "Page not found"
-  },
-  "learnmore": {
-    "text": "Read More"
-  },
-  "getmore": {
-    "text": "GET EXCLUSIVE INFORMATION"
-  },
-  "require": {
-    "text": "This field is required"
+  "apartment": {
+    "key": "Key",
+    "floor": "Floor",
+    "sizein": "Wall area",
+    "sizeout": "Net area",
+    "plan": "Key Plan",
+    "readmore": "Read more",
+    "reg": "Sign-up"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_menus_floating_menus",
+  "info": {
+    "displayName": "FloatingMenu",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Items": {
+      "type": "component",
+      "component": "menus.menu-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

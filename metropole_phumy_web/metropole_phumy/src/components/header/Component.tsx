@@ -10,7 +10,7 @@ import Link from "next/link";
 import HeaderClient from "./Component.client";
 
 
-export async function Header({ locale = "vi" }: { locale: string }) {
+export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:string }) {
 
   const query = qs.stringify(
     {
@@ -54,7 +54,7 @@ export async function Header({ locale = "vi" }: { locale: string }) {
         </div>
         <HeaderNav data={headerData.Navigations} logo={headerData.Logo} />
       </div>
-      <HeaderClient />
+      <HeaderClient gtm={gtm}/>
       <style>{`
         .main-header {
           background-color: ${headerData.DefaultColor.BGColor || "transparent"};

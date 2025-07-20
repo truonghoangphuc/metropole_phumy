@@ -21,7 +21,7 @@ export function BlockListingComponent(props: Props) {
     )} data-locale={locale} style={{
       backgroundColor: Setting?.BackgroundColor || "transparent",
       color: Setting?.TextColor || "inherit",
-    }}>
+    }} {...Setting?.htmlID ? {id:Setting?.htmlID}:{}}>
       <div className="container">
         <div className="group-text">
           {Heading && (

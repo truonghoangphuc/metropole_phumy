@@ -10,7 +10,8 @@ import { BlockTableComponent } from '@/components/table/Component';
 import { BlockListingComponent } from '@/components/listing/Component';
 import { BlockFormComponent } from '@/components/form/Component';
 import { BlockTabsComponent } from '@/components/tabs/Component';
-import { BlockLogoVideoComponent } from './logos/Component';
+import { BlockLogoVideoComponent } from '@/components/logos/Component';
+import { FloatingMenu } from '@/components/floating/Component';
 
 
 const blockComponents: Record<string, React.FC<any>> = {
@@ -22,7 +23,8 @@ const blockComponents: Record<string, React.FC<any>> = {
   "content.block-listing": BlockListingComponent,
   "content.block-form": BlockFormComponent,
   "content.block-tabs": BlockTabsComponent,
-  "content.block-logo-video": BlockLogoVideoComponent
+  "content.block-logo-video": BlockLogoVideoComponent,
+  "menus.floating-menu": FloatingMenu
 }
 
 export const RenderBlocks: React.FC<{
@@ -38,9 +40,9 @@ export const RenderBlocks: React.FC<{
       <Fragment>
         {blocks.map((block, index) => {
           const blockType = block.__component;
-          if (blockType === 'content.block-tabs') {
-            console.log(block)
-          }
+          // if (blockType === 'content.block-tabs') {
+          //   console.log(block)
+          // }
           if (blockType && blockType in blockComponents) {
             const Block = blockComponents[blockType];
             if (Block) {
