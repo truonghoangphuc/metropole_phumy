@@ -84,6 +84,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         {...(sizes ? { sizes: sizes } : {})}
         src={src}
         width={!fill ? width : undefined}
+        {...priority ? {fetchPriority: 'high'}:{}}
       />
     </picture>
   );
