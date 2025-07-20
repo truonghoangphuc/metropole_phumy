@@ -89,6 +89,8 @@ export default async function RootLayout({
       }`}
     >
       <head>
+        <link rel="preconnect" href={API_URL}/>
+        <link rel="dns-prefetch" href={API_URL} />
         <meta name="google" content="notranslate" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta
