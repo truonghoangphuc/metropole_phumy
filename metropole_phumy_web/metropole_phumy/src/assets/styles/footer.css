@@ -88,4 +88,8 @@
   input {
     @apply px-4 py-3 leading-none text-base border-[1px] border-solid border-gray-100 flex-1 rounded-md;
   }
+
+  button {
+    @apply flex-1 px-0 lg:px-4;
+  }
 }
