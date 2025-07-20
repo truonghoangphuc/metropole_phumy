@@ -85,7 +85,9 @@ function Carousel({
     (index: number) => {
       if (index === api?.selectedScrollSnap()) return;
       const autoplay = api?.plugins()?.autoplay;
-      autoplay?.reset();
+      if (autoplay && typeof (autoplay as { reset?: () => void }).reset === "function") {
+        (autoplay as unknown as { reset: () => void }).reset();
+      }
       api?.scrollTo(index);
     },
     [api]

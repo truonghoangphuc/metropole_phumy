@@ -9,6 +9,7 @@ export default async function NotFoundPage({
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
 
+  console.log(params, searchParams)
   
   return <React.Fragment>404 - Not Found</React.Fragment>;
 }

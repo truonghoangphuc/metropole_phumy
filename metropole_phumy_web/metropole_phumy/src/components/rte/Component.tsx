@@ -47,6 +47,7 @@ export async function RTEComponent(props: Props) {
                   CSS={cta.CSS}
                   Title={cta.Title}
                   Type={cta.Type}
+                  Icon={cta.Icon}
                 >
                 </CTAComponent>
               ))}

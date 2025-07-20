@@ -65,6 +65,7 @@ export function BlockTableComponent(props: Props) {
               CSS={CTA.CSS}
               Title={CTA.Title}
               Type={CTA.Type}
+              Icon={CTA.Icon}
             />
           )}
           </div>
