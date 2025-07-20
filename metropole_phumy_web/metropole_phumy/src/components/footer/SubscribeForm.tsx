@@ -5,8 +5,8 @@ import { Button } from "../ui/button";
 
 export function FormSubscribe (props: {text:string, button:string}) {
 
-  const handleSubscribe = () => {
-
+  const handleSubscribe = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
   }
 
   return (

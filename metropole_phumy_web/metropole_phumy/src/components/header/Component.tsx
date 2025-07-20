@@ -41,7 +41,7 @@ export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:
       <div className="container">
         <div className="header-logo">
           {headerData.Logo && headerData.Logo.url && (
-            <Link href={rootURL} prefetch>
+            <Link href={rootURL} prefetch title="Metropole Phu My">
               <Image
                 src={`${API_URL}${headerData.Logo.url}`}
                 alt={headerData.Logo.alt || ""}

@@ -191,7 +191,7 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
                     {footerData.Download.Icon && (
                       <Image
                         src={`${API_URL}${footerData.Download.Icon.url}`}
-                        alt={footerData.Download.Title}
+                        alt={`Download`}
                         width={footerData.Download.Icon.width || 24}
                         height={footerData.Download.Icon.height || 24}
                       />
