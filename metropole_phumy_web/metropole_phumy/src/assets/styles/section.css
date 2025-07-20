@@ -128,11 +128,15 @@
   }
 
   .cta {
-    @apply mx-auto flex justify-self-center;
+    @apply mx-auto inline-flex justify-self-center;
   }
 
   .table {
     @apply lg:flex-1/2;
+  }
+
+  .video-wrapper {
+    @apply text-center;
   }
 }
 
