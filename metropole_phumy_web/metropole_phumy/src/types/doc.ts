@@ -33,7 +33,8 @@ export interface BlockSettingData {
   BackgroundColor: string;
   TextColor: string;
   CSS: string | null;
-  htmlID: string
+  htmlID: string;
+  IsHeroBanner: boolean
 }
 
 export interface Block {

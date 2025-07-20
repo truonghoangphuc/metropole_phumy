@@ -47,8 +47,8 @@ export function DialogApartment (props: Props) {
           </Carousel>
         </div>
         <div className="content lg:flex-1/2">
-          <p className="tag">{t('key')}:{HomeKey}</p>
-          <p className="font-bold uppercase text-primary text-2xl lg:text-[32px] mb-6">{Title}</p>
+          <p className="tag">{t('key')}: {HomeKey}</p>
+          <p className="font-bold uppercase text-primary text-xl lg:text-[32px] mb-4 lg:mb-6">{Title}</p>
           <ul>
             <li>
               <span>{t('floor')}:</span><span>{HomeFloor}</span>

@@ -2,6 +2,7 @@
   "apartment": {
     "key": "Key",
     "floor": "Floor",
+    "size": "Area",
     "sizein": "Wall area",
     "sizeout": "Net area",
     "plan": "Key Plan",

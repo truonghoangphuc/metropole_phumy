@@ -7,7 +7,7 @@ const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
   ? `https://${process.env.NEXT_PUBLIC_SERVER_URL}`
   : 'http://localhost:3000'
 
-const IMAGE_SERVER = process.env.API_DOMAIN || "https://api.thehuntergroup.asia";
+const IMAGE_SERVER = process.env.API_DOMAIN || "http://localhost:1337";
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',

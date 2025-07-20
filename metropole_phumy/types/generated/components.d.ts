@@ -125,6 +125,7 @@ export interface ContentBlockSetting extends Struct.ComponentSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 50;
       }>;
+    IsHeroBanner: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     TextColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
   };

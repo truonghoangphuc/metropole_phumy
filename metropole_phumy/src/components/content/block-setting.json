@@ -9,13 +9,13 @@
   "attributes": {
     "BackgroundColor": {
       "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
     "TextColor": {
       "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
     "BackgroundImage": {
       "type": "media",
@@ -44,6 +44,10 @@
       "type": "string",
       "maxLength": 50,
       "unique": true
+    },
+    "IsHeroBanner": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

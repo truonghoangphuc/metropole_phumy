@@ -64,6 +64,10 @@ export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:
           background-color: ${headerData.ScrollColor.BGColor || "transparent"};
           color: ${headerData.ScrollColor.TextColor || "inherit"};
         }
+        .mobile-navigation {
+          background-color: ${headerData.ScrollColor.BGColor || 'bg-primary'};
+          color: ${headerData.ScrollColor.TextColor || "inherit"};
+        }
       `}</style>
     </header>
   );

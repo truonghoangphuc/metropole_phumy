@@ -68,6 +68,7 @@ export async function RTEComponent(props: Props) {
         <Media
           className="bg-media"
           resource={Background.BackgroundImage}
+          {...(Background.IsHeroBanner ? {priority: true} : {})}
           {...(Background.BackgroundImageMobile
             ? { resourceMobile: Background.BackgroundImageMobile }
             : {})}

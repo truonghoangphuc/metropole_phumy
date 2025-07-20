@@ -13,6 +13,7 @@ import { Media } from "../media";
 import { useState } from "react";
 import { DialogApartment } from "./Dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { useTranslations } from "next-intl";
 
 export interface Props extends ApartmentComponentProps {
   locale: string;
@@ -27,6 +28,7 @@ export interface Props extends ApartmentComponentProps {
 
 export function ApartmentComponent(props: Props) {
   const { locale, Tag, Background, MainPhoto, ListingText, DetailText, Apartments } = props;
+  const t = useTranslations("apartment");
 
   const [selected, setSelected] = useState<Apartment|null>();
   const [open, setOpen] = useState<boolean>(false);
@@ -68,9 +70,9 @@ export function ApartmentComponent(props: Props) {
                         <div className="apartment-item-content">
                           <p className="home-key">{apartment.Title}</p>
                           <ul className="ul-bullet">
-                            <li>{apartment.HomeKey}</li>
-                            <li>{apartment.HomeSize}</li>
-                            <li>{apartment.HomeFloor}</li>
+                            <li>{t('key')}: {apartment.HomeKey}</li>
+                            <li>{t('size')}: {apartment.HomeSize}</li>
+                            <li>{t('floor')}: {apartment.HomeFloor}</li>
                           </ul>
                           <button className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}>{DetailText}</button>
                         </div>
@@ -91,7 +93,7 @@ export function ApartmentComponent(props: Props) {
                   setOpen(false);
                 }}
               >
-                <DialogContent className="bg-white border-0 gap-0 lg:py-10 lg:px-14 lg:min-w-4xl lg:max-w-4/5 xl:max-w-5xl">
+                <DialogContent className="bg-white border-0 gap-0 p-0 h-[80dvh] lg:h-auto lg:py-10 lg:px-14 lg:min-w-4xl lg:max-w-4/5 xl:max-w-5xl">
                   <DialogHeader>
                     <DialogClose className="dialog-close ring-offset-0 rounded-full opacity-100 transition-none focus:ring-0 focus:ring-offset-0 focus:outline-hidden "/>
                     <VisuallyHidden><DialogTitle></DialogTitle>{selected?.Title}</VisuallyHidden>

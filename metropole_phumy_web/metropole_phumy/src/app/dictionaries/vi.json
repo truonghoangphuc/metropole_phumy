@@ -1,7 +1,8 @@
 {
   "apartment": {
-    "key": "Mã số căn",
+    "key": "Mã căn",
     "floor": "Tầng",
+    "size": "Diện tích",
     "sizein": "Diện tích tim tường",
     "sizeout": "Diện tích thông thủy",
     "plan": "Key Plan",
