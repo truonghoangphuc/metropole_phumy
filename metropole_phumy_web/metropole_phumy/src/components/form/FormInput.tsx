@@ -4,7 +4,7 @@ import { InputType } from "./config";
 import { Media } from "../media";
 import { ChangeEvent, FocusEvent } from "react";
 
-const checkValid = (e:HTMLInputElement|HTMLTextAreaElement) => {
+export const checkValid = (e:HTMLInputElement|HTMLTextAreaElement) => {
   e.checkValidity();
   if (e.validity.valid) {
     e.closest('.form-control')?.classList.remove('invalid');

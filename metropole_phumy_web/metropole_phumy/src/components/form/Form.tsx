@@ -2,7 +2,9 @@
 
 import { FormEvent, JSX } from "react";
 import { FormType } from "./config";
-import { RenderFormInput, RenderFormSelect, RenderFormTextArea } from "./FormInput";
+import { checkValid, RenderFormInput, RenderFormSelect, RenderFormTextArea } from "./FormInput";
+
+import '../../assets/styles/components/form.css';
 
 export function FormClient(props: FormType) {
 
@@ -26,7 +28,17 @@ export function FormClient(props: FormType) {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     console.log(e);
+    const form = e.target as HTMLFormElement;
     e.preventDefault();
+    console.log(form.elements);
+    [...form.elements].forEach(element => {
+      if (
+        element instanceof HTMLInputElement ||
+        element instanceof HTMLTextAreaElement
+      ) {
+        checkValid(element);
+      }
+    });
     return false;
   }
   
