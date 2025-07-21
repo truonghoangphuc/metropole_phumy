@@ -180,3 +180,7 @@ picture {
   }
 }
 
+.lighthouse main > section:not(:first-child),
+.lighthouse main > div:not(:first-child) {
+  @apply hidden;
+}

@@ -1,6 +1,5 @@
 import { Page as PageType } from '@/types/page';
 import { API_URL } from '@/utilities/constant';
-import { Description } from '@radix-ui/react-dialog';
 import qs from 'qs';
 
 export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise<PageType> => {
