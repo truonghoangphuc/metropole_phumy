@@ -196,7 +196,13 @@ export interface ContentGallery extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'slides'>;
     Photos: Schema.Attribute.Component<'content.rich-photo', true>;
-    Rows: Schema.Attribute.Component<'content.row-photo', true>;
+    Rows: Schema.Attribute.Component<'content.row-photo', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+        },
+        number
+      >;
     Setting: Schema.Attribute.Component<'content.block-setting', false>;
     SubHeading: Schema.Attribute.Component<'content.heading', false>;
   };

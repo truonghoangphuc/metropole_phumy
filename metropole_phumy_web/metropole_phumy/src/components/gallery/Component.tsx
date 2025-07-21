@@ -54,8 +54,8 @@ export function GalleryComponent(props: Props) {
 
         {Layout === "grid" && (
           <div className="gallery-masonry">
-            {Rows.map((row) => (
-              <div className="masonry-row" key={row.id}>
+            {Rows.length < 3 && Rows.map((row) => (
+              <div className={`masonry-row masonry-${row.Items.length}`} key={row.id}>
                 {row.Items.map((photo) => (
                   <div className="masonry-item" key={photo.id}>
                     <Media className="media" resource={photo.Image}/>
@@ -73,6 +73,38 @@ export function GalleryComponent(props: Props) {
                 ))}
               </div>
             ))}
+            {Rows.length >= 3 && (
+              <Carousel opts={{align: "start", loop: true}} className="gallery-grid-content w-full">
+                <CarouselContent className="mx-auto md:-ml-4 md:mr-0">
+                {
+                  Rows.map((row) => (
+                  <CarouselItem key={row.id} className="px-1 md:pr-0 md:pl-4 basis-full md:basis-1/2">
+                    <div className={`masonry-row masonry-${row.Items.length}`} key={row.id}>
+                      {row.Items.map((photo) => (
+                          <div className="masonry-item" key={photo.id}>
+                            <Media className="media" resource={photo.Image}/>
+                            {
+                              photo.Caption && (
+                                <p className="caption">{photo.Caption}</p>
+                              )
+                            }
+                            {
+                              photo.Description && (
+                                <RichText content={photo.Description} className="photo-description"/>
+                              )
+                            }
+                          </div>
+                      ))}
+                    </div>
+                  </CarouselItem>
+                ))}
+                </CarouselContent>
+                <div className="gallery-carousel-controls">
+                  <CarouselPrevious className="prev disabled:hidden left-0"/>
+                  <CarouselNext className="next disabled:hidden right-0"/>
+                </div>
+              </Carousel>
+            )}
           </div>
         )}          
       </div>

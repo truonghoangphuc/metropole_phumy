@@ -1,1 +1,1 @@
-export default () => ({'duplicate-button': true});
+export default () => ({});

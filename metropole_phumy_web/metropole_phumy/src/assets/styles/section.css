@@ -219,7 +219,7 @@ table.table {
   }
 
   .building {
-    @apply absolute top-[74%] left-[50%] w-6 h-6 object-contain origin-center lg:w-14 lg:h-14;
+    @apply absolute top-[74%] left-[50%] w-10 h-10 object-contain origin-center lg:w-14 lg:h-14 animate-bounce;
   }
 }
 

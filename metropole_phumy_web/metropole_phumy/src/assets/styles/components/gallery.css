@@ -77,9 +77,8 @@
 
 .gallery-masonry {
   @apply grid gap-2 md:flex md:gap-4 lg:gap-8;
-  .masonry-row {
-    @apply grid gap-2 grid-cols-2 grid-rows-2 md:gap-4 md:flex-1;
 
+  .masonry-row {
     .media {
       @apply w-full h-full;
       picture {
@@ -111,6 +110,27 @@
         }
       }
     }
+  }
+  .masonry-2 {
+    @apply grid gap-2 grid-cols-2 grid-rows-2 md:gap-4 md:flex-1 h-full;
+
+    .masonry-item {
+      @apply flex col-start-1 col-end-3 aspect-[2.1];
+    }
+  }
+
+  .masonry-3 {
+    @apply grid gap-2 grid-cols-2 grid-rows-2 md:gap-4 md:flex-1 h-full;
+
+    .media {
+      @apply w-full h-full;
+      picture {
+        @apply block w-full h-full;
+      }
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
 
     &:nth-child(odd) {
       .masonry-item:first-child {
@@ -123,5 +143,23 @@
         @apply flex col-start-1 col-end-3 aspect-[2.1];
       }
     }
+  }
+
+  .masonry-4 {
+    @apply grid gap-2 grid-cols-2 grid-rows-2 md:gap-4 md:flex-1 h-full;
+  }
+}
+
+.gallery-carousel-controls {
+  @apply relative translate-y-0 py-4 flex justify-center gap-4;
+
+  button {
+    @apply translate-y-0 flex relative;
+    
+  }
+
+  .prev,
+  .next {
+    @apply border-[#114DA2] text-[#114DA2] bg-white cursor-pointer;
   }
 }
