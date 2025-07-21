@@ -20,7 +20,7 @@ export function BlockFormComponent(props: Props) {
     )} data-locale={locale} style={{
       backgroundColor: Setting?.BackgroundColor || "transparent",
       color: Setting?.TextColor || "inherit",
-    }}>
+    }} {...Setting?.htmlID ? {id:Setting?.htmlID}:{}}>
       <div className="container">
         <div className="form-wrapper" style={{backgroundColor: Form.Setting?.BGColor || "transparent",color: Form.Setting?.TextColor || "inherit"}}>
           {Heading && (
