@@ -57,7 +57,7 @@ export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:
       <HeaderClient gtm={gtm}/>
       <style>{`
         .main-header {
-          background-color: ${headerData.DefaultColor.BGColor || "var(--primary)"};
+          background-color: ${headerData.DefaultColor.BGColor || "transparent"};
           color: ${headerData.DefaultColor.TextColor || "inherit"};
         }
         .main-header.scrolled {
