@@ -48,7 +48,7 @@ export function FormClient(props: FormType) {
         renderInput(props)
       }
       <div className="command basis-full">
-        <button className="btn btn-primary w-full uppercase font-bold large" type="submit">{props.Submit}</button>
+        <button className="btn btn-primary w-full uppercase font-bold" type="submit"><span>{props.Submit}</span></button>
       </div>
     </form>
   )
