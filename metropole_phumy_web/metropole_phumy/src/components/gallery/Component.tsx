@@ -30,10 +30,10 @@ export function GalleryComponent(props: Props) {
           <HeadingText heading={Heading} className="heading" />
         )}
         {Layout === "slides" && (
-          <Carousel opts={{align: "start", loop: true}} className="gallery-content w-full">
-            <CarouselContent className="-mx-4 md:-ml-4 md:mr-0">
+          <Carousel opts={{align: "start", loop: true}} className="gallery-content w-full lg:w-auto">
+            <CarouselContent className="-mx-4 md:-ml-4 md:mr-0 lg:-ml-8">
               {Photos.map((photo) => (
-                <CarouselItem key={photo.id} className="pl-4 basis-4/5 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={photo.id} className="pl-4 basis-4/5 md:basis-1/2 lg:basis-1/3 lg:pl-8">
                   <div className="gallery-item">
                     <Media className="media" resource={photo.Image}/>
                     <div className="gallery-item-content">
@@ -66,7 +66,12 @@ export function GalleryComponent(props: Props) {
                     }
                     {
                       photo.Description && (
-                        <RichText content={photo.Description} className="photo-description"/>
+                        <div className="photo-description">
+                          { photo.Caption && (
+                            <p className="t-caption">{photo.Caption}</p>
+                          )}
+                          <RichText content={photo.Description} className="photo-description-text"/>
+                        </div>
                       )
                     }
                   </div>
@@ -90,7 +95,12 @@ export function GalleryComponent(props: Props) {
                             }
                             {
                               photo.Description && (
-                                <RichText content={photo.Description} className="photo-description"/>
+                                <div className="photo-description">
+                                  { photo.Caption && (
+                                    <p className="t-caption">{photo.Caption}</p>
+                                  )}
+                                  <RichText content={photo.Description} className="photo-description-text"/>
+                                </div>
                               )
                             }
                           </div>

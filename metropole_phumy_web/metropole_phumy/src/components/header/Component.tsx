@@ -57,7 +57,7 @@ export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:
       <HeaderClient gtm={gtm}/>
       <style>{`
         .main-header {
-          background-color: ${headerData.DefaultColor.BGColor || "transparent"};
+          background-color: ${headerData.DefaultColor.BGColor || "var(--primary)"};
           color: ${headerData.DefaultColor.TextColor || "inherit"};
         }
         .main-header.scrolled {
@@ -67,6 +67,11 @@ export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:
         .mobile-navigation {
           background-color: ${headerData.ScrollColor.BGColor || 'bg-primary'};
           color: ${headerData.ScrollColor.TextColor || "inherit"};
+        }
+        body:has(.header-solid) {
+          .main-header {
+            background-color:${headerData.DefaultColor.BGColor || "var(--primary)"};
+          }
         }
       `}</style>
     </header>

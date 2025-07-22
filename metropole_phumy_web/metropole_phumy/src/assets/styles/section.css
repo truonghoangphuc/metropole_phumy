@@ -477,6 +477,14 @@ table.table {
 }
 
 .section-logos {
+
+  .container {
+    @apply xl:py-36;
+  }
+
+  .heading {
+    @apply xl:w-3/4;
+  }
   .video-native {
     @apply overflow-hidden rounded-2xl object-cover;
   }

@@ -22,7 +22,7 @@ export function BlockLogoVideoComponent(props: Props) {
       color: Setting?.TextColor || "inherit",
     }} {...Setting?.htmlID ? {id:Setting?.htmlID}:{}}>
       <div className="container">
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
           <div className="lg:flex-1/2">
             {Heading && (
               <HeadingText heading={Heading} className="heading" />
