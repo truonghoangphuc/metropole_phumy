@@ -2,7 +2,8 @@
 
 @reference '../../app/globals.css';
 .main-header {
-  @apply fixed lg:py-5 z-50 left-0 right-0 top-0 transition-colors duration-300;
+  @apply fixed lg:py-5 z-50 left-0 right-0 top-0 duration-300;
+  transition-property: background, colors, translate;
   
   .container {
     @apply flex justify-between items-center h-16 lg:h-auto lg:relative;
@@ -13,10 +14,10 @@
   }
 
   .btns {
-    @apply lg:mr-10 xl:mr-20;
+    @apply lg:mr-10 xl:mr-24;
     
     .button {
-      @apply text-xs;
+      @apply text-xs lg:text-sm font-bold lg:px-6 lg:py-3;
       &.outline {
         @apply outline-white;
       }
@@ -25,6 +26,30 @@
 
   .hambuger {
     @apply w-8 h-8 flex items-center justify-center lg:hidden;
+  }
+
+  &.scrolled {
+
+    .scrolled\:bg-white {
+      @apply bg-white text-primary;
+    }
+    .desktop-navigation {
+
+      ul {
+
+        a {
+          @apply hover:text-[#5DB7C0] focus:text-[#5DB7C0] active:text-[#376D85];
+        }
+      }
+    }
+
+    &.scrolled-down {
+      @apply -translate-y-full;
+    }
+
+    &.scrolled-up {
+      @apply translate-y-0;
+    }
   }
 }
 
@@ -52,17 +77,48 @@
     @apply items-center gap-[30px] text-[0px];
 
     a {
-      @apply text-sm font-medium uppercase hover:underline underline-offset-4;
+      @apply text-sm font-medium uppercase;
     }
   }
   .language-box {
     @apply absolute top-1/2 -translate-y-1/2 right-0 lg:right-4;
 
     button {
-      @apply outline-none p-0 focus-visible:ring-0 underline-offset-4 underline;
+      @apply outline-none p-0 focus-visible:ring-0 underline-offset-4 underline flex justify-center;
     }
     svg {
       @apply hidden;
+    }
+
+    span[data-slot="select-value"] {
+      @apply flex justify-center;
+    }
+  }
+}
+
+.select-language-box {
+  @apply p-0 border-0 overflow-hidden -ml-4;
+  
+  @variant lg {
+    @apply bg-[#376D85] overflow-hidden p-0;
+
+    > div[role="presentation"] {
+      @apply p-0;
+    }
+
+    .select-item {
+      @apply rounded-none px-4;
+
+      &:hover {
+        @apply bg-[#4B95B4];
+      }
+      &[data-state="checked"] {
+        @apply bg-[#4B95B4];
+
+        svg {
+          @apply text-white;
+        }
+      }
     }
   }
 }

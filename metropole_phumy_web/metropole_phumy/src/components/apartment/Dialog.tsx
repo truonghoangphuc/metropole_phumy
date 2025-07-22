@@ -71,8 +71,8 @@ export function DialogApartment (props: Props) {
             }
           </ul>
           <div className="ctas">
-            <Link href={`#`} className="btn outline outline-primary">{t('readmore')}</Link>
-            <Link href={`#`} className="btn btn-primary">{t('reg')}</Link>
+            <Link href={`#`} className="btn outline outline-primary"><span>{t('readmore')}</span></Link>
+            <Link href={`#`} className="btn btn-primary"><span>{t('reg')}</span></Link>
           </div>
         </div>
       </div>

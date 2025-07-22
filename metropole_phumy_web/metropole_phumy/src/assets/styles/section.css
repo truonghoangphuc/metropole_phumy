@@ -19,6 +19,10 @@
   &.text-right {
     @apply justify-self-end;
   }
+
+  &:has(+ .sub-heading) {
+    @apply mb-0;
+  }
 }
 
 .media {
@@ -188,7 +192,11 @@ table.table {
     }
   }
   td {
-    @apply px-4 py-3 text-sm leading-normal border-[#5DB7C0] border-[1px] border-solid border-b-0;
+    @apply px-4 py-3 text-sm leading-normal border-[#5DB7C0] border-[1px] border-solid border-b-0 lg:text-base;
+
+    &.table-label {
+      @apply xl:whitespace-nowrap;
+    }
 
     & + td {
       @apply border-l-0;
@@ -198,7 +206,7 @@ table.table {
   .cell-content {
 
     .rte-content {
-      @apply text-sm leading-normal font-bold text-[#282828] mb-0;
+      @apply text-sm leading-normal font-bold text-[#282828] mb-0 lg:text-base;
     }
   }
 }
@@ -231,7 +239,7 @@ table.table {
   }
   
   .description {
-    @apply text-base leading-[150%] mb-6;
+    @apply text-base leading-[150%] mb-6 lg:mb-8;
   }
 
   .ctas {
@@ -239,11 +247,11 @@ table.table {
   }
 
   .group-text {
-    @apply mb-10 lg:mb-0 lg:flex-[34%] lg:flex lg:flex-col lg:justify-center;
+    @apply mb-10 lg:mb-0 lg:flex-[34%] lg:flex lg:flex-col lg:justify-center relative z-[2];
   }
 
   .group-listing {
-    @apply lg:flex-[66%];
+    @apply lg:flex-[66%] z-[2];
   }
 
   .listing {
@@ -251,7 +259,7 @@ table.table {
 
     .listing-item {
       @apply flex flex-col justify-center items-center text-center rounded-2xl border-[2px] border-solid border-transparent py-3 px-5 lg:absolute;
-      background:linear-gradient(#092957, #092957) padding-box, linear-gradient(180deg, rgba(252, 214, 164, 0.4) 0%, rgba(93, 183, 192, 0.4) 100%) border-box;
+      background:linear-gradient(#092957, #092957) padding-box, linear-gradient(45deg, #37220E 4%, #C19C58 13%, #F9F3D1 20%, #C19C58 27%, #37220E 45%, #C19C58 65%, #F9F3D1 83%,#C19C58 200%) border-box;
 
       .label {
         @apply text-sm leading-normal mb-2;
@@ -269,8 +277,11 @@ table.table {
 
   @variant lg {
 
+    .heading {
+      @apply mb-6;
+    }
     .group-text {
-      @apply min-h-[750px] max-w-[calc(34%_-_32px)];
+      @apply min-h-[608px] max-w-[calc(34%_-_32px)];
     }
 
     .building {
@@ -288,7 +299,11 @@ table.table {
       @apply mb-0;
 
       .listing-item {
-        @apply origin-center;
+        @apply origin-center p-4 flex flex-col flex-col-reverse;
+
+        .rte-content {
+          @apply text-2xl leading-[120%];
+        }
 
         &:first-child {
           @apply left-20 bottom-15;
@@ -313,6 +328,11 @@ table.table {
         &:nth-child(6) {
           @apply left-115 bottom-50 -translate-y-[500%];
         }
+
+        &:has(+ :last-child),
+        &:last-child {
+          @apply flex-col;
+        }
       }
     }
   }
@@ -325,6 +345,13 @@ table.table {
     .building {
       > div {
         @apply w-auto;
+      }
+    }
+
+    .listing {
+
+      .listing-item {
+        @apply min-w-[180px]
       }
     }
   }
@@ -345,6 +372,13 @@ table.table {
       img {
         @apply object-cover w-full h-full;
       }
+    }
+  }
+
+  &.section-listing {
+
+    .container {
+      @apply static;
     }
   }
 }
@@ -398,7 +432,7 @@ table.table {
   }
 
   .tab-button {
-    @apply bg-transparent  data-[state=active]:bg-[#E5F2F8] data-[state=active]:text-[#282828] dark:data-[state=active]:text-[#282828] text-base dark:data-[state=active]:bg-[#E5F2F8];
+    @apply h-auto py-2 bg-transparent  data-[state=active]:bg-[#E5F2F8] data-[state=active]:text-[#092957] dark:data-[state=active]:text-[#092957] text-base dark:data-[state=active]:bg-[#E5F2F8] dark:text-[#282828] text-[#282828];
   }
 }
 
@@ -413,10 +447,10 @@ table.table {
   }
 
   [role="tablist"] {
-    @apply p-0 bg-[#E5F2F8];
+    @apply p-0 bg-[#E5F2F8] sticky top-0 h-auto;
   }
   .tab-button {
-    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828];
+    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828] h-auto py-2;
   }
 
   .photo {
@@ -434,6 +468,10 @@ table.table {
       .heading {
         @apply text-lg xl:text-2xl font-semibold rounded-md px-4 py-2 bg-[#4B95B4] justify-self-start;
       }
+    }
+
+    .tab-photos {
+      @apply xl:px-[120px]
     }
   }
 }
@@ -454,7 +492,7 @@ table.table {
   @apply bg-black/50 bg-blend-darken bg-cover;
 
   .block-title {
-    @apply text-white font-bold uppercase leading-[120%] mb-5;
+    @apply text-white font-bold uppercase leading-[120%] mb-5 lg:text-2xl;
   }
 
   .main-part {
@@ -491,7 +529,11 @@ table.table {
     }
 
     .btn {
-      @apply mt-2 w-full uppercase text-sm font-bold py-3;
+      @apply mt-2 w-full uppercase text-sm font-bold justify-center;
+
+      span {
+        @apply text-center justify-center;
+      }
     }
   }
 }

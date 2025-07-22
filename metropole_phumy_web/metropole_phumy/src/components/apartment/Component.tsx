@@ -74,7 +74,7 @@ export function ApartmentComponent(props: Props) {
                             <li>{t('size')}: {apartment.HomeSize}</li>
                             <li>{t('floor')}: {apartment.HomeFloor}</li>
                           </ul>
-                          <button className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}>{DetailText}</button>
+                          <a href="javascript:void(0)" className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}><span>{DetailText}</span></a>
                         </div>
                       </div>
                     </CarouselItem>

@@ -31,7 +31,7 @@ export const HeaderNav: React.FC<{ data: HeaderData["Navigations"], logo: Header
     return (
       <div className="language-box">
         <Select onValueChange={handleLanguageChange} value={language}>
-          <SelectTrigger className="w-auto border-0 !bg-transparent" aria-label="language">
+          <SelectTrigger className="w-20 border-0 !bg-transparent" aria-label="language">
             <svg
               width="20"
               height="20"
@@ -72,9 +72,9 @@ export const HeaderNav: React.FC<{ data: HeaderData["Navigations"], logo: Header
             </svg>
             <SelectValue placeholder="" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="vi">VN</SelectItem>
-            <SelectItem value="en">EN</SelectItem>
+          <SelectContent className="select-language-box">
+            <SelectItem value="vi" className="select-item">VN</SelectItem>
+            <SelectItem value="en" className="select-item">EN</SelectItem>
           </SelectContent>
         </Select>
       </div>

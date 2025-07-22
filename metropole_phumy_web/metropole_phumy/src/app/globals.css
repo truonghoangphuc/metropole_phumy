@@ -139,14 +139,19 @@ html {
       @apply absolute invisible;
     }
   }
+
 }
 
 .button,
 .btn {
-  @apply bg-none rounded-full text-center inline-block;
+  @apply bg-none rounded-full text-center inline-block overflow-hidden transition-all duration-300;
 
   &:not(button) {
-    @apply px-4 py-2;
+    @apply p-0;
+
+    span {
+      @apply flex px-4 py-2 lg:px-6 lg:py-[13px];
+    }
   }
   &.outline {
     @apply outline-white -outline-offset-1;
@@ -166,8 +171,14 @@ html {
 }
 
 .btn-primary {
-  @apply px-4 py-2 rounded-full bg-primary text-primary-foreground;
+  @apply border-solid border-2 border-transparent;
+  background-image: linear-gradient(180deg, #0050C3 0%, #4A93FD 61%,#0050C3 100%);
+
+  span {
+    @apply flex bg-primary text-primary-foreground;
+  }
 }
+
 
 picture {
   @apply bg-transparent;
@@ -183,4 +194,29 @@ picture {
 .lighthouse main > section:not(:first-child),
 .lighthouse main > div:not(:first-child) {
   @apply hidden;
+}
+
+.btn, .button, button {  
+  &.bg-white,
+  &.bg-primary,
+  &.outline {
+    @apply border-2 hover:bg-[#5DB7C0] hover:border-[#9AF6FF] active:border-[#9AF6FF] active:bg-[#376D85] hover:text-white active:text-white;
+  }
+
+  &.btn-primary {
+
+    &:hover {
+      @apply bg-none bg-[#9AF6FF];
+      span {
+        @apply bg-[#5DB7C0];
+      }
+    }
+
+    &:active {
+      @apply bg-none bg-[#9AF6FF];
+      span {
+        @apply bg-[#376D85];
+      }
+    }
+  }
 }

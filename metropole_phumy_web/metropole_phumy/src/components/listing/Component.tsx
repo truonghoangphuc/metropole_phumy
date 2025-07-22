@@ -17,7 +17,7 @@ export function BlockListingComponent(props: Props) {
   return (
     <section className={cn(
       Setting?.CSS || "",
-      `section-content section-listing`
+      `section-content section-bg section-listing`
     )} data-locale={locale} style={{
       backgroundColor: Setting?.BackgroundColor || "transparent",
       color: Setting?.TextColor || "inherit",
@@ -66,6 +66,15 @@ export function BlockListingComponent(props: Props) {
           </div>
         </div>
       </div>
+      {Setting?.BackgroundImage && (
+        <Media
+          className="bg"
+          resource={Setting?.BackgroundImage}
+          {...(Setting?.BackgroundImageMobile
+            ? { resourceMobile: Setting?.BackgroundImageMobile }
+            : {})}
+        />
+      )}
     </section>
   );
 }
