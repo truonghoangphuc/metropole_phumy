@@ -400,10 +400,7 @@ table.table {
 }
 
 .section-tabs {
-
-  > .container {
-    @apply pb-0;    
-  }
+  
   .section-gallery {
     .container {
       @apply p-0;
@@ -439,7 +436,7 @@ table.table {
 .tab-products {
 
   > .container {
-    @apply max-w-none xl:px-4;
+    @apply pb-0 max-w-none xl:px-4;
   }
 
   .section-description {
