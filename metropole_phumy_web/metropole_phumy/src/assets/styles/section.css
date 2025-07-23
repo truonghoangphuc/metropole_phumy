@@ -427,7 +427,7 @@ table.table {
   .tabs-wrapper {
 
     [role="tablist"] {
-      @apply md:absolute right-0 md:top-24;
+      @apply md:absolute right-0 md:top-24 lg:top-40;
     }
   }
 
