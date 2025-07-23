@@ -97,7 +97,7 @@
       @apply relative w-full h-auto rounded-xl lg:rounded-2xl overflow-hidden;
 
       .caption {
-        @apply absolute bottom-4 left-4 bg-white/80 text-primary rounded-[12px] px-3 py-3 uppercase font-semibold text-xs lg:text-base leading-none transition-all duration-150 ease-out origin-bottom-left w-fit max-w-3/4;
+        @apply absolute bottom-4 left-4 bg-white/80 text-primary rounded-[12px] px-3 py-3 uppercase font-semibold text-xs lg:text-base leading-[120%] lg:leading-none transition-all duration-150 ease-out origin-bottom-left w-fit max-w-3/4;
       }
 
       .photo-description {
