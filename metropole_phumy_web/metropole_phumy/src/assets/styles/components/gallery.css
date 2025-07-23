@@ -110,14 +110,16 @@
           @apply mb-0 text-sm;
         }
       }
-      &:hover {
+      @variant lg {
+        &:hover {
 
-        .caption {
-          @apply scale-0 opacity-0;
-        }
+          .caption {
+            @apply scale-0 opacity-0;
+          }
 
-        .photo-description {
-          @apply scale-100 opacity-100;
+          .photo-description {
+            @apply scale-100 opacity-100;
+          }
         }
       }
     }
