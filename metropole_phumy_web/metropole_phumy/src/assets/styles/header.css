@@ -127,7 +127,7 @@
     }
 
     img {
-      @apply relative z-[2] size-8;
+      @apply relative z-[2] size-8 lg:size-12;
     }
     span {
       @apply absolute top-0 left-0 origin-center rounded-full z-[1] block aspect-square size-12 lg:size-[72px] animate-ping !visible;
