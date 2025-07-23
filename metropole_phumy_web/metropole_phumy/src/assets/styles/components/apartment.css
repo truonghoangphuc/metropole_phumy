@@ -13,10 +13,14 @@
 
   .slides {
     @apply px-6;
+
+    .gallery-item {
+      @apply h-full flex justify-center items-center;
+    }
   }
 
   .content {
-    @apply xl:flex-2/5;
+    @apply xl:basis-2/5 xl:shrink-0;
 
     .tag {
       @apply text-[#667085] text-xs mb-2 lg:mb-3 lg:text-base;
