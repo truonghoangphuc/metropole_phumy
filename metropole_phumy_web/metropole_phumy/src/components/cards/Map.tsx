@@ -34,7 +34,7 @@ export function BlockMapComponent(props: Props) {
               <Media className="map-media" resource={Map} />              
             </div>}
           </div>
-          <div className="cards flex flex-col gap-3 justify-center">
+          <div className="cards flex flex-col gap-3">
           {
             Cards.map((item) => (
               <CardComponent className="card-bullet" {...item} locale={locale} key={item.id}/>

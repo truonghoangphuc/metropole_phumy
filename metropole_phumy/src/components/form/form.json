@@ -23,6 +23,16 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "DocumentText": {
+      "type": "string"
+    },
+    "DocumentLogos": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

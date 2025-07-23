@@ -104,10 +104,11 @@ export default async function RootLayout({
         {siteData &&
         siteData.FavIcon &&
         siteData.FavIcon.url ? (
-          <link href={`${API_URL}${siteData.FavIcon.url}`} rel="icon" sizes="16x16" />
-        ) : (
-          <link href="/favicon.ico" rel="icon" sizes="16x16" />
-        )}
+          <>
+            <link href={`${API_URL}${siteData.FavIcon.url}`} rel="icon" sizes="any" />
+            <link rel="apple-touch-icon" href={`${API_URL}${siteData.FavIcon.url}`} type={siteData.FavIcon.mime || 'image/png'} sizes="any"/>
+          </>
+        ) : <></>}
       </head>
       <body>
         <Providers>

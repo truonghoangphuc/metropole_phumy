@@ -7,6 +7,7 @@ import '@/assets/styles/components/gallery.css';
 import { Media } from "@/components/media";
 import HeadingText from "@/components/heading/Component";
 import RichText from "../rte/RichText";
+import { formatDateTime } from "@/utilities/formatDateTime";
 
 export interface Props extends GalleryComponentProps {
   locale: string;
@@ -37,7 +38,7 @@ export function GalleryComponent(props: Props) {
                   <div className="gallery-item">
                     <Media className="media" resource={photo.Image}/>
                     <div className="gallery-item-content">
-                      <p className="photo-date">{photo.Date || ''}</p>
+                      <p className="photo-date">{formatDateTime(photo.Date) || ''}</p>
                       <p className="photo-caption">{photo.Caption}</p>
                       {photo.Description && <RichText content={photo.Description} className="photo-description"/>}
                     </div>

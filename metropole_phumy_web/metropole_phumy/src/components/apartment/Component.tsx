@@ -64,7 +64,7 @@ export function ApartmentComponent(props: Props) {
               <Carousel opts={{align: "start", loop: true}} className="apartment-slides w-full">
                 <CarouselContent className="apartment-slide-wrapper -mx-4 md:-ml-4 md:mr-0">
                   {Apartments.map((apartment) => (
-                    <CarouselItem key={apartment.id} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                    <CarouselItem key={apartment.id} className="pl-4 basis-[calc(50%_-_16px)] lg:basis-1/3 xl:basis-1/4">
                       <div className="apartment-item">
                         <Media className="media" resource={apartment.Photo}/>
                         <div className="apartment-item-content">

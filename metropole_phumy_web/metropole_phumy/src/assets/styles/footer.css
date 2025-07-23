@@ -9,7 +9,7 @@
 }
 
 .footer-logo {
-  @apply mb-6 max-w-[56px] lg:max-w-[244px];
+  @apply mb-6 max-w-[244px];
 
   img {
     @apply w-full;

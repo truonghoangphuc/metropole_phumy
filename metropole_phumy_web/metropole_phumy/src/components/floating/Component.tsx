@@ -11,7 +11,7 @@ export function FloatingMenu (props: FloatingMenu) {
 
 
   return (
-    <div className="fixed right-3 bottom-4 flex flex-col gap-2 lg:gap-4 z-50">
+    <div className="floating-bar">
       {
         Items && (
           Items.map((item) => (

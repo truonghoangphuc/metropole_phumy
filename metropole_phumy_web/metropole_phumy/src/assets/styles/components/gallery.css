@@ -7,7 +7,7 @@
   }
 
   .gallery-content {
-    @apply px-20;
+    @apply pt-4 lg:px-20 lg:pt-8;
 
     & > .overflow-hidden {
       @apply pl-4 md:pl-0;
@@ -15,7 +15,7 @@
   }
 
   .gallery-item {
-    @apply border-[1px] border-solid border-[#c8c8c8] rounded-2xl relative overflow-hidden h-full;
+    @apply border-[1px] border-solid border-[#c8c8c8] rounded-2xl relative bg-white overflow-hidden h-full;
   }
 
   .media {
@@ -45,17 +45,17 @@
     @apply gap-0 pt-5 md:hidden;
 
     button {
-      @apply flex justify-center items-center w-6 h-6 bg-transparent border-0 transition-all duration-300 ease-in-out;
+      @apply flex justify-center items-center w-4 h-6 bg-transparent border-0 transition-all duration-300 ease-in-out;
       
       &::before {
         content: '';
-        @apply block w-2 h-1.5 bg-primary rounded-2xl;
+        @apply block w-2 h-1.5 bg-primary/30 rounded-2xl;
       }
 
       &.active {
-        
+        @apply w-6;
         &::before {
-          @apply w-6;
+          @apply bg-primary w-6;
         }
       }
     }

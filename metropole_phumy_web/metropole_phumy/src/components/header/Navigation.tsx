@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { HeaderData } from "./config";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useLanguage } from "@/providers/Language";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -157,15 +157,17 @@ export const HeaderNav: React.FC<{ data: HeaderData["Navigations"], logo: Header
           <VisuallyHidden>
             <SheetTitle>Menu</SheetTitle>
           </VisuallyHidden>
-          <Link href={rootURL} className="logo">
-            <Image
-              src={`${API_URL}${logo.url}`}
-              alt={logo.alt || ""}
-              width={logo.width || 174}
-              height={logo.height || 40}
-              priority={false}
-            />
-          </Link>
+          <SheetClose asChild>
+            <Link href={rootURL} className="logo">
+              <Image
+                src={`${API_URL}${logo.url}`}
+                alt={logo.alt || ""}
+                width={logo.width || 174}
+                height={logo.height || 40}
+                priority={false}
+              />
+            </Link>
+          </SheetClose>
           <ul>
             {navItems.map((item, i) => {
               return (
@@ -175,13 +177,15 @@ export const HeaderNav: React.FC<{ data: HeaderData["Navigations"], logo: Header
                     i === navItems.length - 1 ? "nav-item last" : "nav-item"
                   }`}
                 >
-                  <Link
-                    href={item.Slug}
-                    target={item.Target}
-                    className={`${item.CSS || ""}`}
-                  >
-                    {item.Title}
-                  </Link>
+                  <SheetClose asChild>
+                    <Link
+                      href={item.Slug}
+                      target={item.Target}
+                      className={`${item.CSS || ""}`}
+                    >
+                      {item.Title}
+                    </Link>
+                    </SheetClose>
                 </li>
               );
             })}

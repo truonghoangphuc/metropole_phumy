@@ -5,6 +5,7 @@ import { FormType } from "./config";
 import { checkValid, RenderFormInput, RenderFormSelect, RenderFormTextArea } from "./FormInput";
 
 import '../../assets/styles/components/form.css';
+import { Media } from "../media";
 
 export function FormClient(props: FormType) {
 
@@ -47,6 +48,18 @@ export function FormClient(props: FormType) {
       {
         renderInput(props)
       }
+      <div className="docs">
+        {
+          props.DocumentText && (
+            <p className="title text-sm font-medium uppercase text-primary leading-normal mb-2">{props.DocumentText}</p>
+          )          
+        }
+        {
+          props.DocumentLogos && (
+            props.DocumentLogos.map((logo) => <Media key={logo.id} resource={logo}/>)
+          )
+        }
+      </div>
       <div className="command basis-full">
         <button className="btn btn-primary w-full uppercase font-bold" type="submit"><span>{props.Submit}</span></button>
       </div>

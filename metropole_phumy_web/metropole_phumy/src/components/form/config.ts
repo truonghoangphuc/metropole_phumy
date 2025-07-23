@@ -28,6 +28,8 @@ export interface FormType {
   Submit: string,
   Name: string,
   Setting: ColorSetting,
+  DocumentText: string,
+  DocumentLogos: Media[]
 }
 
 export interface BlockForm extends BaseDoc {

@@ -17,7 +17,7 @@
     @apply lg:mr-10 xl:mr-24;
     
     .button {
-      @apply text-xs lg:text-sm font-bold lg:px-6 lg:py-3;
+      @apply text-xs px-4 py-2 lg:text-sm font-bold lg:px-6 lg:py-3;
       &.outline {
         @apply outline-white;
       }
@@ -32,15 +32,6 @@
 
     .scrolled\:bg-white {
       @apply bg-white text-primary;
-    }
-    .desktop-navigation {
-
-      ul {
-
-        a {
-          @apply hover:text-[#5DB7C0] focus:text-[#5DB7C0] active:text-[#376D85];
-        }
-      }
     }
 
     &.scrolled-down {
@@ -78,6 +69,7 @@
 
     a {
       @apply text-sm font-medium uppercase;
+      @apply hover:text-[#5DB7C0] focus:text-[#5DB7C0] active:text-[#376D85];
     }
   }
   .language-box {
@@ -120,5 +112,55 @@
         }
       }
     }
+  }
+}
+
+.floating-bar {
+  @apply fixed right-3 bottom-4 flex flex-col gap-2 lg:gap-4 z-50;
+
+  a {
+    @apply text-[0px] relative flex justify-center items-center;
+
+    &::before {
+      content: '';
+      @apply block absolute top-0 left-0 origin-center rounded-full z-[1] aspect-square size-12 lg:size-[72px];
+    }
+
+    img {
+      @apply relative z-[2] size-8;
+    }
+    span {
+      @apply absolute top-0 left-0 origin-center rounded-full z-[1] block aspect-square size-12 lg:size-[72px] animate-ping !visible;
+    }
+
+    &.phone {
+      &::before {
+        @apply bg-[#DC6803]/30;
+      }
+
+      span {
+        @apply bg-[#DC6803]/30;
+      }
+    }
+
+    &.zalo {
+      &::before {
+        @apply bg-[#3982F7]/30;
+      }
+
+      span {
+        @apply bg-[#3982F7]/30;
+      }
+    }
+  }
+}
+body[data-scroll-locked] {
+  @apply bg-black;
+  .main-header {
+    right: var(--removed-body-scroll-bar-size);
+  }
+
+  .floating-bar {
+    margin-right: var(--removed-body-scroll-bar-size);
   }
 }

@@ -327,6 +327,8 @@ export interface FormForm extends Struct.ComponentSchema {
     icon: 'dashboard';
   };
   attributes: {
+    DocumentLogos: Schema.Attribute.Media<'images', true>;
+    DocumentText: Schema.Attribute.String;
     Inputs: Schema.Attribute.Component<'form.input', true>;
     Name: Schema.Attribute.String &
       Schema.Attribute.Required &

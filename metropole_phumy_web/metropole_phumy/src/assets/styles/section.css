@@ -195,7 +195,7 @@ table.table {
     @apply px-4 py-3 text-sm leading-normal border-[#5DB7C0] border-[1px] border-solid border-b-0 lg:text-base;
 
     &.table-label {
-      @apply xl:whitespace-nowrap;
+      @apply border-r-0 min-w-24 xl:whitespace-nowrap;
     }
 
     & + td {
@@ -222,12 +222,15 @@ table.table {
   @apply -mx-4 lg:mx-auto lg:flex-[60%];
 
   .map {
-    @apply relative rounded-3xl overflow-hidden;
-    box-shadow: 3px 3px 15px rgba(9, 41, 87, 0.41);
+    @apply relative lg:rounded-3xl overflow-hidden;
+    
+    @variant lg {
+      box-shadow: 3px 3px 15px rgba(9, 41, 87, 0.41);
+    }
   }
 
   .building {
-    @apply absolute top-[74%] left-[50%] w-10 h-10 object-contain origin-center lg:w-14 lg:h-14 animate-bounce;
+    @apply absolute top-[74%] left-[45%] lg:left-[48%] w-10 h-10 object-contain origin-center lg:w-14 lg:h-14 animate-zoom;
   }
 }
 
@@ -251,7 +254,7 @@ table.table {
   }
 
   .group-listing {
-    @apply lg:flex-[66%] z-[2];
+    @apply relative lg:flex-[66%] z-[2];
   }
 
   .listing {
@@ -259,7 +262,7 @@ table.table {
 
     .listing-item {
       @apply flex flex-col justify-center items-center text-center rounded-2xl border-[2px] border-solid border-transparent py-3 px-5 lg:absolute;
-      background:linear-gradient(#092957, #092957) padding-box, linear-gradient(45deg, #37220E 4%, #C19C58 13%, #F9F3D1 20%, #C19C58 27%, #37220E 45%, #C19C58 65%, #F9F3D1 83%,#C19C58 200%) border-box;
+      background:linear-gradient(#092957, #092957) padding-box, linear-gradient(-59deg,rgba(193, 156, 88, 1) 0%, rgba(249, 243, 209, 1) 58%, rgba(193, 156, 88, 1) 100%) border-box;
 
       .label {
         @apply text-sm leading-normal mb-2;
@@ -444,10 +447,24 @@ table.table {
   }
 
   [role="tablist"] {
-    @apply p-0 bg-[#E5F2F8] sticky top-0 h-auto;
+    @apply px-0 py-3 -mx-4 w-auto lg:py-4 bg-white sticky top-0 h-auto;
+
+    /* &::before,
+    &::after {
+      content: '';
+      @apply flex flex-1;
+    } */
   }
   .tab-button {
-    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828] h-auto py-2;
+    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828] h-auto py-2 grow-0 shrink-0 basis-0 rounded-none data-[state=active]:rounded-md;
+
+    &:first-child {
+      @apply rounded-tl-md rounded-bl-md;
+    }
+
+    &:last-child {
+      @apply rounded-tr-md rounded-br-md;
+    }
   }
 
   .photo {
@@ -494,10 +511,10 @@ table.table {
 }
 
 .section-apartments {
-  @apply bg-black/50 bg-blend-darken bg-cover;
+  @apply bg-black/50 bg-blend-darken bg-cover overflow-hidden;
 
   .block-title {
-    @apply text-white font-bold uppercase leading-[120%] mb-5 lg:text-2xl;
+    @apply text-white font-bold uppercase text-lg leading-[120%] mb-5 lg:text-2xl;
   }
 
   .main-part {
@@ -508,18 +525,38 @@ table.table {
     }
   }
 
+  .slides-part {
+    @apply relative;
+
+    .apartment-slides {
+      @apply static;
+    }
+
+    [data-slot="carousel-content"] {
+      @apply overflow-visible lg:overflow-hidden;
+    }
+
+    .carousel-controls {
+      @apply -top-2 absolute right-0 flex gap-4;
+
+      button {
+        @apply static translate-0 fill-white stroke-white text-white border-white w-8 h-8 lg:w-[52px] lg:h-[52px];
+      }
+    }
+  }
+
   .apartment-item {
     @apply max-w-[306px] md:basis-1/2 lg:basis-1/3 xl:basis-1/4 bg-white rounded-2xl overflow-hidden;
 
     .apartment-item-content {
-      @apply px-4 py-3;
+      @apply p-2 lg:px-4 lg:py-3;
 
       .home-key {
-        @apply font-bold text-base text-primary mb-2;
+        @apply font-bold text-sm lg:text-base text-primary mb-2;
       }
 
       ul {
-        @apply text-[#414141] text-sm;
+        @apply text-[#414141] text-xs lg:text-sm;
 
         li {
           @apply mb-2 relative flex gap-2;
@@ -537,7 +574,7 @@ table.table {
       @apply mt-2 w-full uppercase text-sm font-bold justify-center;
 
       span {
-        @apply text-center justify-center;
+        @apply text-center justify-center text-xs lg:text-sm;
       }
     }
   }

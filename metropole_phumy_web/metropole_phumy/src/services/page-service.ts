@@ -175,6 +175,9 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                   'Inputs': {
                     populate: '*'
                   },
+                  'DocumentLogos': {
+                    populate: '*'
+                  },
                   'Setting': {
                     populate: '*'
                   }
