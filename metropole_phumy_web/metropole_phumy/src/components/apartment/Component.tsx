@@ -81,8 +81,8 @@ export function ApartmentComponent(props: Props) {
                   ))}
                 </CarouselContent>
                 <div className="carousel-controls">
-                  <CarouselPrevious className="prev disabled:hidden left-0"/>
-                  <CarouselNext className="next disabled:hidden right-0"/>
+                  <CarouselPrevious className="prev left-0"/>
+                  <CarouselNext className="next right-0"/>
                 </div>
               </Carousel>
               <Dialog
