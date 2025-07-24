@@ -107,6 +107,10 @@
   .card-subtitle {
     @apply text-sm lg:text-base leading-[150%] mb-2 text-[#5A5A5A];
   }
+
+  &:not(:has(.card-description)) {
+    @apply items-center;
+  }
 }
 
 .card-overlay {

@@ -195,7 +195,7 @@ table.table {
     @apply px-4 py-3 text-sm leading-normal border-[#5DB7C0] border-[1px] border-solid border-b-0 lg:text-base;
 
     &.table-label {
-      @apply border-r-0 min-w-24 xl:whitespace-nowrap;
+      @apply border-r-0 min-w-28 xl:whitespace-nowrap;
     }
 
     & + td {
@@ -272,7 +272,7 @@ table.table {
         @apply text-xl leading-[120%] text-[#FFD884] font-semibold;
 
         .rte-content {
-          @apply mb-0;
+          @apply mb-0 text-xl;
         }
       }
     }
