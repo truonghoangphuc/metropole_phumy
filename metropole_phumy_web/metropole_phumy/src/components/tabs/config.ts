@@ -3,7 +3,7 @@ import { Media } from "@/types/media";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { GalleryData } from "../gallery/config";
 import { BlockCards } from "../cards/config";
-import { Apartment, BlockApartment } from "../apartment/config";
+import { BlockApartment } from "../apartment/config";
 export interface TabItem {
   id: number;
   Name: string;
@@ -14,6 +14,7 @@ export interface TabItem {
   CTA: Link
   Card?: BlockCards
   Apartments?: BlockApartment
+  PopupCTAs: Link[]
 }
 
 export interface BlockTabs extends BaseDoc {

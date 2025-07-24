@@ -14,9 +14,11 @@ import { useState } from "react";
 import { DialogApartment } from "./Dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
+import { Link } from "@/types/doc";
 
 export interface Props extends ApartmentComponentProps {
   locale: string;
+  popup: Link[]
 }
 
 // Tag: string
@@ -27,7 +29,7 @@ export interface Props extends ApartmentComponentProps {
 // DetailText: string
 
 export function ApartmentComponent(props: Props) {
-  const { locale, Tag, Background, MainPhoto, ListingText, DetailText, Apartments } = props;
+  const { locale, Tag, Background, MainPhoto, ShowMainPhoto, ListingText, DetailText, DetailShowForm, Apartments, popup } = props;
   const t = useTranslations("apartment");
 
   const [selected, setSelected] = useState<Apartment|null>();
@@ -51,11 +53,23 @@ export function ApartmentComponent(props: Props) {
     >
       <div className="container">
         <div className="main-part">
-          <p className="tag">{Tag}</p>
-          <div className="main-photo">
-            <p className="block-title">{MainPhoto.Caption}</p>
-            <Media className="main-media" resource={MainPhoto.Image}/>
-          </div>
+          {
+            ShowMainPhoto && (
+              <>
+                {
+                  Tag && <p className="tag">{Tag}</p>
+                }
+                <div className="main-photo">
+                  {
+                    MainPhoto.Caption && <p className="block-title">{MainPhoto.Caption}</p>
+                  }
+                  {
+                    MainPhoto.Image && <Media className="main-media" resource={MainPhoto.Image}/>
+                  }
+                </div>
+              </>
+            )
+          }
         </div>
         {
           Apartments && (
@@ -69,12 +83,18 @@ export function ApartmentComponent(props: Props) {
                         <Media className="media" resource={apartment.Photo}/>
                         <div className="apartment-item-content">
                           <p className="home-key">{apartment.Title}</p>
-                          <ul className="ul-bullet">
+                          <ul className="ul-bullet hidden">
                             <li>{t('key')}: {apartment.HomeKey}</li>
                             <li>{t('size')}: {apartment.HomeSize}</li>
                             <li>{t('floor')}: {apartment.HomeFloor}</li>
                           </ul>
-                          <a href="javascript:void(0)" className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}><span>{DetailText}</span></a>
+                          {
+                            DetailShowForm ? (
+                              <a href="javascript:void(0)" className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}><span>{DetailText}</span></a>
+                            ) : (
+                              <a href="#contact" className="btn btn-primary"><span>{DetailText}</span></a>
+                            )
+                          }
                         </div>
                       </div>
                     </CarouselItem>
@@ -99,7 +119,7 @@ export function ApartmentComponent(props: Props) {
                     <VisuallyHidden><DialogTitle></DialogTitle>{selected?.Title}</VisuallyHidden>
                   </DialogHeader>
                   {
-                    selected && <DialogApartment {...selected} locale={locale}/>
+                    selected && <DialogApartment {...selected} locale={locale} popup={popup}/>
                   }
                 </DialogContent>
               </Dialog>

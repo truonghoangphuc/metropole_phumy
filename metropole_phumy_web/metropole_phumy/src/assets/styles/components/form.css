@@ -61,6 +61,12 @@
     }
   }
 
+  .form-control {
+    &[class*='with-radio'] {
+      @apply absolute opacity-0 -z-1;
+    }
+  }
+
   .command {
     @apply pt-2 lg:pt-6 
   }
@@ -69,6 +75,24 @@
 
     .invalid-message {
       @apply block w-full pl-10 mt-3;
+    }
+  }
+
+  &:has([type="radio"][value="sales"]:checked) {
+
+    .form-control {
+      &.with-radio-sales {
+        @apply flex visible relative opacity-100 z-2;
+      }
+    }
+  }
+
+  &:has([type="radio"][value="business"]:checked) {
+
+    .form-control {
+      &.with-radio-business {
+        @apply flex visible relative opacity-100 z-2;
+      }
     }
   }
 }

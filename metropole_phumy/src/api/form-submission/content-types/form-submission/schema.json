@@ -16,7 +16,28 @@
       "required": true,
       "unique": false
     },
-    "Title": {
+    "Fullname": {
+      "type": "string"
+    },
+    "UserType": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Message": {
+      "type": "text"
+    },
+    "Trading": {
+      "type": "string"
+    },
+    "Company": {
+      "type": "string"
+    },
+    "Position": {
       "type": "string"
     },
     "Fields": {

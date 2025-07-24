@@ -22,4 +22,6 @@ export interface BlockApartment extends BaseDoc {
   Apartments: Apartment[]
   ListingText: string
   DetailText: string
+  ShowMainPhoto: boolean
+  DetailShowForm: boolean
 }

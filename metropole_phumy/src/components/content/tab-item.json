@@ -49,6 +49,11 @@
       "type": "component",
       "component": "content.block-appartment",
       "repeatable": false
+    },
+    "PopupCTAs": {
+      "type": "component",
+      "component": "menus.menu-item",
+      "repeatable": true
     }
   },
   "config": {}

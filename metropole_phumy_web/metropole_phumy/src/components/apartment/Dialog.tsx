@@ -1,11 +1,14 @@
 // 'use client'
 import Link from "next/link";
+import { Link as CTAItem } from "@/types/doc";
 import { Media } from "../media";
 import { Apartment } from "./config";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useTranslations } from "next-intl";
 
+
 import '../../assets/styles/components/apartment.css';
+import { CTAComponent } from "../cta/Component";
 // id: number;  
 // Title: string;
 // Photo: Media;
@@ -19,10 +22,11 @@ import '../../assets/styles/components/apartment.css';
 
 export interface Props extends Apartment {
   locale: string;
+  popup: CTAItem[]
 }
 
 export function DialogApartment (props: Props) {
-  const {Gallery, HomeKey, Title, HomeFloor, HomeSizeIn, HomeSizeOut, HomeKeyPlan} = props;
+  const {Gallery, HomeKey, Title, HomeFloor, HomeSizeIn, HomeSizeOut, HomeKeyPlan, popup} = props;
 
   const t = useTranslations("apartment");
   
@@ -64,15 +68,18 @@ export function DialogApartment (props: Props) {
                 <li>
                   <span>{t('plan')}</span>
                   <span>
-                    <Media resource={HomeKeyPlan}/>
+                    <Media className="media" resource={HomeKeyPlan}/>
                   </span>
                 </li>
               )
             }
           </ul>
           <div className="ctas">
-            <Link href={`#`} className="btn outline outline-primary"><span>{t('readmore')}</span></Link>
-            <Link href={`#`} className="btn btn-primary"><span>{t('reg')}</span></Link>
+            {/* <Link href={`#`} className="btn outline outline-primary"><span>{t('readmore')}</span></Link>
+            <Link href={`#`} className="btn btn-primary"><span>{t('reg')}</span></Link> */}
+            {
+              popup.map((cta, index) => <CTAComponent key={cta.id} {...cta} className={(index%2 === 0) ? 'btn outline outline-primary':'btn btn-primary'}/>)
+            }            
           </div>
         </div>
       </div>

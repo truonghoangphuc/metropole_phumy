@@ -39,6 +39,10 @@
         span:last-child {
           @apply font-bold;
         }
+
+        .media {
+          @apply overflow-hidden aspect-[220/114];
+        }
       }
     }
   }

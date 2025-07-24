@@ -16,7 +16,7 @@ export interface Props extends TabsComponentProps {
 }
 
 export function BlockTabsComponent(props: Props) {
-  const { locale, Heading, SubHeading, Setting, Description, Tabs} = props;
+  const { locale, Heading, SubHeading, Setting, Description, Tabs, } = props;
 
   // console.log(Rows);
 
@@ -84,7 +84,7 @@ export function BlockTabsComponent(props: Props) {
                   }
                   {
                     tab.Apartments && (
-                      <ApartmentComponent locale={locale} {...tab.Apartments}></ApartmentComponent>
+                      <ApartmentComponent locale={locale} {...tab.Apartments} popup={tab.PopupCTAs}></ApartmentComponent>
                     )
                   }
                   {

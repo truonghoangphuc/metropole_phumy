@@ -7,8 +7,9 @@ import { checkValid, RenderFormInput, RenderFormSelect, RenderFormTextArea } fro
 import '../../assets/styles/components/form.css';
 import { Media } from "../media";
 import { Spinner } from "../ui/spinner";
-import qs from "qs";
 import { API_URL } from "@/utilities/constant";
+
+const staticFields = ['Fullname', 'UserType', 'Phone', 'Email', 'Trading', 'Company', 'Position', 'Message'];
 
 export function FormClient(props: FormType) {
   const [loading, setLoading] = useState(false);
@@ -35,34 +36,42 @@ export function FormClient(props: FormType) {
 
     try {
       const data: Record<string, string> = {};
+      const fields: Record<string, string> = {};
       
       [...form.elements].map((element) => {
         const name = element.getAttribute('name');
         if (name !== null) {
-          console.log(name)
           if (
             element instanceof HTMLInputElement ||
             element instanceof HTMLTextAreaElement ||
             element instanceof HTMLSelectElement
           ) {
-            console.log(element.type, element.value)
+            console.log(staticFields.indexOf(name));
             if (element.type === 'radio') {
               if (element instanceof HTMLInputElement && element.checked) {
-                data[name] = element.value;
+                if (staticFields.indexOf(name) < 0) {
+                  fields[name] = element.value;
+                } else {
+                  data[name] = element.value;
+                }
               }
             } else {
-              data[name] = element.value;
+              if (staticFields.indexOf(name) < 0) {
+                fields[name] = element.value;
+              } else {
+                data[name] = element.value;
+              }
             }
           }
         }
-      })
+      });
 
       const requestBody = {
         Name: form.name,
-        Title: '',
-        Fields: data
+        ...data,
+        Fields: fields
       }
-
+      
       const response = await fetch(`${API_URL}/api/form-submissions`, {
         method: 'POST',
         headers: {

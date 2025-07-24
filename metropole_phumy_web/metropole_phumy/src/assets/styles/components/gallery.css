@@ -114,7 +114,7 @@
         &:hover {
 
           .caption {
-            @apply scale-0 opacity-0;
+            @apply scale-200 opacity-0;
           }
 
           .photo-description {

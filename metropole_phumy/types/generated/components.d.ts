@@ -11,9 +11,12 @@ export interface ContentBlockAppartment extends Struct.ComponentSchema {
     Background: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
+    DetailShowForm: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     DetailText: Schema.Attribute.String;
     ListingText: Schema.Attribute.String;
     MainPhoto: Schema.Attribute.Component<'content.rich-photo', false>;
+    ShowMainPhoto: Schema.Attribute.Boolean;
     Tag: Schema.Attribute.String;
   };
 }
@@ -316,6 +319,7 @@ export interface ContentTabItem extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     Photos: Schema.Attribute.Media<'images', true>;
+    PopupCTAs: Schema.Attribute.Component<'menus.menu-item', true>;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

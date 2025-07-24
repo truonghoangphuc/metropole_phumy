@@ -469,22 +469,29 @@ export interface ApiFormSubmissionFormSubmission
     draftAndPublish: true;
   };
   attributes: {
+    Company: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Email: Schema.Attribute.Email;
     Fields: Schema.Attribute.JSON;
+    Fullname: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::form-submission.form-submission'
     > &
       Schema.Attribute.Private;
+    Message: Schema.Attribute.Text;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Phone: Schema.Attribute.String;
+    Position: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String;
+    Trading: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    UserType: Schema.Attribute.String;
   };
 }
 

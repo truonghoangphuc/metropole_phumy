@@ -34,6 +34,13 @@
     },
     "DetailText": {
       "type": "string"
+    },
+    "ShowMainPhoto": {
+      "type": "boolean"
+    },
+    "DetailShowForm": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

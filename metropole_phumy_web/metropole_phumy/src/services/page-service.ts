@@ -257,8 +257,11 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                       },
                       'Background': {
                         populate: '*'
-                      },                      
+                      },
                     }
+                  },
+                  'PopupCTAs': {
+                    populate: '*'
                   },
                 }
               }

@@ -8,6 +8,7 @@ import { Media } from "@/components/media";
 import HeadingText from "@/components/heading/Component";
 import RichText from "../rte/RichText";
 import { formatDateTime } from "@/utilities/formatDateTime";
+import Link from "next/link";
 
 export interface Props extends GalleryComponentProps {
   locale: string;
@@ -39,7 +40,13 @@ export function GalleryComponent(props: Props) {
                     <Media className="media" resource={photo.Image}/>
                     <div className="gallery-item-content">
                       <p className="photo-date">{formatDateTime(photo.Date) || ''}</p>
-                      <p className="photo-caption">{photo.Caption}</p>
+                      {
+                        photo.Link ? (
+                          <Link href={photo.Link} target={`_self`} className="photo-caption">{photo.Caption}</Link>
+                        ) : (
+                          <p className="photo-caption">{photo.Caption}</p>
+                        )
+                      }
                       {photo.Description && <RichText content={photo.Description} className="photo-description"/>}
                     </div>
                   </div>
