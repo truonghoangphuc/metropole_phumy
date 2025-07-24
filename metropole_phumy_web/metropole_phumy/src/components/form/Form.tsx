@@ -1,13 +1,17 @@
 'use client'
 
-import { FormEvent, JSX } from "react";
+import { FormEvent, JSX, useState } from "react";
 import { FormType } from "./config";
 import { checkValid, RenderFormInput, RenderFormSelect, RenderFormTextArea } from "./FormInput";
 
 import '../../assets/styles/components/form.css';
 import { Media } from "../media";
+import { Spinner } from "../ui/spinner";
+import qs from "qs";
+import { API_URL } from "@/utilities/constant";
 
 export function FormClient(props: FormType) {
+  const [loading, setLoading] = useState(false);
 
   const renderInput = (form: FormType) => {
     const output: JSX.Element[] = [];
@@ -27,11 +31,60 @@ export function FormClient(props: FormType) {
     return output;
   }
 
+  const submitForm = async (form: HTMLFormElement) => {
+
+    try {
+      const data: Record<string, string> = {};
+      
+      [...form.elements].map((element) => {
+        const name = element.getAttribute('name');
+        if (name !== null) {
+          console.log(name)
+          if (
+            element instanceof HTMLInputElement ||
+            element instanceof HTMLTextAreaElement ||
+            element instanceof HTMLSelectElement
+          ) {
+            console.log(element.type, element.value)
+            if (element.type === 'radio') {
+              if (element instanceof HTMLInputElement && element.checked) {
+                data[name] = element.value;
+              }
+            } else {
+              data[name] = element.value;
+            }
+          }
+        }
+      })
+
+      const requestBody = {
+        Name: form.name,
+        Title: '',
+        Fields: data
+      }
+
+      const response = await fetch(`${API_URL}/api/form-submissions`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({data:requestBody})
+      });
+      const result = await response.json();
+
+      console.log(result);
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+
+  }
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    console.log(e);
     const form = e.target as HTMLFormElement;
     e.preventDefault();
-    console.log(form.elements);
+
     [...form.elements].forEach(element => {
       if (
         element instanceof HTMLInputElement ||
@@ -40,6 +93,14 @@ export function FormClient(props: FormType) {
         checkValid(element);
       }
     });
+
+
+    if (form.checkValidity()) {
+      setLoading(true);
+
+      submitForm(form);
+    }
+
     return false;
   }
   
@@ -61,7 +122,12 @@ export function FormClient(props: FormType) {
         }
       </div>
       <div className="command basis-full">
-        <button className="btn btn-primary w-full uppercase font-bold" type="submit"><span>{props.Submit}</span></button>
+        <button className={`btn btn-primary w-full uppercase font-bold stroke-white ${loading ? 'loading relative pointer-events-none':''}`} type="submit">
+          {
+            loading ? <Spinner/> : ''
+          }
+          <span className={loading ? 'disabled':''}>{props.Submit}</span>
+        </button>
       </div>
     </form>
   )
