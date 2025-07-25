@@ -9,6 +9,7 @@ import { mergeOpenGraph } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
 import { getCachedGlobal } from './getGlobals'
 import { Sitesetting } from '@/types/siteSetting'
+import { API_URL } from './constant'
 
 
 const getImageURL = (image?: Media | null) => {
@@ -19,7 +20,7 @@ const getImageURL = (image?: Media | null) => {
   if (image && typeof image === 'object' && 'url' in image) {
     const ogUrl = image?.url
 
-    url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url
+    url = ogUrl ? API_URL + ogUrl : API_URL + image.url
   }
 
   return url
