@@ -447,7 +447,7 @@ table.table {
   }
 
   [role="tablist"] {
-    @apply px-0 py-3 -mx-4 w-auto lg:py-4 bg-white sticky top-0 h-auto z-[2];
+    @apply px-0 py-3 -mx-4 w-auto lg:py-4 bg-white sticky top-0 h-auto z-[2] items-stretch;
 
     /* &::before,
     &::after {
@@ -456,7 +456,7 @@ table.table {
     } */
   }
   .tab-button {
-    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828] h-auto py-2 grow-0 shrink-0 basis-0 rounded-none data-[state=active]:rounded-md;
+    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828] h-auto py-2 grow-0 shrink-0 basis-0 rounded-none data-[state=active]:rounded-md min-w-[30%] whitespace-normal;
 
     &:first-child {
       @apply rounded-tl-md rounded-bl-md;
@@ -480,7 +480,7 @@ table.table {
     .section-cards {
 
       .heading {
-        @apply text-lg xl:text-2xl font-semibold rounded-md px-4 py-2 bg-[#4B95B4] justify-self-start;
+        @apply text-lg xl:text-2xl font-semibold rounded-md px-4 py-2 bg-[#4B95B4] justify-self-start inline-flex;
       }
     }
 
@@ -546,13 +546,13 @@ table.table {
   }
 
   .apartment-item {
-    @apply max-w-[306px] md:basis-1/2 lg:basis-1/3 xl:basis-1/4 bg-white rounded-2xl overflow-hidden;
+    @apply max-w-[306px] md:basis-1/2 lg:basis-1/3 xl:basis-1/4 bg-white rounded-2xl overflow-hidden flex flex-col justify-between h-full;
 
     .media {
       @apply overflow-hidden aspect-[306/172];
     }
     .apartment-item-content {
-      @apply p-2 lg:px-4 lg:py-3;
+      @apply p-2 lg:px-4 lg:py-3 flex flex-col justify-between grow;
 
       .home-key {
         @apply font-bold text-sm lg:text-base text-primary mb-2;

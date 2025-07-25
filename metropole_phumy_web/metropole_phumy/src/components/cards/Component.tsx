@@ -33,7 +33,7 @@ export function BlockCardsComponent(props: Props) {
         {SubHeading && (
           <HeadingText heading={SubHeading} className="sub-heading" />
         )}
-        <div className={`cards flex flex-col flex-wrap justify-center ${_list}`}>
+        <div className={`cards flex flex-col md:flex-wrap justify-center ${_list}`}>
         {
           Items.map((item) => (
             <CardComponent className={`shrink-0 grow-0 ${_card} ${_type}`} {...item} locale={locale} key={item.id}/>

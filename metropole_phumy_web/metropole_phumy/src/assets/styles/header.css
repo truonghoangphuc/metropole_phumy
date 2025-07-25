@@ -14,13 +14,10 @@
   }
 
   .btns {
-    @apply lg:mr-10 xl:mr-24;
+    @apply lg:mr-20 xl:mr-24;
     
     .button {
       @apply text-xs px-4 py-2 lg:text-sm font-bold lg:px-6 lg:py-3;
-      &.outline {
-        @apply outline-white;
-      }
     }
   }
 
@@ -89,27 +86,23 @@
 }
 
 .select-language-box {
-  @apply p-0 border-0 overflow-hidden -ml-4;
-  
-  @variant lg {
-    @apply bg-[#376D85] overflow-hidden p-0;
+  @apply p-0 border-0 overflow-hidden -ml-4 bg-[#376D85];
 
-    > div[role="presentation"] {
-      @apply p-0;
+  > div[role="presentation"] {
+    @apply p-0;
+  }
+
+  .select-item {
+    @apply rounded-none px-4;
+
+    &:hover {
+      @apply bg-[#4B95B4];
     }
+    &[data-state="checked"] {
+      @apply bg-[#4B95B4];
 
-    .select-item {
-      @apply rounded-none px-4;
-
-      &:hover {
-        @apply bg-[#4B95B4];
-      }
-      &[data-state="checked"] {
-        @apply bg-[#4B95B4];
-
-        svg {
-          @apply text-white;
-        }
+      svg {
+        @apply text-white;
       }
     }
   }

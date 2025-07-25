@@ -68,10 +68,8 @@ export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:
           background-color: ${headerData.ScrollColor.BGColor || 'bg-primary'};
           color: ${headerData.ScrollColor.TextColor || "inherit"};
         }
-        body:has(.header-solid) {
-          .main-header {
-            background-color:${headerData.DefaultColor.BGColor || "var(--primary)"};
-          }
+        body:has(.header-solid) .main-header {
+          background-color:${headerData.DefaultColor.BGColor || "var(--primary)"};          
         }
       `}</style>
     </header>

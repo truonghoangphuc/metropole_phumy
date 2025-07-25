@@ -58,7 +58,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     : resourceMobile
     ? ''
     : Object.entries(breakpoints)
-        .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
+        .map(([, value]) => `(min-width: ${value}px) ${value * 2}w`)
         .join(", ");
 
   return (
