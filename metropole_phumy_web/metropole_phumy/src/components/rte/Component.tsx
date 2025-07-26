@@ -35,7 +35,9 @@ export async function RTEComponent(props: Props) {
           {SubHeading && (
             <HeadingText heading={SubHeading} className="sub-heading" />
           )}
-          {Description && <RichText content={Description} />}
+          {
+            Array.isArray(Description) ? <RichText content={Description} className="card-description" /> : <div dangerouslySetInnerHTML={{__html: Description}} className="card-description rte-content"></div>
+          }
           {CTAs && (
             <div className="ctas">
               {CTAs.map((cta) => (

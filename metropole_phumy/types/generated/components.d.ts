@@ -177,7 +177,8 @@ export interface ContentCard extends Struct.ComponentSchema {
   };
   attributes: {
     BorderColor: Schema.Attribute.Component<'setting.gradient-setting', false>;
-    Description: Schema.Attribute.Blocks;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
     Icon: Schema.Attribute.Media<'images'>;
     Image: Schema.Attribute.Media<'images'>;
     SubTitle: Schema.Attribute.String;
@@ -293,7 +294,8 @@ export interface ContentRte extends Struct.ComponentSchema {
   attributes: {
     Background: Schema.Attribute.Component<'content.block-setting', false>;
     CTAs: Schema.Attribute.Component<'menus.menu-item', true>;
-    Description: Schema.Attribute.Blocks;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
     Heading: Schema.Attribute.Component<'content.heading', false>;
     MediaPosition: Schema.Attribute.Enumeration<
       ['left', 'right', 'background']

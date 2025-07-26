@@ -13,7 +13,8 @@
       "type": "string"
     },
     "Description": {
-      "type": "blocks"
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
     },
     "Image": {
       "type": "media",

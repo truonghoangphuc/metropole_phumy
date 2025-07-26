@@ -7,37 +7,38 @@
   },
   "options": {},
   "attributes": {
-    "Description": {
-      "type": "blocks"
-    },
     "Heading": {
       "type": "component",
-      "repeatable": false,
-      "component": "content.heading"
+      "component": "content.heading",
+      "repeatable": false
     },
     "SubHeading": {
       "type": "component",
-      "repeatable": false,
-      "component": "content.heading"
+      "component": "content.heading",
+      "repeatable": false
     },
     "Background": {
       "type": "component",
-      "repeatable": false,
-      "component": "content.block-setting"
+      "component": "content.block-setting",
+      "repeatable": false
     },
     "CTAs": {
       "type": "component",
-      "repeatable": true,
-      "component": "menus.menu-item"
+      "component": "menus.menu-item",
+      "repeatable": true
     },
     "MediaPosition": {
       "type": "enumeration",
+      "default": "left",
       "enum": [
         "left",
         "right",
         "background"
-      ],
-      "default": "left"
+      ]
+    },
+    "Description": {
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
     }
   }
 }

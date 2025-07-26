@@ -90,7 +90,7 @@
 .card-icon {
   @apply flex gap-3 py-3 lg:flex-col lg:items-center lg:justify-start lg:text-center;
   .media {
-    @apply shrink-0 grow-0 basis-20 lg:basis-[120px] aspect-square lg:mb-3;
+    @apply shrink-0 grow-0 basis-20 lg:basis-[120px] aspect-square lg:mb-3 lg:w-[120px];
 
     img {
       @apply w-full;       
