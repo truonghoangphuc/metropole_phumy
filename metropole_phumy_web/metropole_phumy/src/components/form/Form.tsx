@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, JSX, useState } from "react";
+import { XIcon } from "lucide-react";
 import { FormType } from "./config";
 import { checkValid, RenderFormInput, RenderFormSelect, RenderFormTextArea } from "./FormInput";
 
@@ -112,32 +113,47 @@ export function FormClient(props: FormType) {
 
     return false;
   }
+
+  const closePopup = () => {
+    const overlay = document.querySelector('.popup-overlay');
+    const form = document.querySelector('.form-overlay.in-popup');
+    overlay?.setAttribute('data-state','closed');
+    form?.classList.remove('in-popup');
+    document.body.classList.remove('open-popup');
+    overlay?.remove();
+  }
   
   return (
-    <form className="form" name={props.Name} noValidate onSubmit={handleSubmit}>
-      {
-        renderInput(props)
-      }
-      <div className="docs">
+    <>
+      <button className="hidden form-close" onClick={closePopup}>
+        <XIcon className="size-6" />
+        <span className="sr-only">Close</span>
+      </button>
+      <form className="form" name={props.Name} noValidate onSubmit={handleSubmit}>
         {
-          props.DocumentText && (
-            <p className="title text-sm font-medium uppercase text-primary leading-normal mb-2">{props.DocumentText}</p>
-          )          
+          renderInput(props)
         }
-        {
-          props.DocumentLogos && (
-            props.DocumentLogos.map((logo) => <Media key={logo.id} resource={logo}/>)
-          )
-        }
-      </div>
-      <div className="command basis-full">
-        <button className={`btn btn-primary w-full uppercase font-bold stroke-white ${loading ? 'loading relative pointer-events-none':''}`} type="submit">
+        <div className="docs">
           {
-            loading ? <Spinner/> : ''
+            props.DocumentText && (
+              <p className="title text-sm font-medium uppercase text-primary leading-normal mb-2">{props.DocumentText}</p>
+            )          
           }
-          <span className={loading ? 'disabled':''}>{props.Submit}</span>
-        </button>
-      </div>
-    </form>
+          {
+            props.DocumentLogos && (
+              props.DocumentLogos.map((logo) => <Media key={logo.id} resource={logo}/>)
+            )
+          }
+        </div>
+        <div className="command basis-full">
+          <button className={`btn btn-primary w-full uppercase font-bold stroke-white ${loading ? 'loading relative pointer-events-none':''}`} type="submit">
+            {
+              loading ? <Spinner/> : ''
+            }
+            <span className={loading ? 'disabled':''}>{props.Submit}</span>
+          </button>
+        </div>
+      </form>
+    </>
   )
 }

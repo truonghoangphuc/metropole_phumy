@@ -30,7 +30,9 @@ export function CardComponent(props: Props) {
       <div className="card-content">
         <p className="card-title">{Title}</p>
         {SubTitle && <p className="card-subtitle">{SubTitle}</p>}
-        {Description && <RichText content={Description} className="card-description"/>}
+        {
+          Array.isArray(Description) ? <RichText content={Description} className="card-description" /> : <div dangerouslySetInnerHTML={{__html: Description}} className="card-description"></div>
+        }
       </div>
     </div>
   )

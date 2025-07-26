@@ -446,8 +446,12 @@ table.table {
     @apply text-center md:max-w-3/4 mx-auto;
   }
 
+  .tabslist-wrapper {
+    @apply px-0 pt-3 -mx-4 w-auto lg:pt-4 bg-white sticky top-0 h-auto z-[2] items-stretch text-center;
+  }
+
   [role="tablist"] {
-    @apply px-0 py-3 -mx-4 w-auto lg:py-4 bg-white sticky top-0 h-auto z-[2] items-stretch;
+    @apply bg-[#E5F2F8] items-stretch p-0;
 
     /* &::before,
     &::after {
@@ -456,7 +460,7 @@ table.table {
     } */
   }
   .tab-button {
-    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828] h-auto py-2 grow-0 shrink-0 basis-0 rounded-none data-[state=active]:rounded-md min-w-[30%] whitespace-normal;
+    @apply bg-[#E5F2F8] data-[state=active]:bg-[#4B95B4] data-[state=active]:text-white dark:data-[state=active]:text-white text-base dark:data-[state=active]:bg-[#4B95B4] text-[#282828] h-auto py-2 grow-0 shrink-0 basis-0 rounded-none data-[state=active]:rounded-md min-w-[30%] whitespace-normal md:min-w-auto md:whitespace-nowrap;
 
     &:first-child {
       @apply rounded-tl-md rounded-bl-md;
@@ -518,7 +522,7 @@ table.table {
   }
 
   .main-part {
-    @apply mb-8 lg:mb-12;
+    @apply mb-8 lg:mb-12 empty:hidden;
 
     .tag {
       @apply text-lg xl:text-2xl font-semibold rounded-md px-4 py-2 bg-[#4B95B4] justify-self-start text-white mb-6 lg:mb-8 xl:mb-12;
@@ -537,7 +541,7 @@ table.table {
     }
 
     .carousel-controls {
-      @apply -top-2 absolute right-0 flex gap-4;
+      @apply -top-2 absolute right-0 flex gap-4 lg:-top-6;
 
       button {
         @apply static translate-0 fill-white stroke-white text-white border-white w-8 h-8 lg:w-[52px] lg:h-[52px];

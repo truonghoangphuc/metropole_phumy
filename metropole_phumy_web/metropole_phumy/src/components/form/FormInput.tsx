@@ -30,16 +30,18 @@ export function RenderFormInput(props: InputType) {
   }
 
   return (
-    <div className={`form-control ${CSS || ''}`}>
-      {
-        Icon && (
-          <span className="ico">
-            <Media resource={Icon}></Media>
-          </span>
-        )
-      }
-      <label htmlFor={id}>{Label}</label>
-      <Input onBlur={handleBlur} onChange={handleChange} name={Name} id={id} type={Type} className={CSS} {...Type.toLowerCase() === 'radio' || Type.toLowerCase() === 'checkbox' ? {value:Value}:{defaultValue:Value}} required={Require || false} {...Checked ? {defaultChecked:Checked} : {}} {...Selected ? {defaultChecked:Selected} : {}} {...RegExpValidation ? {pattern:RegExpValidation}:{}} autoComplete="autocomplete"/>
+    <div className={`form-control-wrapper ${CSS || ''}`}>
+      <div className={`form-control`}>
+        {
+          Icon && (
+            <span className="ico">
+              <Media resource={Icon}></Media>
+            </span>
+          )
+        }
+        <label htmlFor={id}>{Label}</label>
+        <Input onBlur={handleBlur} onChange={handleChange} name={Name} id={id} type={Type} className={CSS} {...Type.toLowerCase() === 'radio' || Type.toLowerCase() === 'checkbox' ? {value:Value}:{defaultValue:Value}} required={Require || false} {...Checked ? {defaultChecked:Checked} : {}} {...Selected ? {defaultChecked:Selected} : {}} {...RegExpValidation ? {pattern:RegExpValidation}:{}} autoComplete="autocomplete"/>
+      </div>
       <div className="invalid-message">
         <p className="invalid-require">{RequireMessage}</p>
         <p className="invalid-error">{ErrorMessage}</p>
@@ -65,16 +67,18 @@ export function RenderFormTextArea(props: InputType) {
   }
 
   return (
-    <div className={`form-control ${CSS || ''}`}>
-      {
-        Icon && (
-          <span className="ico">
-            <Media resource={Icon}></Media>
-          </span>
-        )
-      }
-      <label htmlFor={id}>{Label}</label>
-      <textarea onBlur={handleBlur} onChange={handleChange} name={Name} id={id} required={Require || false} {...RegExpValidation ? {pattern:RegExpValidation}:{}}></textarea>
+    <div className={`form-control-wrapper ${CSS || ''}`}>
+      <div className={`form-control`}>
+        {
+          Icon && (
+            <span className="ico">
+              <Media resource={Icon}></Media>
+            </span>
+          )
+        }
+        <label htmlFor={id}>{Label}</label>
+        <textarea onBlur={handleBlur} onChange={handleChange} name={Name} id={id} required={Require || false} {...RegExpValidation ? {pattern:RegExpValidation}:{}}></textarea>
+      </div>
       <div className="invalid-message">
         <p className="invalid-require">{RequireMessage}</p>
         <p className="invalid-error">{ErrorMessage}</p>

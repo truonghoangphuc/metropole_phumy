@@ -38,15 +38,17 @@ export function BlockTabsComponent(props: Props) {
         <RichText content={Description} className="section-description"/>
         <div className="tabs-wrapper">
           <TabsWrapper defaultValue={Tabs[0].Name.toLowerCase()}>
-            <TabsList className="mx-auto justify-center bg-transparent text-[#282828] mb-6">
-            {
-              Tabs && Tabs.map((tab) => (
-                <TabsTrigger key={tab.id} value={tab.Name.toLowerCase()} className="data-[state=active]:shadow-none data-[state=active]:font-bold font-normal px-4 py-2 leading-normal md:px-6 md:py-3 tab-button">
-                  {tab.Title}
-                </TabsTrigger>
-              ))
-            }
-            </TabsList>
+            <div className="tabslist-wrapper">
+              <TabsList className="mx-auto justify-center bg-transparent text-[#282828] mb-6">
+              {
+                Tabs && Tabs.map((tab) => (
+                  <TabsTrigger key={tab.id} value={tab.Name.toLowerCase()} className="data-[state=active]:shadow-none data-[state=active]:font-bold font-normal px-4 py-2 leading-normal md:px-6 md:py-3 tab-button">
+                    {tab.Title}
+                  </TabsTrigger>
+                ))
+              }
+              </TabsList>
+            </div>
             {
               Tabs && Tabs.map((tab) => (
                 <TabsContent key={tab.id} value={tab.Name.toLowerCase()}>

@@ -5,7 +5,6 @@ import HeadingText from "@/components/heading/Component";
 import { Media } from "@/components/media";
 import { FormClient } from "./Form";
 
-
 export interface Props extends BlockFormComponentProps {
   locale: string;
 }
@@ -22,15 +21,17 @@ export function BlockFormComponent(props: Props) {
       color: Setting?.TextColor || "inherit",
     }} {...Setting?.htmlID ? {id:Setting?.htmlID}:{}}>
       <div className="container">
-        <div className="form-wrapper" style={{backgroundColor: Form.Setting?.BGColor || "transparent",color: Form.Setting?.TextColor || "inherit"}}>
-          {Heading && (
-            <HeadingText heading={Heading} className="heading" />
-          )}
-          {SubHeading && (
-            <HeadingText heading={SubHeading} className="sub-heading" />
-          )}
-          <div className="form-container">
-            <FormClient {...Form}></FormClient>
+        <div className="form-overlay w-full">
+          <div className="form-wrapper" style={{backgroundColor: Form.Setting?.BGColor || "transparent",color: Form.Setting?.TextColor || "inherit"}}>
+            {Heading && (
+              <HeadingText heading={Heading} className="heading" />
+            )}
+            {SubHeading && (
+              <HeadingText heading={SubHeading} className="sub-heading" />
+            )}
+            <div className="form-container">
+              <FormClient {...Form}></FormClient>
+            </div>
           </div>
         </div>
       </div>

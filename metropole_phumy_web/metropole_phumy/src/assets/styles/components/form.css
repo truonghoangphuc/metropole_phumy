@@ -4,45 +4,52 @@
   @apply flex flex-wrap gap-3;
 
   .invalid-message {
-    @apply hidden text-red-500 text-xs;
+    @apply hidden text-red-500 text-xs w-full mt-3;
   }
 
-  .form-control:not(.control-radio-button) {
-    @apply rounded-md border-[1px] border-solid border-primary px-3 py-[7px] flex flex-wrap gap-x-2 relative;
+  .form-control-wrapper:not(.control-radio-button) {
+    
+    .form-control {
+      @apply rounded-md border-[1px] border-solid border-primary px-3 py-[7px] flex flex-wrap gap-x-2 relative w-full;
 
-    label {
-      @apply absolute left-[52px] h-8 leading-8 text-sm pointer-events-none z-[1] transition-all duration-300 ease-linear;
-    }
-    .ico {
-      @apply w-8 h-8 basis-8 shrink-0 grow-0;
-    }
-
-    input {
-      @apply p-0 absolute left-[52px] right-3 h-8 leading-8 text-sm w-auto z-[2];
-
-      &:focus,
-      &.has-value {
-        @apply top-4;
+      label {
+        @apply absolute left-[52px] h-8 leading-8 text-sm pointer-events-none z-[1] transition-all duration-300 ease-linear;
       }
-    }
+      .ico {
+        @apply w-8 h-8 basis-8 shrink-0 grow-0;
+      }
 
-    textarea {
-      @apply w-full min-h-10 ml-8 pl-2;
-    }
+      input {
+        @apply p-0 absolute left-[52px] right-3 h-8 leading-8 text-sm w-auto z-[2];
 
-    input,
-    textarea {
-      @apply text-sm outline-none focus-visible:ring-0 border-transparent focus:border-transparent focus:ring-0 shadow-none border-0;
-    }
+        &:focus,
+        &.has-value {
+          @apply top-4;
+        }
+      }
 
-    &:has(input:focus) label,
-    &:has(input.has-value) label {
-      @apply text-xs leading-none h-4 text-[#596A86];
+      textarea {
+        @apply w-full min-h-10 ml-8 pl-2;
+      }
+
+      input,
+      textarea {
+        @apply text-sm outline-none focus-visible:ring-0 border-transparent focus:border-transparent focus:ring-0 shadow-none border-0;
+      }
+
+      &:has(input:focus) label,
+      &:has(input.has-value) label {
+        @apply text-xs leading-none h-4 text-[#596A86];
+      }
+
+      &.invalid {
+        @apply border-red-500;
+      }
     }
 
     &.md\:basis-1\/2 {
       @apply md:basis-[calc(50%_-_6px)];
-    }
+    }    
   }
 
   .control-radio-button {
@@ -61,7 +68,7 @@
     }
   }
 
-  .form-control {
+  .form-control-wrapper {
     &[class*='with-radio'] {
       @apply absolute opacity-0 -z-1;
     }
@@ -73,14 +80,14 @@
 
   .invalid {
 
-    .invalid-message {
-      @apply block w-full pl-10 mt-3;
+    & + .invalid-message {
+      @apply block;
     }
   }
 
   &:has([type="radio"][value="sales"]:checked) {
 
-    .form-control {
+    .form-control-wrapper {
       &.with-radio-sales {
         @apply flex visible relative opacity-100 z-2;
       }
@@ -89,10 +96,35 @@
 
   &:has([type="radio"][value="business"]:checked) {
 
-    .form-control {
+    .form-control-wrapper {
       &.with-radio-business {
         @apply flex visible relative opacity-100 z-2;
       }
     }
+  }
+}
+
+body.open-popup {
+  @apply overflow-hidden;
+
+  .container:has(.in-popup) {
+    @apply z-[51];
+  }
+}
+
+.form-overlay {
+  .form-close {
+    @apply absolute right-6 top-6;
+  }
+  &.in-popup {
+    @apply fixed top-0 bottom-0 left-1/2 -translate-x-1/2 z-[51] overflow-y-auto flex justify-center items-center pt-40 pb-20;
+
+    .form-wrapper {
+      @apply relative;
+    }
+
+    .form-close {
+      @apply flex;
+    }    
   }
 }

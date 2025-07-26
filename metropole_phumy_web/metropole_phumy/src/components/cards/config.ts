@@ -17,7 +17,7 @@ export interface Card {
   id: number;
   Title: string;
   SubTitle: string;
-  Description: BlocksContent;
+  Description: BlocksContent | string | TrustedHTML;
   Image: Media;
   BorderColor: Gradient;
   Icon: Media;

@@ -90,7 +90,7 @@ export function ApartmentComponent(props: Props) {
                           </ul>
                           {
                             DetailShowForm ? (
-                              <a href="javascript:void(0)" className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}><span>{DetailText}</span></a>
+                              <button className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}><span>{DetailText}</span></button>
                             ) : (
                               <a href="#contact" className="btn btn-primary"><span>{DetailText}</span></a>
                             )
