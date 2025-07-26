@@ -1,3 +1,4 @@
+'use client'
 import { cn } from "@/utilities/cn";
 import { BlockTabs as TabsComponentProps } from "./config";
 
@@ -20,6 +21,21 @@ export function BlockTabsComponent(props: Props) {
 
   // console.log(Rows);
 
+  const handleTabChange = (newValue:string) => {
+    // console.log("Tab changed to:", newValue);
+    const tab = document.querySelector(`[data-state="active"][data-value="${newValue}"]`);
+    if (tab) {
+      const tabs = tab.closest('.tabs-wrapper');
+      if (tabs) {
+        window.scrollTo({
+          left: 0,
+          top: tabs.getBoundingClientRect().top + window.scrollY,
+          behavior: 'smooth'
+        })
+      }
+    }
+  };
+
   return (
     <section className={cn(
       Setting?.CSS || "",
@@ -37,7 +53,7 @@ export function BlockTabsComponent(props: Props) {
         )}
         <RichText content={Description} className="section-description"/>
         <div className="tabs-wrapper">
-          <TabsWrapper defaultValue={Tabs[0].Name.toLowerCase()}>
+          <TabsWrapper defaultValue={Tabs[0].Name.toLowerCase()} onValueChange={handleTabChange}>
             <div className="tabslist-wrapper">
               <TabsList className="mx-auto justify-center bg-transparent text-[#282828] mb-6">
               {
@@ -51,7 +67,7 @@ export function BlockTabsComponent(props: Props) {
             </div>
             {
               Tabs && Tabs.map((tab) => (
-                <TabsContent key={tab.id} value={tab.Name.toLowerCase()}>
+                <TabsContent key={tab.id} data-value={tab.Name.toLowerCase()} value={tab.Name.toLowerCase()}>
                   {
                     tab.Gallery && (
                       <GalleryComponent {...tab.Gallery} locale={locale}></GalleryComponent>

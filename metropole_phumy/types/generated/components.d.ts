@@ -177,6 +177,7 @@ export interface ContentCard extends Struct.ComponentSchema {
   };
   attributes: {
     BorderColor: Schema.Attribute.Component<'setting.gradient-setting', false>;
+    CTAs: Schema.Attribute.Component<'menus.menu-item', true>;
     Description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
     Icon: Schema.Attribute.Media<'images'>;

@@ -14,10 +14,9 @@ export function CTAComponent(props: Props) {
 
   const handlePopup = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
 
-    console.log(e.target)
     const element = e.target as HTMLAnchorElement;
 
-    if (element && element.href !== '') {
+    if (element && element.href !== '' && element.classList.contains('open-popup')) {
 
       e.preventDefault();
             

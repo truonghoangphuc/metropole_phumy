@@ -26,6 +26,7 @@ export interface FooterData extends BaseDoc {
     Name: string;
   }[];
   Copyright: string;
+  CopyrightExtend: BlocksContent;
   Download: Link;
   SubscribeText: string;
   SubscribeButton: string;

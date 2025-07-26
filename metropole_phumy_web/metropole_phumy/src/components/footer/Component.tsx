@@ -41,7 +41,7 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
   const result = await response.json();
   
   const footerData: FooterData = result.data;
-
+  console.log(footerData)
 
   if (!footerData) {
     return null;
@@ -226,6 +226,11 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
                 new Date().getFullYear().toString()
               )}
             </p>
+            {
+              footerData.CopyrightExtend && (
+                <RichText content={footerData.CopyrightExtend} />
+              )
+            }
           </div>
         </div>
       </div>

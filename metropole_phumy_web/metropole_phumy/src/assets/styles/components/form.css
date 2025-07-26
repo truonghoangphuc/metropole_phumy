@@ -113,6 +113,7 @@ body.open-popup {
 }
 
 .form-overlay {
+  @apply flex justify-end;
   .form-close {
     @apply absolute right-6 top-6;
   }
@@ -124,7 +125,7 @@ body.open-popup {
     }
 
     .form-close {
-      @apply flex;
+      @apply flex cursor-pointer;
     }    
   }
 }

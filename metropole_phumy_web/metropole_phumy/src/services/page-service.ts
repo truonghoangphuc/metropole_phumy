@@ -242,9 +242,12 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                         populate: {
                           'Image': {
                             populate: '*'
+                          },
+                          'CTAs': {
+                            populate: '*'
                           }
                         }
-                      }
+                      },                      
                     }
                   },
                   'Apartments': {

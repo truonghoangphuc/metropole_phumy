@@ -1,4 +1,4 @@
-import { BaseDoc, BlockSettingData, HeadingData } from "@/types/doc";
+import { BaseDoc, BlockSettingData, HeadingData, Link } from "@/types/doc";
 import { Media } from "@/types/media";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
@@ -21,6 +21,7 @@ export interface Card {
   Image: Media;
   BorderColor: Gradient;
   Icon: Media;
+  CTAs: Link[]
 }
 
 export interface BlockCards extends BaseDoc {
