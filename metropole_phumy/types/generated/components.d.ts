@@ -7,7 +7,10 @@ export interface ContentBlockAppartment extends Struct.ComponentSchema {
     icon: 'house';
   };
   attributes: {
-    Apartments: Schema.Attribute.Component<'list.appartment', true>;
+    Apartments: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::apartment.apartment'
+    >;
     Background: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;

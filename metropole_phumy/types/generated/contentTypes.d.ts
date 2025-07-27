@@ -373,6 +373,44 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiApartmentApartment extends Struct.CollectionTypeSchema {
+  collectionName: 'apartments';
+  info: {
+    displayName: 'Apartment';
+    pluralName: 'apartments';
+    singularName: 'apartment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Gallery: Schema.Attribute.Media<'images' | 'videos', true>;
+    HomeFloor: Schema.Attribute.String;
+    HomeKey: Schema.Attribute.String;
+    HomeKeyPlan: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    HomeSize: Schema.Attribute.String;
+    HomeSizeIn: Schema.Attribute.String;
+    HomeSizeOut: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::apartment.apartment'
+    > &
+      Schema.Attribute.Private;
+    Photo: Schema.Attribute.Media<'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
@@ -1209,6 +1247,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::apartment.apartment': ApiApartmentApartment;
       'api::footer.footer': ApiFooterFooter;
       'api::form-submission.form-submission': ApiFormSubmissionFormSubmission;
       'api::header.header': ApiHeaderHeader;

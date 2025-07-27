@@ -41,7 +41,7 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
   const result = await response.json();
   
   const footerData: FooterData = result.data;
-  console.log(footerData)
+  // console.log(footerData)
 
   if (!footerData) {
     return null;

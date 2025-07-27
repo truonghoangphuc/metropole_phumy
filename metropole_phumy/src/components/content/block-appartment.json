@@ -24,11 +24,6 @@
       "component": "content.rich-photo",
       "repeatable": false
     },
-    "Apartments": {
-      "type": "component",
-      "component": "list.appartment",
-      "repeatable": true
-    },
     "ListingText": {
       "type": "string"
     },
@@ -41,6 +36,11 @@
     "DetailShowForm": {
       "type": "boolean",
       "default": false
+    },
+    "Apartments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::apartment.apartment"
     }
   },
   "config": {}
