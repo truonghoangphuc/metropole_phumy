@@ -104,8 +104,12 @@
   }
 }
 
+html:has(body.open-popup) {
+  scrollbar-gutter: stable;
+}
 body.open-popup {
   @apply overflow-hidden;
+  background: var(--background);
 
   .container:has(.in-popup) {
     @apply z-[51];

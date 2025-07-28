@@ -34,7 +34,7 @@
   }
 
   .photo-caption {
-    @apply block text-base text-gray-900 font-bold leading-[130%] mb-2 lg:text-lg min-h-[2lh];
+    @apply block text-base text-gray-900 font-bold leading-[130%] mb-2 lg:text-lg min-h-[2lh] lg:max-h-[2lh] lg:line-clamp-2;
   }
 
   .rte-content {
