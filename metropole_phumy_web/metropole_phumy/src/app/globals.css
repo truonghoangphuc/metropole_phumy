@@ -129,7 +129,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
+html.loaded {
   @apply scroll-smooth;
 }
 @layer base {
