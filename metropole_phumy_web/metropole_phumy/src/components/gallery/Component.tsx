@@ -42,7 +42,7 @@ export function GalleryComponent(props: Props) {
                       <p className="photo-date">{formatDateTime(photo.Date) || ''}</p>
                       {
                         photo.Link ? (
-                          <Link href={photo.Link} target={`_blank`} className="photo-caption">{photo.Caption}</Link>
+                          <Link href={photo.Link} target={`_blank`} className="photo-caption" title={photo.Caption}>{photo.Caption}</Link>
                         ) : (
                           <p className="photo-caption">{photo.Caption}</p>
                         )
