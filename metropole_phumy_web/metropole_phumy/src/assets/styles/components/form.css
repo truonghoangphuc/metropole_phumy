@@ -101,23 +101,30 @@
         @apply flex visible relative opacity-100 z-2;
       }
     }
-  }
+  }  
 }
 
-html:has(body.open-popup) {
+/* html:has(body.open-popup) {
   scrollbar-gutter: stable;
-}
+} */
 body.open-popup {
-  @apply overflow-hidden;
+  @apply overflow-hidden mr-[var(--removed-body-scroll-bar-size)];
   background: var(--background);
 
   .container:has(.in-popup) {
     @apply z-[51];
   }
+  .main-header {
+    right: var(--removed-body-scroll-bar-size);
+  }
+
+  .floating-bar {
+    margin-right: var(--removed-body-scroll-bar-size);
+  }
 }
 
 .form-overlay {
-  @apply flex justify-end;
+  @apply flex justify-end px-4;
   .form-close {
     @apply absolute right-6 top-6;
   }
@@ -126,10 +133,14 @@ body.open-popup {
 
     .form-wrapper {
       @apply relative;
-    }
 
-    .form-close {
-      @apply flex cursor-pointer;
+      .heading {
+        @apply text-2xl leading-[135%] lg:text-[32px];
+      }
+    }    
+
+    .form-close {      
+      @apply cursor-pointer absolute w-8 h-8 lg:w-11 lg:h-11 bg-white rounded-full top-0 right-0 flex justify-center items-center -translate-y-full -mt-2;
     }    
   }
 }

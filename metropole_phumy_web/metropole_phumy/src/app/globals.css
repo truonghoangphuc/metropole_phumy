@@ -137,10 +137,31 @@ html.loaded {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-white text-black scroll-smooth;
+    @apply bg-white text-black;
   }
 }
 
+*,
+*:hover {
+    scrollbar-color: auto;
+}
+
+*::-webkit-scrollbar {
+  -webkit-appearance:none;
+  @apply bg-black;
+}
+
+*::-webkit-scrollbar:vertical {
+  width: 8px
+}
+
+*::-webkit-scrollbar:horizontal {
+  height: 8px
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply rounded-2xl bg-white/20;
+}
 
 .cta {
   @apply uppercase text-sm font-bold;

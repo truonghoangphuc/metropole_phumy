@@ -26,10 +26,13 @@ export function CTAComponent(props: Props) {
         const form = section.querySelector('.form-overlay');
 
         if (form) {
-          // const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+          const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
           const overlay = document.createElement('div');
           overlay.className = 'popup-overlay data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50';
           overlay.setAttribute('data-state','open');
+          const style = document.createElement('style');
+          style.innerText = `:root{--removed-body-scroll-bar-size:${scrollbarWidth}px}`;
+          document.head.append(style);
           form.classList.add('in-popup');
           document.body.classList.add('open-popup');
           document.body.append(overlay);
