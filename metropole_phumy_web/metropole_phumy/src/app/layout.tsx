@@ -113,7 +113,7 @@ export default async function RootLayout({
       <body>
         <Providers>
           <NextIntlClientProvider messages={messages}>
-          <Header locale={language} gtm={siteData.GTM || ''}/>
+          <Header locale={language} gtm={siteData?.GTM || ''}/>
           <main>{children}</main>
           <Footer locale={language} />
           </NextIntlClientProvider>
@@ -122,20 +122,3 @@ export default async function RootLayout({
     </html>
   );
 }
-
-// export async function generateMetadata(): Promise<Metadata> {
-//   const settingData: Sitesetting = (await getCachedGlobal(
-//     "sitesetting",
-//     1
-//   )()) as Sitesetting;
-
-//   return {
-//     metadataBase: new URL(getServerSideURL()),
-//     title: settingData?.title || "Luminous CMS",
-//     openGraph: mergeOpenGraph(),
-//     twitter: {
-//       card: "summary_large_image",
-//       creator: "@Luminous",
-//     },
-//   };
-// }
