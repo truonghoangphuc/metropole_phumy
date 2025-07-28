@@ -15,7 +15,7 @@ export interface Link {
   Title: string;
   Type: 'normal' | 'button' | 'icon' | 'mixed';
   id: number;
-  Icon: Media;
+  Icon?: Media;
 }
 
 export interface HeadingData {

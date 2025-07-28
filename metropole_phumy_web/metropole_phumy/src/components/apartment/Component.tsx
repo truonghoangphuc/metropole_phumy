@@ -15,6 +15,7 @@ import { DialogApartment } from "./Dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
 import { Link } from "@/types/doc";
+import { CTAComponent } from "../cta/Component";
 
 export interface Props extends ApartmentComponentProps {
   locale: string;
@@ -92,7 +93,14 @@ export function ApartmentComponent(props: Props) {
                             DetailShowForm ? (
                               <button className="btn btn-primary" onClick={()=>handleShowDetail(apartment)}><span>{DetailText}</span></button>
                             ) : (
-                              <a href="#contact" className="btn btn-primary"><span>{DetailText}</span></a>
+                              <CTAComponent
+                                  id={apartment.id}
+                                  Slug={`#contact`}
+                                  Target={`_self`}
+                                  CSS={`open-popup btn btn-primary`}
+                                  Title={DetailText}
+                                  Type={`button`} >
+                              </CTAComponent>
                             )
                           }
                         </div>
