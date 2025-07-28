@@ -23,6 +23,16 @@ const PageClient: React.FC<{ className: string }> = (props) => {
       document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); // Prevent the default right-click context menu
       });
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      const style = document.createElement('style');
+      style.innerText = `:root{--removed-body-scroll-bar-size:${scrollbarWidth}px}`;
+      style.id = 'tmpStyle';
+      document.head.append(style);
+    }
+
+    return () => {
+      const style = document.querySelector('#tmpStyle');
+      style?.remove();
     }
   }, [props.className])
 

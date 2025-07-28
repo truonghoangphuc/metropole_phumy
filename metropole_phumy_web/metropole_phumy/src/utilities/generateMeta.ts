@@ -9,7 +9,7 @@ import { mergeOpenGraph } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
 import { getCachedGlobal } from './getGlobals'
 import { Sitesetting } from '@/types/siteSetting'
-import { API_URL } from './constant'
+import { API_URL, rootURL } from './constant'
 
 
 const getImageURL = (image?: Media | null) => {
@@ -27,15 +27,15 @@ const getImageURL = (image?: Media | null) => {
 }
 
 export const generateMeta = async (args: {
-  doc: Partial<Page>
+  doc: Partial<Page>,
+  locale: string
 }): Promise<Metadata> => {
-  const { doc } = args || {}
+  const { doc, locale } = args || {}
 
   const ogImage = getImageURL(doc?.openGraph?.image)
   const settingData: Sitesetting = await getCachedGlobal('sitesetting', 'vi')() as unknown as Sitesetting
 
   const title = doc?.metaTag?.title ? doc?.metaTag?.title : settingData?.title || 'Error ...'
-
 
   return {
     description: doc?.metaTag?.description,
@@ -49,7 +49,7 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url: `${rootURL}/${locale}/${Array.isArray(doc?.slug) ? doc?.slug.join('/') : doc.slug === 'homepage' ? '' : doc.slug}`,
     }),
     title,
   }

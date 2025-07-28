@@ -60,7 +60,7 @@ export async function generateMetadata({params: paramsPromise}: Args): Promise<M
     locale,
   });
 
-  return generateMeta({ doc: page });
+  return generateMeta({ doc: page, locale });
 }
 
 const queryPageBySlug = cache(
