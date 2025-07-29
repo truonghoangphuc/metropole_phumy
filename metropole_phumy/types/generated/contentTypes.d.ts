@@ -704,6 +704,12 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       }>;
     publishedAt: Schema.Attribute.DateTime;
     Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    SlugAlternate: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     StructuredData: Schema.Attribute.Component<'seo.structure-data', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

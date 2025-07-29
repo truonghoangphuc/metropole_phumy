@@ -41,10 +41,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode, initialLang
     document.documentElement.lang = lang
 
     // Update URL with new locale
-    const currentPath = pathname
-    const newPath = currentPath.startsWith('/en') || currentPath.startsWith('/vi')
+    const currentPath = pathname;
+    const alternate = document.documentElement.dataset.alternate;
+
+    const newPath = (alternate && alternate !== 'null') ? (`/${alternate}`) : (currentPath.startsWith('/en') || currentPath.startsWith('/vi')
       ? `/${lang}${currentPath.slice(3)}`
-      : `/${lang}${currentPath}`
+      : `/${lang}${currentPath}`)
     
     router.push(newPath)
     if (window) {

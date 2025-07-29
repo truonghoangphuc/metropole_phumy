@@ -2,7 +2,7 @@
 // import { useHeaderTheme } from '@/providers/HeaderTheme'
 import React, { useEffect } from 'react'
 
-const PageClient: React.FC<{ className: string }> = (props) => {
+const PageClient: React.FC<{ className: string, slugAlternate: string }> = (props) => {
 
   useEffect(() => {
     if (window) {
@@ -28,13 +28,14 @@ const PageClient: React.FC<{ className: string }> = (props) => {
       style.innerText = `:root{--removed-body-scroll-bar-size:${scrollbarWidth}px}`;
       style.id = 'tmpStyle';
       document.head.append(style);
+      document.documentElement.dataset.alternate = props.slugAlternate;
     }
 
     return () => {
       const style = document.querySelector('#tmpStyle');
       style?.remove();
     }
-  }, [props.className])
+  }, [props.className, props.slugAlternate])
 
   return <React.Fragment />
 }

@@ -37,10 +37,26 @@ export const generateMeta = async (args: {
 
   const title = doc?.metaTag?.title ? doc?.metaTag?.title : settingData?.title || 'Error ...'
 
+  const languages = {
+    'vi': '',
+    'en': ''
+  };
+
+  if (locale === 'vi') {
+    languages.vi = `${rootURL}/vi/${doc.slug === 'homepage' ? '' : doc.slug}`;
+    languages.en = `${rootURL}/en/${doc.slugAlternate || ""}`;
+  } else {
+    languages.en = `${rootURL}/en/${doc.slug === "homepage" ? "" : doc.slug}`;
+    languages.vi = `${rootURL}/vi/${doc.slugAlternate || ""}`;
+  }  
+
   return {
     description: doc?.metaTag?.description,
+    alternates: {
+      languages: languages,
+    },
     openGraph: mergeOpenGraph({
-      description: doc?.metaTag?.description || '',
+      description: doc?.metaTag?.description || "",
       images: ogImage
         ? [
             {
@@ -49,8 +65,14 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: `${rootURL}/${locale}/${Array.isArray(doc?.slug) ? doc?.slug.join('/') : doc.slug === 'homepage' ? '' : doc.slug}`,
+      url: `${rootURL}/${locale}/${
+        Array.isArray(doc?.slug)
+          ? doc?.slug.join("/")
+          : doc.slug === "homepage"
+          ? ""
+          : doc.slug
+      }`,
     }),
     title,
-  }
+  };
 }

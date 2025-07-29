@@ -318,6 +318,7 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
   const page: PageType = {
     title: data.Title,
     slug: data.Slug,
+    slugAlternate: data.SlugAlternate,
     metaTag: {
       title: data?.MetaTag?.Title,
       description: data?.MetaTag?.Description,

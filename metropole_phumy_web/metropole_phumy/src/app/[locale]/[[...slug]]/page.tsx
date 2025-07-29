@@ -40,7 +40,7 @@ export default async function Page({ params: paramsPromise }: Args) {
   
   return (
     <>
-      <PageClient className={pageSlug}/>
+      <PageClient className={pageSlug} slugAlternate={page.slugAlternate}/>
       <RenderBlocks blocks={layout} locale={locale} />
     </>
   );

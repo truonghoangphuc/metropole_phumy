@@ -4,6 +4,7 @@ import { Media } from "./media";
 export interface Page extends BaseDoc {
   title: string;
   slug: string;
+  slugAlternate: string;
   metaTag: {
     title: string | null;
     description: string | null;
@@ -13,7 +14,7 @@ export interface Page extends BaseDoc {
     title: string | null;
     type: string | null;
     url: string | null;
-    image: Media | null
+    image: Media | null;
   };
   layout: Block[];
 }

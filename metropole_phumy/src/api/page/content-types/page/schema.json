@@ -80,6 +80,14 @@
         "content.block-logo-video",
         "menus.floating-menu"
       ]
+    },
+    "SlugAlternate": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
