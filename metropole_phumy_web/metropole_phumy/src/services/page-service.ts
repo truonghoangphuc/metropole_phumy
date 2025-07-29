@@ -180,6 +180,9 @@ export const getPageBySlug = async (slug: string, locale: string = 'vi'):Promise
                   },
                   'Setting': {
                     populate: '*'
+                  },
+                  'ResolveHeading': {
+                    populate: '*'
                   }
                 }
               },

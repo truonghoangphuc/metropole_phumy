@@ -101,7 +101,7 @@ export function BlockTabsComponent(props: Props) {
                     )
                   }
                   {
-                    tab.Apartments && (
+                    tab.Apartments && tab.Apartments.Apartments.length > 0 && (
                       <ApartmentComponent locale={locale} {...tab.Apartments} popup={tab.PopupCTAs}></ApartmentComponent>
                     )
                   }

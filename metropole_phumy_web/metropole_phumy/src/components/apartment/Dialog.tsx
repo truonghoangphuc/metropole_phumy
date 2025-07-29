@@ -1,5 +1,4 @@
 // 'use client'
-import Link from "next/link";
 import { Link as CTAItem } from "@/types/doc";
 import { Media } from "../media";
 import { Apartment } from "./config";

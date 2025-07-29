@@ -21,7 +21,7 @@ export function BlockCardsComponent(props: Props) {
   return (
     <section className={cn(
       Setting?.CSS || "",
-      `section-content section-cards cards-${_type} ${Setting.BackgroundImage ? 'media-background' : ''}`
+      `section-content section-cards cards-${_type} ${Setting?.BackgroundImage ? 'media-background' : ''}`
     )} data-locale={locale} style={{
       backgroundColor: Setting?.BackgroundColor || "transparent",
       color: Setting?.TextColor || "inherit",
@@ -41,10 +41,10 @@ export function BlockCardsComponent(props: Props) {
         }
         </div>
       </div>
-      {Setting.BackgroundImage && (
+      {Setting?.BackgroundImage && (
         <Media
           className="bg-media"
-          resource={Setting.BackgroundImage}
+          resource={Setting?.BackgroundImage}
           {...(Setting.BackgroundImageMobile
             ? { resourceMobile: Setting.BackgroundImageMobile }
             : {})}

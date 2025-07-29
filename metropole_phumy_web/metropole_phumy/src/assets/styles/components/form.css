@@ -109,7 +109,7 @@
 } */
 body.open-popup {
   @apply overflow-hidden mr-[var(--removed-body-scroll-bar-size)];
-  background: var(--background);
+  background: white;
 
   .container:has(.in-popup) {
     @apply z-[51];

@@ -47,7 +47,7 @@ export function CTAComponent(props: Props) {
       key={id}
       href={Slug}
       target={Target}
-      className={cn("cta", className||'', Type.toLocaleLowerCase() , CSS)}
+      className={cn("cta", className||'', Type?.toLocaleLowerCase() , CSS)}
       onClick={handlePopup}
     >
       {Icon && (

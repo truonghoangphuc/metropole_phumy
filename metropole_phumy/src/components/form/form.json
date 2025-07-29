@@ -33,6 +33,15 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "ResolveHeading": {
+      "type": "component",
+      "component": "content.heading",
+      "repeatable": false
+    },
+    "ResolveContent": {
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
     }
   },
   "config": {}

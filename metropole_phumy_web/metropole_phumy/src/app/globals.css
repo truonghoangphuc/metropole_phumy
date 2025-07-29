@@ -148,7 +148,7 @@ html.loaded {
 
 *::-webkit-scrollbar {
   -webkit-appearance:none;
-  @apply bg-black;
+  @apply bg-white;
 }
 
 *::-webkit-scrollbar:vertical {
@@ -160,7 +160,7 @@ html.loaded {
 }
 
 *::-webkit-scrollbar-thumb {
-  @apply rounded-2xl bg-white/20;
+  @apply rounded-2xl bg-[#5DB7C0];
 }
 
 .cta {

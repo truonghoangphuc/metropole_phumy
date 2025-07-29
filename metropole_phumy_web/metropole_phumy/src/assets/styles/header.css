@@ -148,7 +148,7 @@
   }
 }
 body[data-scroll-locked] {
-  @apply bg-black;
+  @apply bg-white;
   .main-header {
     right: var(--removed-body-scroll-bar-size);
   }

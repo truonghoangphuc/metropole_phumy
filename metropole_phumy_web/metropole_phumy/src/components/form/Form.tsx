@@ -9,11 +9,14 @@ import '../../assets/styles/components/form.css';
 import { Media } from "../media";
 import { Spinner } from "../ui/spinner";
 import { API_URL } from "@/utilities/constant";
+import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import HeadingText from "../heading/Component";
 
 const staticFields = ['Fullname', 'UserType', 'Phone', 'Email', 'Trading', 'Company', 'Position', 'Message'];
 
 export function FormClient(props: FormType) {
   const [loading, setLoading] = useState(false);
+  const [openResolve, setOpenResolve] = useState(false);
 
   const renderInput = (form: FormType) => {
     const output: JSX.Element[] = [];
@@ -82,7 +85,13 @@ export function FormClient(props: FormType) {
       });
       const result = await response.json();
 
-      console.log(result);
+      // console.log(result);
+
+      if (result) {
+        form.reset();
+        setOpenResolve(true);
+      }
+
       setLoading(false)
     } catch (error) {
       console.log(error)
@@ -154,6 +163,21 @@ export function FormClient(props: FormType) {
           </button>
         </div>
       </form>
+      <Dialog
+        open={openResolve}
+        onOpenChange={(isOpen:boolean) => {
+          if (isOpen === true) return;
+          setOpenResolve(false);
+        }}
+      >
+        <DialogContent className="bg-white border-0 gap-0 p-0 h-[80dvh] lg:h-auto lg:py-10 lg:px-14 max-w-xs">
+          <DialogHeader>
+            <DialogClose className="dialog-close ring-offset-0 rounded-full opacity-100 transition-none focus:ring-0 focus:ring-offset-0 focus:outline-hidden "/>
+            <HeadingText heading={props.ResolveHeading} className="font-bold text-2xl text-[#5DB7C0] leading-[130%] mb-4"></HeadingText>
+          </DialogHeader>
+          <div className="form-thankyou--content text-center text-primary leading-[135%] tracking-tight" dangerouslySetInnerHTML={{__html: props.ResolveContent}}></div>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

@@ -343,6 +343,9 @@ export interface FormForm extends Struct.ComponentSchema {
     Name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    ResolveContent: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
+    ResolveHeading: Schema.Attribute.Component<'content.heading', false>;
     Setting: Schema.Attribute.Component<'setting.color', false>;
     Submit: Schema.Attribute.String;
   };

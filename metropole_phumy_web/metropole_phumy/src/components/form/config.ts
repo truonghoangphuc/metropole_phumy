@@ -29,7 +29,9 @@ export interface FormType {
   Name: string,
   Setting: ColorSetting,
   DocumentText: string,
-  DocumentLogos: Media[]
+  DocumentLogos: Media[],
+  ResolveHeading: HeadingData,
+  ResolveContent: string
 }
 
 export interface BlockForm extends BaseDoc {
