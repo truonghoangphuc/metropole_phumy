@@ -17,7 +17,7 @@ export function CardComponent(props: Props) {
   const style = BorderColor?.Colors.length > 1 ? {
     background: `linear-gradient(white, white) padding-box, ${BorderColor.Type}-gradient(${BorderColor.Type === 'linear' ? BorderColor.Degree + 'deg' : 'circle' }, ${BorderColor.Colors.map(color => color.Color + ' ' + color.Percent + '%').join(', ')}) border-box`
   } : {
-    borderColor: BorderColor?.Colors[0].Color
+    borderColor: BorderColor?.Colors[0]?.Color
   };
 
   return (
