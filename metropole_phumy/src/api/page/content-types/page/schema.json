@@ -33,21 +33,41 @@
     },
     "MetaTag": {
       "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "component": "seo.meta-tag",
       "repeatable": false
     },
     "OpenGraph": {
       "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "component": "seo.open-graph",
       "repeatable": false
     },
     "StructuredData": {
       "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "component": "seo.structure-data",
       "repeatable": true
     },
     "Layout": {
       "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "components": [
         "content.rte",
         "content.gallery",
