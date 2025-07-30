@@ -7,8 +7,8 @@ import { Page } from '@/types/page'
 
 import { mergeOpenGraph } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
-import { getCachedGlobal } from './getGlobals'
-import { Sitesetting } from '@/types/siteSetting'
+// import { getCachedGlobal } from './getGlobals'
+// import { SiteData } from '@/types/siteSetting'
 import { API_URL, rootURL } from './constant'
 
 
@@ -33,9 +33,12 @@ export const generateMeta = async (args: {
   const { doc, locale } = args || {}
 
   const ogImage = getImageURL(doc?.openGraph?.image)
-  const settingData: Sitesetting = await getCachedGlobal('sitesetting', 'vi')() as unknown as Sitesetting
+  // const settingData: SiteData = (await getCachedGlobal(
+  //   "sitesetting",
+  //   "vi"
+  // )()) as unknown as SiteData;
 
-  const title = doc?.metaTag?.title ? doc?.metaTag?.title : settingData?.title || 'Error ...'
+  const title = doc?.metaTag?.title ? doc?.metaTag?.title : 'Metropole Phu My'
 
   const languages = {
     'vi': '',
