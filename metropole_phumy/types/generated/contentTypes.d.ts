@@ -795,6 +795,18 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
           localized: false;
         };
       }>;
+    FloattingMenu: Schema.Attribute.Component<'menus.floating-menu', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    GlobalForm: Schema.Attribute.Component<'content.block-form', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     GTM: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

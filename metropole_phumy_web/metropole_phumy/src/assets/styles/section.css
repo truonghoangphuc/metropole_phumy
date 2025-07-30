@@ -222,11 +222,11 @@ table.table {
   @apply -mx-4 lg:mx-auto lg:flex-[60%];
 
   .map {
-    @apply relative lg:rounded-3xl overflow-hidden;
+    @apply relative overflow-hidden;
     
-    @variant lg {
+    /* @variant lg {
       box-shadow: 3px 3px 15px rgba(9, 41, 87, 0.41);
-    }
+    } */
   }
 
   .building {

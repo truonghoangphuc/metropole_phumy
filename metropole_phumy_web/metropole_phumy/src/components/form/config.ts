@@ -24,14 +24,17 @@ export interface InputType {
 }
 
 export interface FormType {
-  Inputs: InputType[],
-  Submit: string,
-  Name: string,
-  Setting: ColorSetting,
-  DocumentText: string,
-  DocumentLogos: Media[],
-  ResolveHeading: HeadingData,
-  ResolveContent: string
+  Inputs: InputType[];
+  Submit: string;
+  Name: string;
+  Setting: ColorSetting;
+  DocumentText: string;
+  DocumentLogos: Media[];
+  ResolveHeading: HeadingData;
+  ResolveContent: string;
+  EmailToCustomer: string;
+  EmailToNotifier: string;
+  NotifyTo: string;
 }
 
 export interface BlockForm extends BaseDoc {

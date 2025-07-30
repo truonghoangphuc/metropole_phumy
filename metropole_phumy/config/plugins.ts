@@ -58,15 +58,33 @@ export default () => ({
       ],
     },
   },
+  // email: {
+  //   config: {
+  //     provider: "strapi-provider-email-resend",
+  //     providerOptions: {
+  //       apiKey: process.env.RESEND, // Required
+  //     },
+  //     settings: {
+  //       defaultFrom: "truonghoangphuc84@gmail.com",
+  //       defaultReplyTo: "YOUR_EMAIL_HERE",
+  //     },
+  //   },
+  // },
   email: {
     config: {
-      provider: "strapi-provider-email-resend",
+      provider: "nodemailer",
       providerOptions: {
-        apiKey: process.env.RESEND, // Required
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        auth: {
+          user: process.env.SMTP_USERNAME,
+          pass: process.env.SMTP_PASSWORD,
+        },
+        secure: true,
       },
       settings: {
-        defaultFrom: "truonghoangphuc84@gmail.com",
-        defaultReplyTo: "YOUR_EMAIL_HERE",
+        defaultFrom: process.env.SMTP_USERNAME,
+        defaultReplyTo: "truonghoangphuc84@gmail.com",
       },
     },
   },

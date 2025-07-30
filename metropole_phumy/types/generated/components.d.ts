@@ -339,10 +339,13 @@ export interface FormForm extends Struct.ComponentSchema {
   attributes: {
     DocumentLogos: Schema.Attribute.Media<'images', true>;
     DocumentText: Schema.Attribute.String;
+    EmailToCustomer: Schema.Attribute.Text;
+    EmailToNotifier: Schema.Attribute.Text;
     Inputs: Schema.Attribute.Component<'form.input', true>;
     Name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    NotifyTo: Schema.Attribute.String;
     ResolveContent: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
     ResolveHeading: Schema.Attribute.Component<'content.heading', false>;

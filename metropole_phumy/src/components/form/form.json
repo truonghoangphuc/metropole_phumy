@@ -42,6 +42,15 @@
     "ResolveContent": {
       "type": "customField",
       "customField": "plugin::tinymce.tinymce"
+    },
+    "NotifyTo": {
+      "type": "string"
+    },
+    "EmailToNotifier": {
+      "type": "text"
+    },
+    "EmailToCustomer": {
+      "type": "text"
     }
   },
   "config": {}

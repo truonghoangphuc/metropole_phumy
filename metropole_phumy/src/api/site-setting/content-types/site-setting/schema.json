@@ -34,6 +34,26 @@
           "localized": true
         }
       }
+    },
+    "GlobalForm": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "content.block-form",
+      "repeatable": false
+    },
+    "FloattingMenu": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "menus.floating-menu",
+      "repeatable": false
     }
   }
 }

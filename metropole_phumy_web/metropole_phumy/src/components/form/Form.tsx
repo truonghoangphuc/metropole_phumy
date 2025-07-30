@@ -41,6 +41,23 @@ export function FormClient(props: FormType) {
     try {
       const data: Record<string, string> = {};
       const fields: Record<string, string> = {};
+
+      //
+      // const requestBodyEmail = {
+      //   to: 
+      // }
+      
+      // const responseEmail = await fetch(`${API_URL}/api/email/send`, {
+      //   method: 'POST',
+      //   headers: {
+      //     'content-type': 'application/json'
+      //   },
+      //   body: JSON.stringify({data:requestBodyEmail})
+      // });
+      // const resultEmail = await responseEmail.json();
+      // console.log(resultEmail);
+      // return;
+      //
       
       [...form.elements].map((element) => {
         const name = element.getAttribute('name');
@@ -50,7 +67,7 @@ export function FormClient(props: FormType) {
             element instanceof HTMLTextAreaElement ||
             element instanceof HTMLSelectElement
           ) {
-            console.log(staticFields.indexOf(name));
+            // console.log(staticFields.indexOf(name));
             if (element.type === 'radio') {
               if (element instanceof HTMLInputElement && element.checked) {
                 if (staticFields.indexOf(name) < 0) {
@@ -88,6 +105,10 @@ export function FormClient(props: FormType) {
       // console.log(result);
 
       if (result) {
+        // sending email here
+        
+
+
         form.reset();
         setOpenResolve(true);
       }
@@ -101,8 +122,8 @@ export function FormClient(props: FormType) {
   }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    const form = e.target as HTMLFormElement;
     e.preventDefault();
+    const form = e.target as HTMLFormElement;
 
     [...form.elements].forEach(element => {
       if (
@@ -118,9 +139,9 @@ export function FormClient(props: FormType) {
       setLoading(true);
 
       submitForm(form);
-    }
-
-    return false;
+    } else {
+      return false;
+    }    
   }
 
   const closePopup = () => {

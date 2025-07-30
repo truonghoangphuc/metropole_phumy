@@ -1,7 +1,12 @@
+import { BlockForm } from "@/components/form/config";
 import { Media } from "./media";
+import { Link } from "./doc";
 
-export interface Sitesetting {
-  id: string;
-  fav?: (string | null) | Media;
-  title: string;
+export interface SiteData {
+  FavIcon?: Media;
+  GTM?: string;
+  GlobalForm?: BlockForm;
+  FloattingMenu?: {
+    Items: Link[]
+  };
 }

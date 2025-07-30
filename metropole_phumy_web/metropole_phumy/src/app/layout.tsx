@@ -14,6 +14,9 @@ import "./globals.css";
 import qs from "qs";
 import { API_URL } from "@/utilities/constant";
 import { Media } from "@/types/media";
+import { SiteData } from "@/types/siteSetting";
+import { BlockFormComponent } from "@/components/form/Component";
+import { FloatingMenu } from "@/components/floating/Component";
 
 // const publicSans = Public_Sans({
 //   subsets: ["latin"],
@@ -36,11 +39,6 @@ export const metadata: Metadata = {
   title: "Metrpole Phu My",
   description: "Metropole Phu My",
 };
-
-export interface SiteData {
-  FavIcon?: Media,
-  GTM?: string
-}
 
 export default async function RootLayout({
   children,
@@ -67,7 +65,7 @@ export default async function RootLayout({
           $eq: language,
         },
       },
-      populate: ["FavIcon"],
+      populate: ["FavIcon","FloattingMenu.Items.Icon","GlobalForm.Form.Inputs","GlobalForm.Form.Inputs.Icon","GlobalForm.Form.Setting","GlobalForm.Form.ResolveHeading","GlobalForm.Form.DocumentLogos","GlobalForm.Heading","GlobalForm.SubHeading","GlobalForm.Setting.BackgroundImage","GlobalForm.Setting.BackgroundImageMobile"],
     },
     {
       encodeValuesOnly: true, // prettify URL
@@ -78,6 +76,7 @@ export default async function RootLayout({
   const res = await response.json();
   const siteData:SiteData = res.data as SiteData;
 
+  console.log(siteData.GlobalForm);
 
 
   return (
@@ -114,7 +113,19 @@ export default async function RootLayout({
         <Providers>
           <NextIntlClientProvider messages={messages}>
           <Header locale={language} gtm={siteData?.GTM || ''}/>
-          <main>{children}</main>
+          <main>
+            {children}
+            {
+              siteData.GlobalForm && (
+                <BlockFormComponent {...siteData.GlobalForm} locale={language}/>
+              )
+            }
+            {
+              siteData.FloattingMenu && (
+                <FloatingMenu {...siteData.FloattingMenu}/>
+              )
+            }
+          </main>
           <Footer locale={language} />
           </NextIntlClientProvider>
         </Providers>
