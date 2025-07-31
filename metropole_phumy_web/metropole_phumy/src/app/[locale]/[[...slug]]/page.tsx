@@ -10,6 +10,7 @@ import { getPageBySlug } from "@/services/page-service";
 import { RenderBlocks } from "@/components/RenderBlocks";
 
 import "@/assets/styles/pages/homepage.css";
+import NotFound from "../not-found";
 
 type Args = {
   params: Promise<{
@@ -36,7 +37,11 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   const { layout } = page || {};
 
-  // console.log(layout[5])
+  console.log(layout)
+
+  if (!layout) {
+    return NotFound({params: {locale, slug: pageSlug}});
+  }
   
   return (
     <>
