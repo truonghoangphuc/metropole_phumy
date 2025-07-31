@@ -7,7 +7,7 @@ export default () => ({
     try {
       await strapi.plugins["email"].services.email.send({
         to,
-        from: strapi.config.get("plugin.email.settings.defaultFrom"), // Uses configured defaultFrom
+        from: strapi.config.get("plugin::email.settings.defaultFrom"), // Uses configured defaultFrom
         subject,
         text,
         html,

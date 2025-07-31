@@ -76,7 +76,7 @@ export default async function RootLayout({
   const res = await response.json();
   const siteData:SiteData = res.data as SiteData;
 
-  console.log(siteData.GlobalForm);
+  // console.log(siteData.GlobalForm);
 
 
   return (

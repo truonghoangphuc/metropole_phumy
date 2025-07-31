@@ -2,6 +2,8 @@
 
 import { FormEvent, JSX, useState } from "react";
 import { XIcon } from "lucide-react";
+import Handlebars from "handlebars";
+
 import { FormType } from "./config";
 import { checkValid, RenderFormInput, RenderFormSelect, RenderFormTextArea } from "./FormInput";
 
@@ -9,7 +11,7 @@ import '../../assets/styles/components/form.css';
 import { Media } from "../media";
 import { Spinner } from "../ui/spinner";
 import { API_URL } from "@/utilities/constant";
-import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogHeader } from "../ui/dialog";
 import HeadingText from "../heading/Component";
 
 const staticFields = ['Fullname', 'UserType', 'Phone', 'Email', 'Trading', 'Company', 'Position', 'Message'];
@@ -41,24 +43,9 @@ export function FormClient(props: FormType) {
     try {
       const data: Record<string, string> = {};
       const fields: Record<string, string> = {};
+      const templateNotifier = Handlebars.compile(props.EmailToNotifier);
+      const templateCustomer = Handlebars.compile(props.EmailToCustomer);
 
-      //
-      // const requestBodyEmail = {
-      //   to: 
-      // }
-      
-      // const responseEmail = await fetch(`${API_URL}/api/email/send`, {
-      //   method: 'POST',
-      //   headers: {
-      //     'content-type': 'application/json'
-      //   },
-      //   body: JSON.stringify({data:requestBodyEmail})
-      // });
-      // const resultEmail = await responseEmail.json();
-      // console.log(resultEmail);
-      // return;
-      //
-      
       [...form.elements].map((element) => {
         const name = element.getAttribute('name');
         if (name !== null) {
@@ -106,7 +93,38 @@ export function FormClient(props: FormType) {
 
       if (result) {
         // sending email here
+        const requestBodyEmail = {
+          to: props.NotifyTo,
+          subject: `New contact from ${props.Name}`,
+          text: '',
+          html: templateNotifier({...data})
+        }
+
+        const requestBodyEmailCustomer = {
+          to: data.Email,
+          subject: `Thank you from Metropole Phu My`,
+          text: '',
+          html: templateCustomer({...data})
+        }
         
+        const responseEmail = await fetch(`${API_URL}/api/email/send`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(requestBodyEmail)
+        });
+        const responseEmailCustomer = await fetch(`${API_URL}/api/email/send`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(requestBodyEmailCustomer)
+        });
+
+        await responseEmail.json();
+        await responseEmailCustomer.json();
+        //
 
 
         form.reset();

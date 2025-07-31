@@ -11,6 +11,7 @@ export default {
   //   }
   // }
   async sendEmail(ctx: { request: { body: { to: string; subject: string; text: string; html: string; }; }; badRequest: (arg0: string) => any; send: (arg0: { message: any; }) => void; internalServerError: (arg0: string, arg1: any) => void; }) {
+
     const { to, subject, text, html } = ctx.request.body;
     if (!to || !subject || (!text && !html)) {
       return ctx.badRequest(
