@@ -9,7 +9,7 @@ import React from 'react'
 import type { Props as MediaProps } from '../types'
 
 import { cssVariables } from '@/cssVariables.js'
-import { API_URL } from '@/utilities/constant'
+import { API_URL, rootURL } from '@/utilities/constant'
 
 const { breakpoints, devicepoints } = cssVariables
 
@@ -60,12 +60,16 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     : Object.entries(breakpoints)
         .map(([, value]) => `(min-width: ${value}px) ${value * 2}w`)
         .join(", ");
+  
+  const w = (resource.width && resource.width < 1200) ? 1200 : 1920;
+
+  const nextImageURL = `${rootURL}/_next/image?url=${encodeURIComponent(API_URL + resource.url)}&w=${w}&q=100`;
 
   return (
     <picture>
       {resourceMobile && (
         <source
-          srcSet={`${API_URL}${resource.url}`}
+          srcSet={nextImageURL}
           media={`(min-width: ${breakpoints.md}px)`}
           width={resource.width || width}
           height={resource.height || height}

@@ -47,7 +47,8 @@ export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:
                 alt={headerData.Logo.alt || ""}
                 width={headerData.Logo.width || 174}
                 height={headerData.Logo.height || 40}
-                priority
+                priority={true}
+                fetchPriority="high"
               />
             </Link>
           )}
