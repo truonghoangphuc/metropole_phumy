@@ -215,7 +215,7 @@ export function FormClient(props: FormType) {
           <DialogHeader>
             <DialogClose className="dialog-close ring-offset-0 rounded-full opacity-100 transition-none focus:ring-0 focus:ring-offset-0 focus:outline-hidden "/>
             <VisuallyHidden>
-              <DialogTitle>{props.ResolveHeading.Text}</DialogTitle>
+              <DialogTitle>{props.ResolveHeading?.Text}</DialogTitle>
             </VisuallyHidden>
             <HeadingText heading={props.ResolveHeading} className="font-bold text-2xl text-[#5DB7C0] leading-[130%] mb-4"></HeadingText>
           </DialogHeader>

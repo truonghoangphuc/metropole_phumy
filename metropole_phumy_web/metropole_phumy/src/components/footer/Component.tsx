@@ -113,7 +113,7 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
               {footerData.Logo && footerData.Logo.url && (
                 <Image
                   src={`${API_URL}${footerData.Logo.url}`}
-                  alt={footerData.Logo.alt || ""}
+                  alt={footerData.Logo.alt || "logo at footer"}
                   width={footerData.Logo.width || 174}
                   height={footerData.Logo.height || 40}
                 />
@@ -213,7 +213,7 @@ export async function Footer({locale = 'vi'}: {locale: string}) {
             }
             {
               footerData.SubscribeText && footerData.SubscribeButton && (
-                <FormSubscribe text={footerData.SubscribeText} button={footerData.SubscribeButton}></FormSubscribe>
+                <FormSubscribe text={footerData.SubscribeText} button={footerData.SubscribeButton} response={footerData.SubscribeThankYou}></FormSubscribe>
               )
             }
           </div>

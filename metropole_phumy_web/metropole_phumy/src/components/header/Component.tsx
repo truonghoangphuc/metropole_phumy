@@ -44,7 +44,7 @@ export async function Header({ locale = "vi", gtm = "" }: { locale: string, gtm:
             <Link href={rootURL} prefetch title="Metropole Phu My">
               <Image
                 src={`${API_URL}${headerData.Logo.url}`}
-                alt={headerData.Logo.alt || ""}
+                alt={headerData.Logo.alt || "Metropole Phu My logo"}
                 width={headerData.Logo.width || 174}
                 height={headerData.Logo.height || 40}
                 priority={true}

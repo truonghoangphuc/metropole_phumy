@@ -14,8 +14,7 @@ import { API_URL, rootURL } from '@/utilities/constant'
 const { breakpoints, devicepoints } = cssVariables
 
 // A base64 encoded image to use as a placeholder while the image is loading
-const placeholderBlur =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsa2yqBwAFCAICLICSyQAAAABJRU5ErkJggg==';
+// const placeholderBlur = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsa2yqBwAFCAICLICSyQAAAABJRU5ErkJggg==';
 
 export const ImageMedia: React.FC<MediaProps> = (props) => {
   const {
@@ -76,7 +75,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         />
       )}
       <NextImage
-        alt={alt || ""}
+        alt={alt || resource.url}
         className={cn(imgClassName)}
         fill={fill}
         height={!fill ? height : undefined}

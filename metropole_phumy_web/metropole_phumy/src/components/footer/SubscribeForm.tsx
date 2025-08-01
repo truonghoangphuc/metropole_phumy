@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 import { API_URL } from "@/utilities/constant";
 import { Spinner } from "@/components/ui/spinner";
 
-export function FormSubscribe (props: {text:string, button:string}) {
+export function FormSubscribe (props: {text:string, button:string, response: string}) {
 
   const [loading, setLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   
   const submitForm = async (form: HTMLFormElement) => {
 
@@ -41,6 +42,7 @@ export function FormSubscribe (props: {text:string, button:string}) {
 
       if (result.data) {
         form.reset();
+        setIsSubmitted(true);
       }
       
       setLoading(false)
@@ -66,11 +68,23 @@ export function FormSubscribe (props: {text:string, button:string}) {
 
   return (
     <form className="form-subscribe" name="Subscriber" onSubmit={handleSubscribe}>
-      <input placeholder={props.text} type="email" name="Email" required={true}/>
-      <Button type="submit" size={"large"} className={`btn bg-white w-full uppercase stroke-white ${loading ? 'loading relative pointer-events-none':''}`}>{
-          loading ? <Spinner/> : ''
-        }
-        <span className={loading ? 'disabled':''}>{props.button}</span></Button>
+      {
+        !isSubmitted && (
+          <>
+            <input placeholder={props.text} type="email" name="Email" required={true} autoComplete="on"/>
+            <Button type="submit" size={"large"} className={`btn bg-white w-full uppercase stroke-white ${loading ? 'loading relative pointer-events-none':''}`}>{
+                loading ? <Spinner/> : ''
+              }
+              <span className={loading ? 'disabled':''}>{props.button}</span>
+            </Button>           
+          </>
+        )
+      }
+      {
+        isSubmitted && (
+          <p dangerouslySetInnerHTML={{__html: props.response?.replaceAll('\n','<br/>')}}></p>
+        )
+      }      
     </form>
   )
 }

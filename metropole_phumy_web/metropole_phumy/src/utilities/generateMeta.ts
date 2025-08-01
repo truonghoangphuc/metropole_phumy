@@ -46,11 +46,11 @@ export const generateMeta = async (args: {
   };
 
   if (locale === 'vi') {
-    languages.vi = `${rootURL}/vi/${doc.slug === 'homepage' ? '' : doc.slug}`;
-    languages.en = `${rootURL}/en/${doc.slugAlternate || ""}`;
+    languages.vi = `${rootURL}/vi${doc.slug === 'homepage' ? '' : ('/'+doc.slug)}`;
+    languages.en = `${rootURL}/en${doc.slugAlternate ? '/' + doc.slugAlternate : ""}`;
   } else {
-    languages.en = `${rootURL}/en/${doc.slug === "homepage" ? "" : doc.slug}`;
-    languages.vi = `${rootURL}/vi/${doc.slugAlternate || ""}`;
+    languages.en = `${rootURL}/en${doc.slug === "homepage" ? "" : ('/'+doc.slug)}`;
+    languages.vi = `${rootURL}/vi${doc.slugAlternate ? '/' + doc.slugAlternate : ""}`;
   }  
 
   return {

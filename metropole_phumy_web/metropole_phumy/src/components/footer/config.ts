@@ -30,4 +30,5 @@ export interface FooterData extends BaseDoc {
   Download: Link;
   SubscribeText: string;
   SubscribeButton: string;
+  SubscribeThankYou: string;
 }

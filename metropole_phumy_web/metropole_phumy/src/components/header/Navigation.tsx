@@ -161,7 +161,7 @@ export const HeaderNav: React.FC<{ data: HeaderData["Navigations"], logo: Header
             <Link href={rootURL} className="logo">
               <Image
                 src={`${API_URL}${logo.url}`}
-                alt={logo.alt || ""}
+                alt={logo.alt || "Metropole Phu My logo"}
                 width={logo.width || 174}
                 height={logo.height || 40}
                 priority={false}

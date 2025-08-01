@@ -114,6 +114,14 @@
           "localized": true
         }
       }
+    },
+    "SubscribeThankYou": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

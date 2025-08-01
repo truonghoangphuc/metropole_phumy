@@ -116,12 +116,12 @@ export default async function RootLayout({
           <main>
             {children}
             {
-              siteData.GlobalForm && (
+              siteData?.GlobalForm && (
                 <BlockFormComponent {...siteData.GlobalForm} locale={language}/>
               )
             }
             {
-              siteData.FloattingMenu && (
+              siteData?.FloattingMenu && (
                 <FloatingMenu {...siteData.FloattingMenu}/>
               )
             }
