@@ -11,8 +11,9 @@ import '../../assets/styles/components/form.css';
 import { Media } from "../media";
 import { Spinner } from "../ui/spinner";
 import { API_URL } from "@/utilities/constant";
-import { Dialog, DialogClose, DialogContent, DialogHeader } from "../ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import HeadingText from "../heading/Component";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const staticFields = ['Fullname', 'UserType', 'Phone', 'Email', 'Trading', 'Company', 'Position', 'Message'];
 
@@ -126,6 +127,7 @@ export function FormClient(props: FormType) {
         await responseEmailCustomer.json();
         //
 
+        closePopup();
 
         form.reset();
         setOpenResolve(true);
@@ -212,6 +214,9 @@ export function FormClient(props: FormType) {
         <DialogContent className="bg-white border-0 gap-0 p-0 h-[80dvh] lg:h-auto lg:py-10 lg:px-14 max-w-xs">
           <DialogHeader>
             <DialogClose className="dialog-close ring-offset-0 rounded-full opacity-100 transition-none focus:ring-0 focus:ring-offset-0 focus:outline-hidden "/>
+            <VisuallyHidden>
+              <DialogTitle>{props.ResolveHeading.Text}</DialogTitle>
+            </VisuallyHidden>
             <HeadingText heading={props.ResolveHeading} className="font-bold text-2xl text-[#5DB7C0] leading-[130%] mb-4"></HeadingText>
           </DialogHeader>
           <div className="form-thankyou--content text-center text-primary leading-[135%] tracking-tight" dangerouslySetInnerHTML={{__html: props.ResolveContent}}></div>

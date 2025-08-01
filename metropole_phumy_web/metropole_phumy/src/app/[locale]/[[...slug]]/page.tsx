@@ -37,7 +37,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   const { layout } = page || {};
 
-  console.log(layout)
+  // console.log(layout)
 
   if (!layout) {
     return NotFound({params: {locale, slug: pageSlug}});
