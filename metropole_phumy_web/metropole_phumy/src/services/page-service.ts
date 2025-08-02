@@ -349,16 +349,25 @@ export interface PageMapInfo {
 }
 
 export const getPages = async (): Promise<PageMapInfo[]> => {
+  const response = await fetch(`${API_URL}/api/pages?locale=vi`);
+  const responseEN = await fetch(`${API_URL}/api/pages?locale=en`);
 
-  const response = await fetch(`${API_URL}/api/pages`);
   const result = await response.json();
+  const resultEN = await responseEN.json();
   const data = result.data;
+  const dataEN = resultEN.data;
 
   const pages: PageMapInfo[] = data.map((page: any) => ({
     title: page.Title,
-    slug: page.Slug,
+    slug: `vi/${page.Slug === 'homepage' ? '' : page.Slug}`,
     updatedAt: "",
   }));
 
-  return pages;
+  const pagesEN: PageMapInfo[] = dataEN.map((page: any) => ({
+    title: page.Title,
+    slug: `en/${page.Slug === "homepage" ? "" : page.Slug}`,
+    updatedAt: "",
+  }));
+
+  return [...pages,...pagesEN];
 };

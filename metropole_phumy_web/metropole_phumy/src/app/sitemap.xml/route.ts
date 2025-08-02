@@ -9,6 +9,8 @@ const getPagesSitemap = unstable_cache(
 
     const results = await getPages();
 
+    console.log(results)
+
     const dateFallback = new Date().toISOString();
 
     const sitemap = results
