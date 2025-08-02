@@ -13,7 +13,7 @@ import { getMessages } from "next-intl/server";
 import "./globals.css";
 import qs from "qs";
 import { API_URL } from "@/utilities/constant";
-import { Media } from "@/types/media";
+// import { Media } from "@/types/media";
 import { SiteData } from "@/types/siteSetting";
 import { BlockFormComponent } from "@/components/form/Component";
 import { FloatingMenu } from "@/components/floating/Component";

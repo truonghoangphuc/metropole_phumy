@@ -1,5 +1,5 @@
 import { cn } from "@/utilities/cn";
-import { BlockForm as BlockFormComponentProps, FormType } from "./config";
+import { BlockForm as BlockFormComponentProps } from "./config";
 
 import HeadingText from "@/components/heading/Component";
 import { Media } from "@/components/media";
